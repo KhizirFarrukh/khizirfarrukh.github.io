@@ -1,0 +1,2390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Khizir Farrukh Chawla · Portfolio</title>
+<meta name="description" content="Khizir Farrukh Chawla — Software Engineer II specialising in .NET 10 microservices, event-driven NATS messaging and multi-tenant PostgreSQL. Experience, platform case study, projects, skills and education.">
+<meta name="author" content="Khizir Farrukh Chawla">
+<meta name="theme-color" content="#F5F4EF">
+<style>
+/* =========================================================
+   Tokens
+   ========================================================= */
+:root{
+  color-scheme: light;
+  --bg:#F5F4EF;
+  --surface:#FFFFFF;
+  --surface-2:#F1EFE9;
+  --surface-3:#E7E4DC;
+  --ink:#15171B;
+  --ink-2:#454A53;
+  --ink-3:#686E79;
+  --line:#E4E1D9;
+  --line-2:#D2CEC4;
+  --accent:#2F5BD3;
+  --accent-text:#2448AE;
+  --accent-soft:#E9EEFC;
+  --accent-line:#BFCDF5;
+  --warm:#B4501A;
+  --warm-soft:#FBEEE4;
+  --warm-line:#EFC6A9;
+  --good:#1B7349;
+  --good-soft:#E3F2E9;
+  --amber:#875700;
+  --amber-soft:#FAEFD6;
+  --series:#2F5BD3;
+  --grid:#ECE9E1;
+  --btn-bg:#15171B;
+  --btn-ink:#FFFFFF;
+  --hero-glow:rgb(47 91 211 / .10);
+  --hero-grid:rgb(21 23 27 / .045);
+  --shadow-sm:0 1px 2px rgb(20 22 27 / .05);
+  --shadow:0 1px 2px rgb(20 22 27 / .04), 0 12px 32px -14px rgb(20 22 27 / .16);
+  --shadow-lg:0 2px 6px rgb(20 22 27 / .06), 0 30px 60px -20px rgb(20 22 27 / .28);
+
+  --display:"Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,Georgia,"Times New Roman",serif;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,"Cascadia Code","SF Mono","Segoe UI Mono",Menlo,Consolas,monospace;
+
+  --radius:16px;
+  --radius-sm:10px;
+  --gutter:clamp(16px,4vw,40px);
+  --maxw:1200px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme: dark;
+    --bg:#0D1015;
+    --surface:#141920;
+    --surface-2:#1A2029;
+    --surface-3:#222934;
+    --ink:#E9ECF1;
+    --ink-2:#AEB5C1;
+    --ink-3:#8A93A1;
+    --line:#232A35;
+    --line-2:#323B48;
+    --accent:#7D9CFF;
+    --accent-text:#9DB4FF;
+    --accent-soft:#18213A;
+    --accent-line:#2E3D6B;
+    --warm:#F08C50;
+    --warm-soft:#2B1D14;
+    --warm-line:#5A3620;
+    --good:#55C38F;
+    --good-soft:#12261C;
+    --amber:#E3AE4A;
+    --amber-soft:#2A2213;
+    --series:#5A82F0;
+    --grid:#1E2530;
+    --btn-bg:#E9ECF1;
+    --btn-ink:#0D1015;
+    --hero-glow:rgb(90 130 240 / .16);
+    --hero-grid:rgb(233 236 241 / .045);
+    --shadow-sm:0 1px 2px rgb(0 0 0 / .4);
+    --shadow:0 1px 2px rgb(0 0 0 / .4), 0 12px 32px -14px rgb(0 0 0 / .6);
+    --shadow-lg:0 2px 6px rgb(0 0 0 / .5), 0 30px 60px -20px rgb(0 0 0 / .75);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme: dark;
+  --bg:#0D1015;
+  --surface:#141920;
+  --surface-2:#1A2029;
+  --surface-3:#222934;
+  --ink:#E9ECF1;
+  --ink-2:#AEB5C1;
+  --ink-3:#8A93A1;
+  --line:#232A35;
+  --line-2:#323B48;
+  --accent:#7D9CFF;
+  --accent-text:#9DB4FF;
+  --accent-soft:#18213A;
+  --accent-line:#2E3D6B;
+  --warm:#F08C50;
+  --warm-soft:#2B1D14;
+  --warm-line:#5A3620;
+  --good:#55C38F;
+  --good-soft:#12261C;
+  --amber:#E3AE4A;
+  --amber-soft:#2A2213;
+  --series:#5A82F0;
+  --grid:#1E2530;
+  --btn-bg:#E9ECF1;
+  --btn-ink:#0D1015;
+  --hero-glow:rgb(90 130 240 / .16);
+  --hero-grid:rgb(233 236 241 / .045);
+  --shadow-sm:0 1px 2px rgb(0 0 0 / .4);
+  --shadow:0 1px 2px rgb(0 0 0 / .4), 0 12px 32px -14px rgb(0 0 0 / .6);
+  --shadow-lg:0 2px 6px rgb(0 0 0 / .5), 0 30px 60px -20px rgb(0 0 0 / .75);
+}
+
+/* =========================================================
+   Base
+   ========================================================= */
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  overflow-x:hidden;
+}
+img,svg{display:block;max-width:100%}
+a{color:var(--accent-text);text-decoration-thickness:1px;text-underline-offset:3px}
+a:hover{text-decoration-thickness:2px}
+p{margin:0}
+h1,h2,h3,h4{margin:0;line-height:1.15}
+ul{margin:0;padding:0}
+button{font:inherit;color:inherit}
+code{
+  font-family:var(--mono);
+  font-size:.86em;
+  background:var(--surface-2);
+  border:1px solid var(--line);
+  border-radius:6px;
+  padding:.06em .38em;
+  color:var(--ink);
+  white-space:nowrap;
+}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+::selection{background:var(--accent-soft);color:var(--ink)}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--gutter)}
+.skip{position:absolute;left:12px;top:-60px;background:var(--btn-bg);color:var(--btn-ink);padding:10px 14px;border-radius:10px;z-index:100;text-decoration:none}
+.skip:focus{top:12px}
+.ico{width:18px;height:18px;flex:none;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.ico-sm{width:14px;height:14px}
+
+/* =========================================================
+   Header / nav
+   ========================================================= */
+.site-header{
+  position:sticky;top:0;z-index:50;
+  background:color-mix(in srgb, var(--bg) 82%, transparent);
+  backdrop-filter:saturate(1.4) blur(14px);
+  -webkit-backdrop-filter:saturate(1.4) blur(14px);
+  border-bottom:1px solid transparent;
+  transition:border-color .2s ease, background .2s ease;
+}
+.site-header.scrolled{border-bottom-color:var(--line)}
+.nav{display:flex;align-items:center;gap:16px;height:64px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font-weight:650;letter-spacing:-.01em;white-space:nowrap}
+.mark{
+  width:34px;height:34px;border-radius:10px;display:grid;place-items:center;
+  background:var(--btn-bg);color:var(--btn-ink);
+  font-family:var(--display);font-weight:700;font-size:15px;letter-spacing:.02em;
+}
+.brand small{display:block;font-family:var(--mono);font-weight:500;font-size:11px;letter-spacing:.06em;color:var(--ink-3);text-transform:uppercase}
+.nav-links{display:flex;gap:2px;margin-left:auto;list-style:none}
+.nav-links a{
+  display:block;padding:8px 11px;border-radius:9px;
+  font-size:14px;font-weight:500;color:var(--ink-2);text-decoration:none;
+  transition:background .15s ease,color .15s ease;
+}
+.nav-links a:hover{background:var(--surface-2);color:var(--ink)}
+.nav-links a.active{color:var(--accent-text);background:var(--accent-soft)}
+.nav-actions{display:flex;align-items:center;gap:8px}
+.icon-btn{
+  width:38px;height:38px;display:grid;place-items:center;border-radius:10px;
+  border:1px solid var(--line);background:var(--surface);cursor:pointer;color:var(--ink-2);
+  transition:border-color .15s ease,color .15s ease,background .15s ease;
+}
+.icon-btn:hover{border-color:var(--line-2);color:var(--ink)}
+.theme-dark-ico{display:none}
+:root[data-theme="dark"] .theme-dark-ico{display:block}
+:root[data-theme="dark"] .theme-light-ico{display:none}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]) .theme-dark-ico{display:block}
+  :root:not([data-theme="light"]) .theme-light-ico{display:none}
+}
+.menu-btn{display:none}
+@media (max-width: 1080px){
+  .nav-links{
+    position:absolute;top:64px;left:0;right:0;
+    flex-direction:column;gap:2px;margin:0;padding:10px var(--gutter) 16px;
+    background:var(--bg);border-bottom:1px solid var(--line);
+    display:none;
+  }
+  .nav-links.open{display:flex}
+  .nav-links a{padding:11px 12px;font-size:15px}
+  .menu-btn{display:grid}
+  .nav-actions{margin-left:auto}
+}
+@media (max-width: 560px){
+  .nav{gap:10px}
+  .brand small{display:none}
+  #printBtn{width:38px;padding:0;justify-content:center}
+  #printBtn span{display:none}
+}
+
+/* =========================================================
+   Buttons, chips, badges
+   ========================================================= */
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  height:44px;padding:0 18px;border-radius:12px;
+  font-size:15px;font-weight:600;text-decoration:none;cursor:pointer;
+  border:1px solid var(--line-2);background:var(--surface);color:var(--ink);
+  transition:transform .15s ease,box-shadow .15s ease,border-color .15s ease,background .15s ease;
+  white-space:nowrap;
+}
+.btn:hover{border-color:var(--ink-3);text-decoration:none;transform:translateY(-1px);box-shadow:var(--shadow-sm)}
+.btn-primary{background:var(--btn-bg);color:var(--btn-ink);border-color:var(--btn-bg)}
+.btn-primary:hover{border-color:var(--btn-bg)}
+.btn-sm{height:36px;padding:0 13px;font-size:14px;border-radius:10px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{
+  display:inline-flex;align-items:center;gap:6px;
+  font-family:var(--mono);font-size:12px;line-height:1;letter-spacing:.01em;
+  padding:6px 9px;border-radius:999px;
+  background:var(--surface-2);border:1px solid var(--line);color:var(--ink-2);
+  white-space:nowrap;
+}
+.chip.pro::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent)}
+.chip.own::before{content:"";width:7px;height:7px;border-radius:50%;border:1.5px solid var(--ink-3);box-sizing:border-box}
+.badge{
+  display:inline-flex;align-items:center;gap:6px;
+  font-family:var(--mono);font-size:11.5px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;
+  padding:5px 9px;border-radius:7px;border:1px solid transparent;white-space:nowrap;
+}
+.badge::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+.b-live{color:var(--good);background:var(--good-soft)}
+.b-active{color:var(--accent-text);background:var(--accent-soft)}
+.b-design{color:var(--amber);background:var(--amber-soft)}
+.b-done{color:var(--ink-2);background:var(--surface-2);border-color:var(--line)}
+.b-private{color:var(--ink-3);background:transparent;border-color:var(--line-2)}
+.b-private::before{display:none}
+.b-public{color:var(--ink-3);background:transparent;border-color:var(--line-2)}
+.b-public::before{display:none}
+
+/* =========================================================
+   Section scaffolding
+   ========================================================= */
+section{scroll-margin-top:84px}
+.section{padding:clamp(64px,9vw,112px) 0 0}
+.section-head{display:grid;gap:14px;margin-bottom:clamp(28px,4vw,44px);max-width:820px}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--mono);font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-text);font-weight:600;
+}
+.eyebrow::before{content:"";width:22px;height:1.5px;background:currentColor}
+.section-head h2{
+  font-family:var(--display);font-weight:600;
+  font-size:clamp(30px,4.4vw,46px);letter-spacing:-.015em;line-height:1.08;
+  text-wrap:balance;
+}
+.section-head p{color:var(--ink-2);font-size:clamp(16px,1.6vw,18px);max-width:70ch;text-wrap:pretty}
+.card{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+  box-shadow:var(--shadow-sm);
+}
+.muted{color:var(--ink-3)}
+.note{font-size:13.5px;color:var(--ink-3);line-height:1.55}
+
+/* reveal */
+.js .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.7,.2,1)}
+.js .reveal.in{opacity:1;transform:none}
+
+/* =========================================================
+   Hero
+   ========================================================= */
+.hero{position:relative;padding:clamp(40px,7vw,84px) 0 0;isolation:isolate}
+.hero::before{
+  content:"";position:absolute;inset:-64px 0 -40px;z-index:-1;
+  background:
+    radial-gradient(ellipse 60% 55% at 78% 18%, var(--hero-glow), transparent 70%),
+    linear-gradient(var(--hero-grid) 1px, transparent 1px) 0 0/44px 44px,
+    linear-gradient(90deg, var(--hero-grid) 1px, transparent 1px) 0 0/44px 44px;
+  -webkit-mask-image:linear-gradient(to bottom, #000 55%, transparent);
+  mask-image:linear-gradient(to bottom, #000 55%, transparent);
+}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(28px,5vw,64px);align-items:start}
+@media (max-width: 960px){.hero-grid{grid-template-columns:1fr}}
+.hello{
+  display:inline-flex;align-items:center;gap:10px;flex-wrap:wrap;
+  font-size:14px;font-weight:600;color:var(--ink-2);
+  padding:6px 12px 6px 8px;border-radius:999px;background:var(--surface);border:1px solid var(--line);box-shadow:var(--shadow-sm);
+}
+.pulse{width:9px;height:9px;border-radius:50%;background:var(--good);box-shadow:0 0 0 0 color-mix(in srgb,var(--good) 55%,transparent);animation:pulse 2.4s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--good) 45%,transparent)}70%{box-shadow:0 0 0 9px transparent}100%{box-shadow:0 0 0 0 transparent}}
+.hero h1{
+  font-family:var(--display);font-weight:600;
+  font-size:clamp(42px,7.2vw,84px);letter-spacing:-.025em;line-height:1;
+  margin:22px 0 18px;text-wrap:balance;
+}
+.hero .role{font-family:var(--mono);font-size:clamp(13px,1.4vw,15px);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);margin-bottom:22px}
+.hero .lede{
+  font-family:var(--display);font-size:clamp(22px,2.6vw,30px);line-height:1.3;letter-spacing:-.01em;
+  color:var(--ink);max-width:30ch;text-wrap:balance;margin-bottom:18px;
+}
+.hero .lede em{font-style:italic;color:var(--accent-text)}
+.hero .intro{color:var(--ink-2);font-size:17px;max-width:62ch;text-wrap:pretty}
+.cta{display:flex;flex-wrap:wrap;gap:10px;margin:28px 0 26px}
+.facts-inline{display:flex;flex-wrap:wrap;gap:8px 20px;color:var(--ink-2);font-size:14.5px}
+.facts-inline span{display:inline-flex;align-items:center;gap:7px}
+.facts-inline .ico{color:var(--ink-3)}
+
+.hero-side{display:grid;gap:16px}
+.term{
+  border-radius:var(--radius);overflow:hidden;
+  background:#0F1319;color:#D7DEE8;border:1px solid #232A35;box-shadow:var(--shadow-lg);
+}
+.term-bar{display:flex;align-items:center;gap:7px;padding:11px 14px;background:#151A22;border-bottom:1px solid #232A35}
+.term-bar i{width:11px;height:11px;border-radius:50%;background:#3A4350;display:block}
+.term-bar i:nth-child(1){background:#F0745F}
+.term-bar i:nth-child(2){background:#E9B44C}
+.term-bar i:nth-child(3){background:#58C489}
+.term-bar span{margin-left:8px;font-family:var(--mono);font-size:12px;color:#8A93A1}
+.term pre{
+  margin:0;padding:16px 18px 18px;min-height:250px;
+  font-family:var(--mono);font-size:13px;line-height:1.7;white-space:pre-wrap;word-break:break-word;
+}
+.term .p{color:#7FA2FF}
+.term .c{color:#E9ECF1}
+.term .o{color:#9AA4B2}
+.term .k{color:#7FD6A8}
+.term .caret{display:inline-block;width:8px;height:15px;background:#D7DEE8;vertical-align:-2px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.facts{padding:6px 0}
+.facts dl{margin:0;display:grid}
+.facts .row{display:grid;grid-template-columns:118px 1fr;gap:12px;padding:11px 18px;border-top:1px solid var(--line)}
+.facts .row:first-child{border-top:0}
+.facts dt{font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);padding-top:3px}
+.facts dd{margin:0;font-size:14.5px;color:var(--ink);font-weight:500}
+.facts dd span{display:block;color:var(--ink-3);font-weight:400;font-size:13.5px}
+
+/* proof strip */
+.proof{
+  margin-top:clamp(40px,6vw,64px);
+  display:grid;grid-template-columns:repeat(5,minmax(0,1fr));
+  border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);box-shadow:var(--shadow-sm);overflow:hidden;
+}
+.proof div{padding:18px 20px;border-left:1px solid var(--line)}
+.proof div:first-child{border-left:0}
+.proof b{display:block;font-size:clamp(22px,2.6vw,30px);font-weight:650;letter-spacing:-.02em;line-height:1.1}
+.proof span{display:block;margin-top:6px;font-size:13px;color:var(--ink-3);line-height:1.4}
+@media (max-width: 860px){
+  .proof{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .proof div{border-left:0;border-top:1px solid var(--line)}
+  .proof div:nth-child(-n+2){border-top:0}
+  .proof div:nth-child(even){border-left:1px solid var(--line)}
+  .proof div:last-child{grid-column:1/-1;border-left:0}
+}
+
+/* =========================================================
+   Impact tiles
+   ========================================================= */
+.impact{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+@media (max-width: 960px){.impact{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width: 600px){.impact{grid-template-columns:1fr}}
+.tile{padding:22px 22px 20px;display:flex;flex-direction:column;gap:6px;position:relative;overflow:hidden}
+.tile .value{font-size:clamp(34px,4vw,44px);font-weight:650;letter-spacing:-.03em;line-height:1.05;color:var(--ink)}
+.tile .value small{font-size:.5em;font-weight:600;color:var(--ink-3);letter-spacing:0;margin-left:2px}
+.tile .label{font-weight:600;font-size:15px;color:var(--ink)}
+.tile p{font-size:14px;color:var(--ink-2);line-height:1.55;margin-top:4px}
+.tile::after{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--accent);opacity:.85}
+.tile.warm::after{background:var(--warm)}
+.tile.good::after{background:var(--good)}
+
+/* =========================================================
+   Experience
+   ========================================================= */
+.timeline{position:relative;display:grid;gap:22px}
+.timeline::before{content:"";position:absolute;left:19px;top:8px;bottom:8px;width:2px;background:var(--line)}
+.job{position:relative;padding-left:58px}
+.job .dot{
+  position:absolute;left:8px;top:22px;width:24px;height:24px;border-radius:50%;
+  background:var(--surface);border:2px solid var(--line-2);display:grid;place-items:center;
+}
+.job .dot::after{content:"";width:10px;height:10px;border-radius:50%;background:var(--ink-3)}
+.job.current .dot{border-color:var(--accent)}
+.job.current .dot::after{background:var(--accent)}
+.job-card{padding:clamp(20px,3vw,30px)}
+.job-top{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:flex-start;justify-content:space-between}
+.job h3{font-size:clamp(20px,2.2vw,24px);font-weight:650;letter-spacing:-.015em}
+.job .company{color:var(--ink-2);font-size:16px;margin-top:4px}
+.job .when{font-family:var(--mono);font-size:13px;color:var(--ink-3);text-align:right;white-space:nowrap}
+.job .when b{display:block;color:var(--ink);font-weight:600}
+.job .summary{margin:16px 0 4px;color:var(--ink-2);max-width:78ch}
+.wins{display:grid;gap:0;margin-top:14px;list-style:none}
+.wins li{display:grid;grid-template-columns:200px 1fr;gap:16px;padding:14px 0;border-top:1px solid var(--line)}
+.wins li:first-child{border-top:0}
+.wins h4{font-size:14px;font-weight:650;color:var(--ink);line-height:1.35}
+.wins h4 span{display:block;font-family:var(--mono);font-weight:500;font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent-text);margin-bottom:4px}
+.wins p{font-size:15px;color:var(--ink-2);line-height:1.6}
+.wins strong{color:var(--ink);font-weight:600}
+@media (max-width: 760px){.wins li{grid-template-columns:1fr;gap:6px}}
+.job .chips{margin-top:16px}
+.related{
+  margin-top:16px;padding:12px 14px;border-radius:12px;background:var(--surface-2);border:1px dashed var(--line-2);
+  font-size:14px;color:var(--ink-2);display:flex;gap:10px;align-items:flex-start;
+}
+.related .ico{margin-top:2px;color:var(--ink-3)}
+@media (max-width: 560px){
+  .timeline::before{left:11px}
+  .job{padding-left:34px}
+  .job .dot{left:0;width:24px;height:24px}
+  .job .when{text-align:left}
+}
+
+/* =========================================================
+   Platform case study
+   ========================================================= */
+.platform-intro{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:20px;align-items:stretch}
+@media (max-width: 900px){.platform-intro{grid-template-columns:1fr}}
+.platform-copy{padding:clamp(20px,3vw,30px);display:grid;gap:14px;align-content:start}
+.platform-copy h3{font-family:var(--display);font-size:clamp(26px,3vw,34px);font-weight:600;letter-spacing:-.01em}
+.platform-copy p{color:var(--ink-2)}
+.platform-copy .disclaimer{
+  font-size:13.5px;color:var(--ink-2);background:var(--warm-soft);border:1px solid var(--warm-line);
+  border-radius:12px;padding:12px 14px;line-height:1.55;
+}
+.platform-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.platform-stats div{background:var(--surface);padding:20px 18px;display:flex;flex-direction:column;justify-content:space-between;gap:10px;min-height:118px}
+.platform-stats b{font-size:clamp(26px,3vw,34px);font-weight:650;letter-spacing:-.025em;line-height:1}
+.platform-stats span{font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+@media (max-width: 480px){.platform-stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+.subhead{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:42px 0 14px;flex-wrap:wrap}
+.subhead h3{font-size:20px;font-weight:650;letter-spacing:-.01em}
+.subhead span{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}
+
+.table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:14.5px}
+thead th{
+  text-align:left;font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;
+  color:var(--ink-3);padding:13px 16px;border-bottom:1px solid var(--line-2);white-space:nowrap;background:var(--surface-2);
+}
+tbody td{padding:13px 16px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--ink-2)}
+tbody tr:last-child td{border-bottom:0}
+td.name{font-family:var(--mono);color:var(--ink);font-weight:600;white-space:nowrap}
+td.num{font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap;color:var(--ink)}
+.linebar{display:flex;align-items:center;gap:10px;min-width:170px;justify-content:flex-end}
+.linebar i{display:block;height:10px;border-radius:0 4px 4px 0;background:var(--series);min-width:3px}
+.linebar span{font-variant-numeric:tabular-nums;min-width:62px;text-align:right;color:var(--ink)}
+
+.diagram{border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);padding:20px;overflow-x:auto}
+.diagram svg{min-width:780px;width:100%;height:auto}
+.dg-box{fill:var(--surface-2);stroke:var(--line-2);stroke-width:1.2}
+.dg-store{fill:none;stroke:var(--line-2);stroke-dasharray:4 4;stroke-width:1.2}
+.dg-bus{fill:var(--accent-soft);stroke:var(--accent);stroke-width:1.6}
+.dg-mine{fill:var(--warm-soft);stroke:var(--warm);stroke-width:1.6}
+.dg-t{font-family:var(--mono);font-size:12px;fill:var(--ink);font-weight:600}
+.dg-s{font-family:var(--mono);font-size:10px;fill:var(--ink-3)}
+.dg-lane{font-family:var(--mono);font-size:10px;letter-spacing:.14em;fill:var(--ink-3)}
+.dg-bus-t{font-family:var(--mono);font-size:12.5px;fill:var(--accent-text);font-weight:700}
+.dg-mine-t{font-family:var(--mono);font-size:12px;fill:var(--warm);font-weight:700}
+.dg-line{stroke:var(--line-2);stroke-width:1.4;fill:none}
+.dg-q{stroke:var(--accent);stroke-width:1.4;fill:none;stroke-dasharray:5 5}
+.dg-arrow{fill:var(--line-2)}
+.legend{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:14px;font-size:13.5px;color:var(--ink-2)}
+.legend span{display:inline-flex;align-items:center;gap:8px}
+.legend i{width:14px;height:14px;border-radius:4px;display:block}
+.legend .l-bus{background:var(--accent-soft);border:1.5px solid var(--accent)}
+.legend .l-mine{background:var(--warm-soft);border:1.5px solid var(--warm)}
+.legend .l-svc{background:var(--surface-2);border:1.5px solid var(--line-2)}
+.legend .l-store{border:1.5px dashed var(--line-2)}
+
+.paths{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:16px}
+@media (max-width: 900px){.paths{grid-template-columns:1fr}}
+.paths .card{padding:18px 20px}
+.paths h4{font-size:15px;font-weight:650;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.paths h4 b{font-family:var(--mono);font-size:11px;color:var(--accent-text);background:var(--accent-soft);border-radius:6px;padding:3px 7px;letter-spacing:.06em}
+.paths p{font-size:14.5px;color:var(--ink-2)}
+
+.patterns{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+@media (max-width: 1000px){.patterns{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width: 560px){.patterns{grid-template-columns:1fr}}
+.patterns div{background:var(--surface);padding:18px 18px 20px}
+.patterns h4{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-text);margin-bottom:8px;font-weight:650}
+.patterns p{font-size:14px;color:var(--ink-2);line-height:1.55}
+
+/* =========================================================
+   Projects
+   ========================================================= */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+.filter{
+  height:38px;padding:0 15px;border-radius:999px;border:1px solid var(--line-2);background:var(--surface);
+  font-size:14px;font-weight:550;color:var(--ink-2);cursor:pointer;transition:all .15s ease;
+}
+.filter:hover{color:var(--ink);border-color:var(--ink-3)}
+.filter[aria-pressed="true"]{background:var(--btn-bg);color:var(--btn-ink);border-color:var(--btn-bg)}
+.filter .n{font-family:var(--mono);font-size:12px;opacity:.7;margin-left:4px}
+.projects{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+@media (max-width: 860px){.projects{grid-template-columns:1fr}}
+.project{
+  display:flex;flex-direction:column;padding:clamp(20px,2.6vw,28px);gap:14px;
+  transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;
+}
+.project:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:var(--line-2)}
+.project.hidden{display:none}
+.project.feature{grid-column:1/-1}
+.p-top{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.p-top .period{margin-left:auto;font-family:var(--mono);font-size:12px;color:var(--ink-3)}
+.project h3{font-family:var(--display);font-size:clamp(24px,2.6vw,30px);font-weight:600;letter-spacing:-.01em;line-height:1.1}
+.project .tagline{color:var(--ink-2);font-size:16px;max-width:70ch}
+.p-metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.p-metrics div{background:var(--surface-2);padding:12px 14px}
+.p-metrics b{display:block;font-size:19px;font-weight:650;letter-spacing:-.02em;line-height:1.15}
+.p-metrics span{display:block;font-size:12.5px;color:var(--ink-3);margin-top:3px;line-height:1.35}
+.project.feature .p-body{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px;align-items:start}
+@media (max-width: 860px){.project.feature .p-body{grid-template-columns:1fr}}
+.p-points{list-style:none;display:grid;gap:9px}
+.p-points li{position:relative;padding-left:20px;font-size:14.5px;color:var(--ink-2);line-height:1.55}
+.p-points li::before{content:"";position:absolute;left:3px;top:.62em;width:7px;height:7px;border-radius:2px;background:var(--accent)}
+.p-points strong{color:var(--ink);font-weight:600}
+.p-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;padding-top:4px}
+
+/* Clinic evolution */
+.evo{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;position:relative;margin-top:8px}
+.evo::before{content:"";position:absolute;left:0;right:0;top:27px;height:2px;background:linear-gradient(90deg,var(--line-2),var(--accent))}
+.evo-step{position:relative;padding:0 14px 0 0}
+.evo-step .yr{
+  position:relative;z-index:1;display:inline-flex;align-items:center;justify-content:center;
+  height:56px;min-width:56px;padding:0 14px;border-radius:14px;
+  background:var(--surface);border:1px solid var(--line-2);font-family:var(--mono);font-weight:700;font-size:14px;color:var(--ink);
+}
+.evo-step:last-child .yr{background:var(--btn-bg);color:var(--btn-ink);border-color:var(--btn-bg)}
+.evo-step h4{margin:16px 0 6px;font-size:16px;font-weight:650}
+.evo-step p{font-size:14px;color:var(--ink-2);line-height:1.55}
+.evo-step .chips{margin-top:10px}
+@media (max-width: 900px){
+  .evo{grid-template-columns:1fr;gap:20px}
+  .evo::before{left:27px;right:auto;top:0;bottom:0;width:2px;height:auto;background:linear-gradient(180deg,var(--line-2),var(--accent))}
+  .evo::before{left:39px}
+  .evo-step{display:grid;grid-template-columns:78px 1fr;column-gap:14px;padding:0}
+  .evo-step .yr{grid-row:1/span 3;white-space:nowrap;padding:0 8px;font-size:12.5px;width:78px;height:48px;align-self:start}
+  .evo-step h4{margin-top:4px}
+}
+
+/* small builds */
+.minis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+@media (max-width: 960px){.minis{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width: 600px){.minis{grid-template-columns:1fr}}
+.mini{padding:18px 18px 16px;display:flex;flex-direction:column;gap:8px}
+.mini h4{font-size:16px;font-weight:650;letter-spacing:-.01em;display:flex;align-items:center;justify-content:space-between;gap:8px}
+.mini h4 a{color:inherit;text-decoration:none}
+.mini h4 a:hover{color:var(--accent-text)}
+.mini p{font-size:14px;color:var(--ink-2);line-height:1.55}
+.mini .kpi{font-family:var(--mono);font-size:12.5px;color:var(--good);font-weight:600}
+.mini .chips{margin-top:auto;padding-top:4px}
+
+/* =========================================================
+   Practices
+   ========================================================= */
+.practices{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+@media (max-width: 1000px){.practices{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width: 560px){.practices{grid-template-columns:1fr}}
+.practice{padding:20px}
+.practice .num{font-family:var(--mono);font-size:12px;color:var(--accent-text);font-weight:700;letter-spacing:.06em}
+.practice h4{font-size:17px;font-weight:650;margin:8px 0 8px;letter-spacing:-.01em}
+.practice p{font-size:14px;color:var(--ink-2);line-height:1.55}
+.practice p em{font-style:normal;color:var(--ink);font-weight:550}
+
+/* =========================================================
+   Skills
+   ========================================================= */
+.skills{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+@media (max-width: 1000px){.skills{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width: 620px){.skills{grid-template-columns:1fr}}
+.skill{padding:20px}
+.skill h4{font-size:15px;font-weight:650;margin-bottom:4px;display:flex;align-items:center;gap:9px}
+.skill h4 .ico{color:var(--accent)}
+.skill .where{font-size:13px;color:var(--ink-3);margin-bottom:14px;line-height:1.45}
+.skill-legend{display:flex;flex-wrap:wrap;gap:8px 18px;margin:-10px 0 22px;font-size:14px;color:var(--ink-2)}
+.skill-legend span{display:inline-flex;align-items:center;gap:8px}
+
+/* =========================================================
+   GitHub stats + charts
+   ========================================================= */
+.gh-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-bottom:18px}
+@media (max-width: 860px){.gh-stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.gh-stats .card{padding:18px 20px}
+.gh-stats b{display:block;font-size:clamp(28px,3vw,36px);font-weight:650;letter-spacing:-.025em;line-height:1.1}
+.gh-stats span{font-size:13.5px;color:var(--ink-3)}
+.charts{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:18px}
+@media (max-width: 900px){.charts{grid-template-columns:1fr}}
+.chart-card{padding:22px 22px 18px;display:flex;flex-direction:column}
+.chart-card h3{font-size:17px;font-weight:650;letter-spacing:-.01em}
+.chart-card .sub{font-size:13.5px;color:var(--ink-3);margin:4px 0 18px}
+.colchart{position:relative;height:230px;margin:6px 0 0 34px}
+.colchart .gl{position:absolute;left:0;right:0;height:1px;background:var(--grid)}
+.colchart .gl span{position:absolute;right:calc(100% + 8px);top:-8px;font-size:11.5px;color:var(--ink-3);font-variant-numeric:tabular-nums;white-space:nowrap}
+.colchart .gl.base{background:var(--line-2)}
+.cols{position:absolute;inset:0;display:flex;align-items:flex-end;justify-content:space-around}
+.col{
+  position:relative;height:100%;flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;
+  background:none;border:0;padding:0;cursor:default;
+}
+.col .bar{width:24px;max-width:24px;border-radius:4px 4px 0 0;background:var(--series);transition:filter .15s ease;transform-origin:bottom}
+.col:hover .bar,.col:focus-visible .bar{filter:brightness(1.12)}
+.col .val{font-size:12.5px;font-weight:600;color:var(--ink);margin-bottom:6px;font-variant-numeric:tabular-nums}
+.col .yr{position:absolute;top:calc(100% + 8px);font-size:12.5px;color:var(--ink-2);font-family:var(--mono)}
+.colchart + .chart-foot{margin-top:38px}
+.hbars{display:grid;gap:9px}
+.hrow{display:grid;grid-template-columns:132px 1fr;gap:12px;align-items:center;background:none;border:0;padding:2px 0;text-align:left;cursor:default;border-radius:6px}
+.hrow .lab{font-size:13.5px;color:var(--ink-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hrow .trk{display:flex;align-items:center;gap:8px;min-width:0}
+.hrow .bar{height:14px;border-radius:0 4px 4px 0;background:var(--series);min-width:2px;transition:filter .15s ease}
+.hrow:hover .bar,.hrow:focus-visible .bar{filter:brightness(1.12)}
+.hrow .v{font-size:12.5px;font-weight:600;color:var(--ink);font-variant-numeric:tabular-nums;white-space:nowrap}
+.chart-foot{margin-top:16px;display:flex;flex-direction:column;gap:10px}
+.chart-foot details summary{cursor:pointer;font-size:13.5px;color:var(--accent-text);font-weight:600;width:max-content}
+.chart-foot details table{margin-top:10px;font-size:13.5px}
+.chart-foot details td,.chart-foot details th{padding:7px 10px}
+.tip{
+  position:fixed;z-index:80;pointer-events:none;
+  background:var(--btn-bg);color:var(--btn-ink);border-radius:10px;padding:8px 11px;
+  font-size:13px;line-height:1.45;box-shadow:var(--shadow);max-width:260px;
+  opacity:0;transform:translateY(4px);transition:opacity .12s ease,transform .12s ease;
+}
+.tip.show{opacity:1;transform:none}
+.tip b{display:block;font-size:13.5px}
+
+/* repo index */
+.repo-tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:34px 0 14px}
+.search{
+  flex:1 1 260px;display:flex;align-items:center;gap:8px;height:42px;padding:0 13px;border-radius:12px;
+  background:var(--surface);border:1px solid var(--line-2);
+}
+.search:focus-within{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+.search input{flex:1;border:0;outline:0;background:transparent;font:inherit;font-size:15px;color:var(--ink);min-width:0}
+.search .ico{color:var(--ink-3)}
+.select{
+  height:42px;border-radius:12px;border:1px solid var(--line-2);background:var(--surface);color:var(--ink);
+  font:inherit;font-size:14.5px;padding:0 12px;cursor:pointer;
+}
+.repo-count{font-size:13.5px;color:var(--ink-3);margin-bottom:10px}
+.repos{border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);overflow:hidden}
+.repo{
+  display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) 120px 70px;gap:14px;align-items:center;
+  padding:13px 18px;border-top:1px solid var(--line);font-size:14px;
+}
+.repo:first-child{border-top:0}
+.repo.head{background:var(--surface-2);font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);font-weight:600;padding:11px 18px}
+.repo .rn{display:flex;flex-direction:column;gap:4px;min-width:0}
+.repo .rn-top{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.repo .rn a,.repo .rn strong{font-family:var(--mono);font-weight:600;font-size:13.5px;color:var(--ink);text-decoration:none;word-break:break-word}
+.repo .rn a:hover{color:var(--accent-text);text-decoration:underline}
+.repo .rn p{font-size:13.5px;color:var(--ink-2);line-height:1.45}
+.repo .tech{font-size:13px;color:var(--ink-2)}
+.repo .per{font-family:var(--mono);font-size:12.5px;color:var(--ink-3)}
+.repo .cm{font-variant-numeric:tabular-nums;text-align:right;font-weight:600;color:var(--ink)}
+.repo .vis{font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:3px 6px;border-radius:5px;border:1px solid var(--line-2);color:var(--ink-3)}
+.repo .vis.priv{color:var(--warm);border-color:var(--warm-line);background:var(--warm-soft)}
+.repo .vis.feat{color:var(--accent-text);border-color:var(--accent-line);background:var(--accent-soft)}
+.repo-empty{padding:28px;text-align:center;color:var(--ink-3)}
+.more-btn{margin:14px auto 0;display:flex}
+@media (max-width: 760px){
+  .repo{grid-template-columns:1fr auto;gap:6px 12px}
+  .repo.head{display:none}
+  .repo .tech{grid-column:1/-1;order:3}
+  .repo .per{order:2;text-align:right}
+  .repo .cm{display:none}
+}
+
+/* =========================================================
+   Education
+   ========================================================= */
+.edu{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:18px}
+@media (max-width: 900px){.edu{grid-template-columns:1fr}}
+.degree{padding:clamp(22px,3vw,30px);display:grid;gap:16px;align-content:start}
+.degree .crest{display:flex;align-items:center;gap:14px}
+.degree .crest i{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;background:var(--accent-soft);color:var(--accent-text)}
+.degree .crest i .ico{width:26px;height:26px}
+.degree h3{font-family:var(--display);font-size:clamp(24px,2.6vw,30px);font-weight:600;letter-spacing:-.01em}
+.degree .sub{color:var(--ink-2)}
+.degree-facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.degree-facts div{background:var(--surface-2);padding:14px}
+.degree-facts b{display:block;font-size:22px;font-weight:650;letter-spacing:-.02em}
+.degree-facts span{font-size:12.5px;color:var(--ink-3)}
+@media (max-width: 480px){.degree-facts{grid-template-columns:1fr}}
+.course-list{columns:2;column-gap:22px;list-style:none;font-size:14px;color:var(--ink-2)}
+.course-list li{break-inside:avoid;padding:5px 0 5px 16px;position:relative;line-height:1.45}
+.course-list li::before{content:"";position:absolute;left:0;top:.82em;width:6px;height:1.5px;background:var(--ink-3)}
+.course-list b{color:var(--ink);font-weight:600}
+@media (max-width: 560px){.course-list{columns:1}}
+.edu-side{display:grid;gap:14px;align-content:start}
+.edu-item{padding:18px 20px;display:grid;gap:4px}
+.edu-item h4{font-size:16px;font-weight:650}
+.edu-item .when{font-family:var(--mono);font-size:12.5px;color:var(--ink-3)}
+.edu-item p{font-size:14px;color:var(--ink-2)}
+.cert{display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-top:1px solid var(--line)}
+.cert:first-of-type{border-top:0;padding-top:4px}
+.cert i{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;background:var(--good-soft);color:var(--good);flex:none}
+.cert b{display:block;font-size:14.5px;font-weight:600}
+.cert span{font-size:13px;color:var(--ink-3)}
+
+/* =========================================================
+   Contact
+   ========================================================= */
+.contact{
+  margin-top:clamp(64px,9vw,112px);
+  border-radius:24px;overflow:hidden;position:relative;isolation:isolate;
+  background:var(--btn-bg);color:var(--btn-ink);
+  padding:clamp(32px,6vw,64px);
+}
+.contact::before{
+  content:"";position:absolute;inset:0;z-index:-1;opacity:.5;
+  background:radial-gradient(ellipse 50% 70% at 90% 0%, rgb(90 130 240 / .45), transparent 70%),
+             radial-gradient(ellipse 40% 60% at 0% 100%, rgb(240 140 80 / .22), transparent 70%);
+}
+.contact h2{font-family:var(--display);font-weight:600;font-size:clamp(32px,5vw,56px);letter-spacing:-.02em;line-height:1.05;max-width:16ch}
+.contact p{margin-top:14px;max-width:60ch;opacity:.8;font-size:17px}
+.contact-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:32px}
+@media (max-width: 900px){.contact-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width: 520px){.contact-grid{grid-template-columns:1fr}}
+.contact-item{
+  display:flex;flex-direction:column;gap:6px;padding:16px 18px;border-radius:14px;
+  border:1px solid color-mix(in srgb,var(--btn-ink) 16%,transparent);
+  background:color-mix(in srgb,var(--btn-ink) 5%,transparent);
+  color:inherit;text-decoration:none;transition:background .15s ease,border-color .15s ease;
+  min-width:0;cursor:pointer;font:inherit;text-align:left;
+}
+.contact-item:hover{background:color-mix(in srgb,var(--btn-ink) 10%,transparent);border-color:color-mix(in srgb,var(--btn-ink) 30%,transparent)}
+.contact-item span{font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;opacity:.65;display:flex;align-items:center;gap:7px}
+.contact-item b{font-weight:600;font-size:15.5px;word-break:break-word}
+footer{padding:36px 0 48px;color:var(--ink-3);font-size:13.5px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-between}
+
+/* =========================================================
+   Dialog (deep dives)
+   ========================================================= */
+dialog.dd{
+  width:min(920px,calc(100vw - 24px));max-height:calc(100dvh - 32px);
+  padding:0;border:1px solid var(--line-2);border-radius:20px;
+  background:var(--surface);color:var(--ink);box-shadow:var(--shadow-lg);
+  overflow:hidden;
+}
+dialog.dd[open]{display:flex;flex-direction:column;animation:pop .22s cubic-bezier(.2,.8,.2,1)}
+@keyframes pop{from{opacity:0;transform:translateY(10px) scale(.985)}to{opacity:1;transform:none}}
+dialog.dd::backdrop{background:rgb(8 10 14 / .55);backdrop-filter:blur(4px)}
+.dd-head{display:flex;gap:16px;align-items:flex-start;justify-content:space-between;padding:22px 24px 18px;border-bottom:1px solid var(--line);background:var(--surface)}
+.dd-head h3{font-family:var(--display);font-size:clamp(24px,3vw,32px);font-weight:600;letter-spacing:-.01em;line-height:1.1;margin-top:8px}
+.dd-head .tagline{color:var(--ink-2);margin-top:6px;max-width:64ch}
+.dd-body{overflow-y:auto;min-height:0;flex:1 1 auto;padding:22px 24px 28px;display:block}
+.dd-body > * + *{margin-top:24px}
+.dd-body h4{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-text);margin-bottom:10px;font-weight:700}
+.dd-body p{color:var(--ink-2);font-size:15px;max-width:80ch}
+.dd-body ul{list-style:none;display:grid;gap:8px}
+.dd-body li{position:relative;padding-left:20px;font-size:15px;color:var(--ink-2);line-height:1.55}
+.dd-body li::before{content:"";position:absolute;left:3px;top:.62em;width:7px;height:7px;border-radius:2px;background:var(--accent)}
+.dd-body li strong,.dd-body p strong{color:var(--ink);font-weight:600}
+.dd-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+@media (max-width: 720px){.dd-grid{grid-template-columns:1fr}}
+.dd-kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.dd-kpis div{background:var(--surface-2);padding:14px 16px}
+.dd-kpis b{display:block;font-size:20px;font-weight:650;letter-spacing:-.02em}
+.dd-kpis span{font-size:12.5px;color:var(--ink-3)}
+.dd-arch{
+  font-family:var(--mono);font-size:12.5px;line-height:1.55;color:var(--ink);
+  background:var(--surface-2);border:1px solid var(--line);border-radius:12px;padding:14px 16px;overflow-x:auto;white-space:pre;margin:0;
+}
+.dd-callout{border-left:3px solid var(--amber);background:var(--amber-soft);border-radius:0 12px 12px 0;padding:12px 16px;font-size:14px;color:var(--ink)}
+.dd-close{flex:none}
+
+/* =========================================================
+   Motion + print
+   ========================================================= */
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none !important;transition:none !important}
+  .js .reveal{opacity:1;transform:none}
+}
+@media print{
+  :root,:root[data-theme="dark"]{
+    color-scheme:light;
+    --bg:#fff;--surface:#fff;--surface-2:#f6f6f4;--surface-3:#eee;--ink:#000;--ink-2:#222;--ink-3:#555;
+    --line:#ddd;--line-2:#bbb;--accent:#2F5BD3;--accent-text:#1d3f9c;--accent-soft:#eef2fc;--series:#2F5BD3;
+    --btn-bg:#000;--btn-ink:#fff;--warm:#9a4415;--warm-soft:#fbf0e8;--good:#155c3a;--good-soft:#eaf5ee;--amber:#6d4600;--amber-soft:#fbf3e1;--grid:#eee;
+  }
+  body{font-size:11pt;background:#fff}
+  .site-header,.term,.filters,.repo-tools,.more-btn,.p-actions,.cta,.skip,.tip,dialog,.chart-foot details,.hello .pulse,.evo::before{display:none !important}
+  .js .reveal{opacity:1 !important;transform:none !important}
+  .section{padding-top:28px}
+  .card,.project,.tile,.job-card,.platform-stats,.table-wrap,.diagram,.repos{box-shadow:none !important;break-inside:avoid}
+  .project:hover{transform:none}
+  .hero::before,.contact::before{display:none}
+  .contact{background:#fff;color:#000;border:1px solid #bbb}
+  .contact-item{border-color:#ccc;background:#fff}
+  a{color:#000}
+  .projects{grid-template-columns:1fr 1fr}
+  .project.hidden{display:flex}
+}
+</style>
+</head>
+<body>
+<script>
+/* Apply a remembered theme before first paint. */
+(function(){try{var t=localStorage.getItem("kf-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}document.documentElement.classList.add("js")})();
+</script>
+
+<!-- Icon sprite -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></symbol>
+    <symbol id="i-github" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.9a3.4 3.4 0 0 0-.9-2.6c3.1-.4 6.4-1.5 6.4-7A5.4 5.4 0 0 0 20 4.8 5.1 5.1 0 0 0 19.9 1S18.7.6 16 2.5a13.4 13.4 0 0 0-7 0C6.3.6 5.1 1 5.1 1A5.1 5.1 0 0 0 5 4.8a5.4 5.4 0 0 0-1.5 3.7c0 5.4 3.3 6.6 6.4 7A3.4 3.4 0 0 0 9 18.1V22"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+    <symbol id="i-cap" viewBox="0 0 24 24"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></symbol>
+    <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M8.2 13.9 7 22l5-3 5 3-1.2-8.1"/></symbol>
+    <symbol id="i-print" viewBox="0 0 24 24"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+    <symbol id="i-ext" viewBox="0 0 24 24"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></symbol>
+    <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></symbol>
+    <symbol id="i-server" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="7" rx="2"/><rect x="3" y="14" width="18" height="7" rx="2"/><path d="M7 6.5h.01M7 17.5h.01"/></symbol>
+    <symbol id="i-db" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></symbol>
+    <symbol id="i-cloud" viewBox="0 0 24 24"><path d="M17.5 19H7a5 5 0 1 1 1.1-9.9A6 6 0 0 1 19.6 11 4 4 0 0 1 17.5 19z"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></symbol>
+    <symbol id="i-code" viewBox="0 0 24 24"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></symbol>
+    <symbol id="i-layout" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></symbol>
+    <symbol id="i-brain" viewBox="0 0 24 24"><path d="M9.5 2A2.5 2.5 0 0 0 7 4.5v.1A3 3 0 0 0 4.5 9 3 3 0 0 0 4 14.5 3 3 0 0 0 7 19.5 2.5 2.5 0 0 0 12 20V4.5A2.5 2.5 0 0 0 9.5 2z"/><path d="M14.5 2A2.5 2.5 0 0 1 17 4.5v.1A3 3 0 0 1 19.5 9a3 3 0 0 1 .5 5.5 3 3 0 0 1-3 5A2.5 2.5 0 0 1 12 20"/></symbol>
+    <symbol id="i-flask" viewBox="0 0 24 24"><path d="M9 3h6M10 3v6L4.5 19a1.5 1.5 0 0 0 1.3 2h12.4a1.5 1.5 0 0 0 1.3-2L14 9V3"/><path d="M7 15h10"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></symbol>
+    <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></symbol>
+  </defs>
+</svg>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header" id="top">
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="Khizir Farrukh Chawla, back to top">
+      <span class="mark" aria-hidden="true">KF</span>
+      <span>Khizir Farrukh<small>Software Engineer II</small></span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#impact">Impact</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#platform">Platform</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#practices">Approach</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#github">GitHub</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="icon-btn" id="themeBtn" type="button" aria-label="Toggle colour theme">
+        <svg class="ico theme-light-ico"><use href="#i-moon"/></svg>
+        <svg class="ico theme-dark-ico"><use href="#i-sun"/></svg>
+      </button>
+      <button class="btn btn-sm btn-primary" id="printBtn" type="button"><svg class="ico ico-sm"><use href="#i-print"/></svg><span>Résumé PDF</span></button>
+      <button class="icon-btn menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks"><svg class="ico"><use href="#i-menu"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- =====================================================
+     HERO
+     ===================================================== -->
+<section class="hero" aria-labelledby="hero-name">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <span class="hello"><span class="pulse" aria-hidden="true"></span>Software Engineer II at Cipher Impact · 3+ years enterprise .NET</span>
+        <h1 id="hero-name">Khizir Farrukh Chawla</h1>
+        <p class="role">Backend engineer · .NET 10 microservices · NATS · PostgreSQL</p>
+        <p class="lede">I build <em>high-throughput .NET back ends</em> — and ship complete products around them.</p>
+        <p class="intro">I work on a seven-service, multi-tenant .NET 10 platform where I've made queries <strong>200× faster</strong>, cut a 25-second request to <strong>under 200 ms</strong> and moved report generation into on-demand Kubernetes pods. Outside work I design, test and ship whole systems: a production clinic management platform, a self-hosted NAS in Go, a computer-vision vehicle-tracking engine and the software that runs my own retail business.</p>
+        <div class="cta">
+          <a class="btn btn-primary" href="mailto:khizirfarrukh@gmail.com"><svg class="ico"><use href="#i-mail"/></svg>Email me</a>
+          <a class="btn" href="https://www.linkedin.com/in/khizir-farrukh" target="_blank" rel="noopener"><svg class="ico"><use href="#i-linkedin"/></svg>LinkedIn</a>
+          <a class="btn" href="https://github.com/KhizirFarrukh" target="_blank" rel="noopener"><svg class="ico"><use href="#i-github"/></svg>GitHub</a>
+          <a class="btn" href="#projects"><svg class="ico"><use href="#i-arrow"/></svg>See the work</a>
+        </div>
+        <div class="facts-inline">
+          <span><svg class="ico"><use href="#i-pin"/></svg>Pakistan</span>
+          <span><svg class="ico"><use href="#i-cap"/></svg>BS Computer Science, FAST-NUCES</span>
+          <span><svg class="ico"><use href="#i-award"/></svg>Dean's List ×2</span>
+        </div>
+      </div>
+
+      <div class="hero-side">
+        <div class="term" aria-hidden="true">
+          <div class="term-bar"><i></i><i></i><i></i><span>~/khizir — zsh</span></div>
+<pre id="term"><span class="p">$</span> <span class="c">whoami</span>
+<span class="o">khizir-farrukh · software engineer II · backend / distributed systems</span>
+<span class="p">$</span> <span class="c">cat stack.txt</span>
+<span class="k">C# · .NET 10 · PostgreSQL · NATS · Redis · Docker · K8s · AWS S3</span>
+<span class="p">$</span> <span class="c">git log --author=khizir --oneline | wc -l</span>
+<span class="o">976  # across 51 personal repositories</span>
+<span class="p">$</span> <span class="c">./benchmark --import 10000</span>
+<span class="k">request 25s → &lt;200ms · 10,000+ rows in &lt;30 min · 0 double-processed</span></pre>
+        </div>
+
+        <div class="card facts" aria-label="Quick facts">
+          <dl>
+            <div class="row"><dt>Now</dt><dd>Software Engineer II, Cipher Impact<span>Oct 2023 – present</span></dd></div>
+            <div class="row"><dt>Core</dt><dd>.NET 10 · ASP.NET Core · EF Core<span>CQRS/MediatR · NATS · PostgreSQL · Redis</span></dd></div>
+            <div class="row"><dt>Also ships</dt><dd>Python · Go · TypeScript · Flutter<span>SvelteKit · WPF · Shopify Liquid</span></dd></div>
+            <div class="row"><dt>Education</dt><dd>BS Computer Science, FAST-NUCES<span>CGPA 3.23 · Dean's List Spring '21 &amp; '23</span></dd></div>
+          </dl>
+        </div>
+      </div>
+    </div>
+
+    <div class="proof" aria-label="Headline numbers">
+      <div><b>3+ yrs</b><span>enterprise .NET engineering</span></div>
+      <div><b>200×</b><span>query performance improvement</span></div>
+      <div><b>800+</b><span>Jira tickets resolved</span></div>
+      <div><b>976</b><span>personal commits across 51 repos</span></div>
+      <div><b>4,500+</b><span>automated tests in my featured projects</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================
+     IMPACT
+     ===================================================== -->
+<section class="section" id="impact" aria-labelledby="impact-h">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">01 · Impact</span>
+      <h2 id="impact-h">Measured results from production work</h2>
+      <p>Outcomes from my role on an enterprise, multi-tenant .NET 10 platform serving 50+ active users across 6 enterprise tenants.</p>
+    </div>
+    <div class="impact">
+      <article class="card tile reveal">
+        <div class="value"><span data-count="200">200</span><small>×</small></div>
+        <div class="label">Faster queries</div>
+        <p>Independently optimised complex queries and multi-table relations on hot paths.</p>
+      </article>
+      <article class="card tile reveal">
+        <div class="value">25s → &lt;200<small>ms</small></div>
+        <div class="label">Request latency on bulk import</div>
+        <p>Re-architected imports onto a PostgreSQL job queue (<code>FOR UPDATE SKIP LOCKED</code>) so requests return immediately.</p>
+      </article>
+      <article class="card tile reveal">
+        <div class="value"><span data-count="10000" data-sep="1">10,000</span><small>+ rows</small></div>
+        <div class="label">Imported in under 30 minutes</div>
+        <p>Priority ordering and bounded retries; workers scale horizontally with zero double-processing.</p>
+      </article>
+      <article class="card tile warm reveal">
+        <div class="value"><span data-count="100">100</span><small>×</small></div>
+        <div class="label">Less API memory overhead</div>
+        <p>Returned presigned AWS S3 URLs for generated documents instead of streaming files through the API.</p>
+      </article>
+      <article class="card tile warm reveal">
+        <div class="value">150–500<small>×</small></div>
+        <div class="label">Less API bandwidth for reports</div>
+        <p>Server-side PDF rendering via headless Chromium (PuppeteerSharp + paged.js) in on-demand Kubernetes pods; large reports delivered 150% faster.</p>
+      </article>
+      <article class="card tile warm reveal">
+        <div class="value"><span data-count="680">680</span><small>+ ops</small></div>
+        <div class="label">Versioned NATS contract surface</div>
+        <p>Subject-routed message handlers, with the API gateway kept as the only HTTP-facing component.</p>
+      </article>
+      <article class="card tile good reveal">
+        <div class="value"><span data-count="60">60</span><small>%</small></div>
+        <div class="label">Faster feature delivery</div>
+        <p>AI-augmented workflow (Claude Code, ChatGPT Codex) for repetitive tasks, with every change reviewed for bugs, regressions and security.</p>
+      </article>
+      <article class="card tile good reveal">
+        <div class="value"><span data-count="99.9" data-dec="1">99.9</span><small>%</small></div>
+        <div class="label">API uptime</div>
+        <p>Maintained across a seven-service platform (~215k lines of C#) serving six enterprise tenants.</p>
+      </article>
+      <article class="card tile good reveal">
+        <div class="value"><span data-count="800">800</span><small>+</small></div>
+        <div class="label">Jira tickets resolved</div>
+        <p>Features, defects and production investigations, including idempotent, re-runnable migrations.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================
+     EXPERIENCE
+     ===================================================== -->
+<section class="section" id="experience" aria-labelledby="exp-h">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">02 · Experience</span>
+      <h2 id="exp-h">Where I've worked</h2>
+      <p>Three roles since 2023, from intern to Software Engineer II, all in the .NET ecosystem.</p>
+    </div>
+
+    <div class="timeline">
+      <article class="job current reveal">
+        <span class="dot" aria-hidden="true"></span>
+        <div class="card job-card">
+          <div class="job-top">
+            <div>
+              <h3>Software Engineer II</h3>
+              <div class="company">Cipher Impact Pakistan</div>
+            </div>
+            <div class="when"><b>Oct 2023 – Present</b>3 years</div>
+          </div>
+          <p class="summary">Feature development on <strong>ScheduleEdge</strong>, a seven-service, multi-tenant .NET 10 microservices platform for door-hardware scheduling and estimating (~215k lines of C#), with 99.9% API uptime for 50+ active users across 6 enterprise tenants.</p>
+          <ul class="wins">
+            <li><h4><span>Architecture</span>Microservices &amp; clean architecture</h4><p>Built and maintained features across the <strong>7-service .NET 10 platform</strong>. Designed <strong>subject-routed message handlers over NATS</strong>, establishing a versioned contract surface of <strong>680+ operations</strong> while keeping the <strong>API gateway the sole HTTP-facing component</strong>. Coordinated versioned <strong>NuGet contract packages</strong> so services deploy independently, without lockstep upgrades.</p></li>
+            <li><h4><span>Data</span>Multi-tenant data &amp; domain logic</h4><p>Worked within a <strong>database-per-tenant</strong> model, resolving each tenant's PostgreSQL connection strictly per request for <strong>structural, not query-level, isolation</strong>. Applied <strong>CQRS with MediatR</strong>, using pipeline behaviours for FluentValidation and translating database constraint violations into plain-language, user-facing errors.</p></li>
+            <li><h4><span>Async</span>Asynchronous processing &amp; queues</h4><p>Re-architected bulk record imports onto a <strong>PostgreSQL-backed job queue</strong> (<code>FOR UPDATE SKIP LOCKED</code>) with priority ordering and bounded retries. Request latency dropped from <strong>25 s to under 200 ms</strong>, and <strong>10,000+ records</strong> now process in under 30 minutes on horizontally scalable workers with no double-processing. Per-row outcomes reach the UI in real time over <strong>SignalR</strong>.</p></li>
+            <li><h4><span>Cloud</span>Document generation &amp; cloud</h4><p>Engineered server-side PDF reporting with <strong>headless Chromium (PuppeteerSharp + paged.js)</strong> in <strong>on-demand Kubernetes pods</strong>, with document sharding for large reports and a local fallback. Artefacts are stored in AWS S3 and served via <strong>presigned URLs</strong>, cutting API bandwidth <strong>150–500×</strong>, API memory overhead <strong>100×</strong>, and large-report delivery time by 150%.</p></li>
+            <li><h4><span>Performance</span>AI-assisted development</h4><p>Championed an <strong>AI-augmented workflow</strong> (Claude Code, ChatGPT Codex) for small, repetitive tasks, <strong>cutting feature delivery time by up to 60%</strong>. I own the core features and complex problem solving, structure prompts with architectural context, and review and test all AI-generated code for bugs, regressions and security issues before committing. Independently achieved up to a <strong>200× query performance improvement</strong>.</p></li>
+            <li><h4><span>Imports</span>Data parsing &amp; file validation</h4><p>Built robust <strong>Excel and CSV imports</strong> for scheduling data with up-front file-compatibility validation. Removed a whole class of parsing bugs by enforcing <strong>one shared header-normalisation rule</strong> for both validation and parsing.</p></li>
+            <li><h4><span>Quality</span>Testing &amp; reliability</h4><p>Extensive unit and integration tests with <strong>xUnit, Moq and Testcontainers</strong>, running real concurrent-queue SQL against container-backed PostgreSQL. Added <strong>contract tests binding persisted enums to database CHECK constraints</strong>, which turned silent production failures into build failures. Traced and fixed production defects, shipping <strong>idempotent migrations</strong> safe to re-run on existing environments.</p></li>
+            <li><h4><span>Delivery</span>Productivity</h4><p>Resolved <strong>800+ Jira tickets</strong> across features, defects and investigations.</p></li>
+          </ul>
+          <div class="chips">
+            <span class="chip">.NET 10</span><span class="chip">ASP.NET Core</span><span class="chip">NATS</span><span class="chip">MediatR / CQRS</span><span class="chip">EF Core</span><span class="chip">PostgreSQL</span><span class="chip">Redis</span><span class="chip">SignalR</span><span class="chip">Kubernetes</span><span class="chip">AWS S3</span><span class="chip">PuppeteerSharp</span><span class="chip">xUnit · Moq</span><span class="chip">Testcontainers</span><span class="chip">Docker</span>
+          </div>
+          <div class="related"><svg class="ico"><use href="#i-arrow"/></svg><span>Platform architecture, request flow and tech inventory are in the <a href="#platform">platform case study</a> below.</span></div>
+        </div>
+      </article>
+
+      <article class="job reveal">
+        <span class="dot" aria-hidden="true"></span>
+        <div class="card job-card">
+          <div class="job-top">
+            <div>
+              <h3>Management Trainee — .NET Developer</h3>
+              <div class="company">Muller &amp; Phipps Pakistan</div>
+            </div>
+            <div class="when"><b>Jul 2023 – Oct 2023</b>4 months</div>
+          </div>
+          <ul class="wins">
+            <li><h4><span>Delivery</span>Internal modules</h4><p>Developed and delivered <strong>3+ internal modules</strong> with <strong>ASP.NET Web Forms and Oracle SQL</strong>, improving workflow efficiency and data management for company-wide applications.</p></li>
+          </ul>
+          <div class="chips"><span class="chip">ASP.NET Web Forms</span><span class="chip">C#</span><span class="chip">Oracle SQL</span><span class="chip">ODP.NET</span></div>
+          <div class="related"><svg class="ico"><use href="#i-github"/></svg><span>Public reference project from this period: <a href="https://github.com/KhizirFarrukh/ASP.NET-WebFormsWithOracleSQL" target="_blank" rel="noopener">ASP.NET-WebFormsWithOracleSQL</a> (Web Forms + Oracle via ODP.NET).</span></div>
+        </div>
+      </article>
+
+      <article class="job reveal">
+        <span class="dot" aria-hidden="true"></span>
+        <div class="card job-card">
+          <div class="job-top">
+            <div>
+              <h3>ASP.NET Backend Developer Intern</h3>
+              <div class="company">Plural Dynamics</div>
+            </div>
+            <div class="when"><b>Apr 2023 – Jun 2023</b>3 months</div>
+          </div>
+          <ul class="wins">
+            <li><h4><span>APIs</span>Web APIs &amp; authentication</h4><p>Designed and developed Web APIs for the <strong>Teacher module, Program Builder services, Repair Orders, Customers, Users and Roles</strong>, with <strong>JWT-based authentication</strong> for secure access and integration across applications.</p></li>
+            <li><h4><span>Ops</span>Deployment</h4><p>Deployed and managed the Web APIs on an <strong>AWS Windows Server VM with IIS</strong>, giving multiple internal and client-facing services scalable, secure and reliable access.</p></li>
+          </ul>
+          <div class="chips"><span class="chip">ASP.NET Core Web API</span><span class="chip">EF Core</span><span class="chip">SQL Server</span><span class="chip">JWT</span><span class="chip">AWS Windows Server VM</span><span class="chip">IIS</span></div>
+          <div class="related"><svg class="ico"><use href="#i-github"/></svg><span>Related open code: <a href="https://github.com/KhizirFarrukh/DynamicsManagementSystem" target="_blank" rel="noopener">DynamicsManagementSystem</a>, a .NET 6 N-layer school API where I implemented Teacher-module CRUD and refactored service registration.</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================
+     PLATFORM CASE STUDY
+     ===================================================== -->
+<section class="section" id="platform" aria-labelledby="plat-h">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">03 · Platform case study</span>
+      <h2 id="plat-h">Inside the platform I build on every day</h2>
+      <p>ScheduleEdge is a multi-tenant .NET microservices platform for door-hardware scheduling and estimating. It is message-driven, uses a database per tenant, and runs report generation, bulk import and export off the request thread.</p>
+    </div>
+
+    <div class="platform-intro reveal">
+      <div class="card platform-copy">
+        <h3>Seven services. One HTTP surface. Everything else over NATS.</h3>
+        <p>Every service uses the same layout (<code>Domain</code>, <code>Application</code>, <code>Infrastructure</code>, <code>Common</code>, <code>Main</code>), so Clean Architecture boundaries are enforced by project references rather than convention. The API gateway is the only component that speaks HTTP; everything behind it communicates over NATS request/reply, and long-running work moves to a dedicated job processor.</p>
+        <p class="disclaimer"><strong>Scope note:</strong> these figures were measured from the source of all seven repositories in August 2026 and describe the <em>whole</em> platform, which has many authors. My own contributions are the ones listed under <a href="#experience">Experience</a> and highlighted in the diagram below.</p>
+      </div>
+      <div class="platform-stats" aria-label="Platform scale">
+        <div><b>~215k</b><span>Lines of C#</span></div>
+        <div><b>7</b><span>Services</span></div>
+        <div><b>43</b><span>Projects</span></div>
+        <div><b>684</b><span>NATS subjects</span></div>
+        <div><b>62</b><span>API controllers</span></div>
+        <div><b>493</b><span>Test files</span></div>
+      </div>
+    </div>
+
+    <div class="subhead reveal"><h3>Service topology</h3><span>Lines of C# per service</span></div>
+    <div class="table-wrap reveal">
+      <table>
+        <thead><tr><th>Service</th><th>Responsibility</th><th>Notable</th><th style="text-align:right">Lines</th></tr></thead>
+        <tbody>
+          <tr><td class="name">api-gateway</td><td>Sole HTTP surface: auth, permission checks, HTTP→NATS translation, SignalR hubs</td><td>62 controllers, 3 hubs</td><td class="num"><div class="linebar"><i style="width:36%"></i><span>44,705</span></div></td></tr>
+          <tr><td class="name">core</td><td>Domain engine: projects, doors, products, schedules, reports, documents</td><td>50 feature areas</td><td class="num"><div class="linebar"><i style="width:100%"></i><span>123,576</span></div></td></tr>
+          <tr><td class="name">job-processor</td><td>Off-thread work: report rendering, bulk import, export</td><td>Postgres work queue</td><td class="num"><div class="linebar"><i style="width:11.5%"></i><span>14,251</span></div></td></tr>
+          <tr><td class="name">security</td><td>Users, roles, granular permissions, API keys, JWT issuance, MFA</td><td>Key rotation</td><td class="num"><div class="linebar"><i style="width:11.7%"></i><span>14,475</span></div></td></tr>
+          <tr><td class="name">tenant</td><td>Tenant registry, per-tenant DB connection routing, SMTP config</td><td>DB-per-tenant</td><td class="num"><div class="linebar"><i style="width:7.8%"></i><span>9,590</span></div></td></tr>
+          <tr><td class="name">notification</td><td>Web notifications, email delivery &amp; history, outbound webhooks</td><td>MongoDB store</td><td class="num"><div class="linebar"><i style="width:4.3%"></i><span>5,360</span></div></td></tr>
+          <tr><td class="name">utilities</td><td>Shared libraries published as private NuGet: messaging, logging, S3</td><td>Versioned contracts</td><td class="num"><div class="linebar"><i style="width:2.4%"></i><span>2,937</span></div></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="subhead reveal"><h3>How a request is served</h3><span>Request / reply + background jobs</span></div>
+    <div class="diagram reveal">
+      <svg viewBox="0 0 900 300" role="img" aria-labelledby="dg-title dg-desc">
+        <title id="dg-title">Request flow through the platform</title>
+        <desc id="dg-desc">A client calls the API gateway over HTTP with a JWT. The gateway publishes a NATS request that is routed by subject to the core, security, tenant or notification services, each backed by its own stores. Long-running work is queued to the job processor, which renders documents in Chromium pods, stores them in S3 and notifies the user over SignalR.</desc>
+        <defs>
+          <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z" class="dg-arrow"/></marker>
+        </defs>
+        <text x="0" y="14" class="dg-lane">SYNCHRONOUS</text>
+        <text x="0" y="196" class="dg-lane">ASYNCHRONOUS</text>
+
+        <rect x="0" y="40" width="112" height="56" rx="10" class="dg-box"/>
+        <text x="56" y="64" text-anchor="middle" class="dg-t">Client</text>
+        <text x="56" y="80" text-anchor="middle" class="dg-s">HTTP + JWT</text>
+
+        <rect x="150" y="40" width="132" height="56" rx="10" class="dg-box"/>
+        <text x="216" y="64" text-anchor="middle" class="dg-t">API Gateway</text>
+        <text x="216" y="80" text-anchor="middle" class="dg-s">authn · permissions</text>
+
+        <rect x="322" y="32" width="124" height="72" rx="12" class="dg-bus"/>
+        <text x="384" y="64" text-anchor="middle" class="dg-bus-t">NATS</text>
+        <text x="384" y="82" text-anchor="middle" class="dg-s">subject routing</text>
+
+        <rect x="500" y="8" width="150" height="40" rx="9" class="dg-box"/>
+        <text x="575" y="33" text-anchor="middle" class="dg-t">core</text>
+        <rect x="500" y="56" width="150" height="40" rx="9" class="dg-box"/>
+        <text x="575" y="81" text-anchor="middle" class="dg-t">security · tenant</text>
+        <rect x="500" y="104" width="150" height="40" rx="9" class="dg-box"/>
+        <text x="575" y="129" text-anchor="middle" class="dg-t">notification</text>
+
+        <rect x="704" y="8" width="196" height="40" rx="9" class="dg-store"/>
+        <text x="802" y="32" text-anchor="middle" class="dg-s">PostgreSQL · one DB per tenant</text>
+        <rect x="704" y="56" width="196" height="40" rx="9" class="dg-store"/>
+        <text x="802" y="80" text-anchor="middle" class="dg-s">Redis · cache · locks</text>
+        <rect x="704" y="104" width="196" height="40" rx="9" class="dg-store"/>
+        <text x="802" y="128" text-anchor="middle" class="dg-s">MongoDB · email · webhooks</text>
+
+        <rect x="322" y="214" width="124" height="60" rx="10" class="dg-mine"/>
+        <text x="384" y="240" text-anchor="middle" class="dg-mine-t">job-processor</text>
+        <text x="384" y="257" text-anchor="middle" class="dg-s">SKIP LOCKED queue</text>
+
+        <rect x="490" y="214" width="124" height="60" rx="10" class="dg-mine"/>
+        <text x="552" y="240" text-anchor="middle" class="dg-mine-t">Chromium pods</text>
+        <text x="552" y="257" text-anchor="middle" class="dg-s">k8s · PDF · XLSX</text>
+
+        <rect x="658" y="214" width="104" height="60" rx="10" class="dg-mine"/>
+        <text x="710" y="240" text-anchor="middle" class="dg-mine-t">AWS S3</text>
+        <text x="710" y="257" text-anchor="middle" class="dg-s">presigned URL</text>
+
+        <rect x="796" y="214" width="104" height="60" rx="10" class="dg-mine"/>
+        <text x="848" y="240" text-anchor="middle" class="dg-mine-t">SignalR</text>
+        <text x="848" y="257" text-anchor="middle" class="dg-s">notify user</text>
+
+        <path d="M112 68 H148" class="dg-line" marker-end="url(#ah)"/>
+        <path d="M282 68 H320" class="dg-line" marker-end="url(#ah)"/>
+        <path d="M446 68 H472 M472 28 V124 M472 28 H498 M472 76 H498 M472 124 H498" class="dg-line"/>
+        <path d="M650 28 H702 M650 76 H702 M650 124 H702" class="dg-line"/>
+        <path d="M384 104 V212" class="dg-q" marker-end="url(#ah)"/>
+        <text x="394" y="166" class="dg-s">202 Accepted · queued</text>
+        <path d="M446 244 H488" class="dg-line" marker-end="url(#ah)"/>
+        <path d="M614 244 H656" class="dg-line" marker-end="url(#ah)"/>
+        <path d="M762 244 H794" class="dg-line" marker-end="url(#ah)"/>
+      </svg>
+      <div class="legend">
+        <span><i class="l-svc"></i>Service</span>
+        <span><i class="l-bus"></i>Message bus</span>
+        <span><i class="l-store"></i>Data store</span>
+        <span><i class="l-mine"></i>Area of my headline contributions (async import queue, PDF pipeline, S3 delivery, SignalR results)</span>
+      </div>
+    </div>
+
+    <div class="paths">
+      <div class="card reveal"><h4><b>1</b>Synchronous path</h4><p>The gateway authenticates the JWT, resolves permissions, and stamps a header with tenant, user and correlation IDs. It then publishes a NATS request on a subject such as <code>Core.ProjectDoor.Read</code> and waits for the reply. It never touches a database itself.</p></div>
+      <div class="card reveal"><h4><b>2</b>Inside a service</h4><p>A handler subscribes to a subject root, dispatches by exact subject and sends a MediatR command or query. Pipeline behaviours run FluentValidation and translate Postgres constraint violations into actionable messages. EF Core resolves the tenant's own connection string per request.</p></div>
+      <div class="card reveal"><h4><b>3</b>Asynchronous path</h4><p>Reports, imports and exports become rows in a Postgres jobs table, which workers claim with <code>FOR UPDATE SKIP LOCKED</code> by priority, with attempt limits. Quick jobs answer inline; otherwise the caller gets <code>202 Accepted</code> and the outcome arrives later over SignalR.</p></div>
+    </div>
+
+    <div class="subhead reveal"><h3>Technology inventory</h3><span>From the project files</span></div>
+    <div class="table-wrap reveal">
+      <table>
+        <thead><tr><th>Area</th><th>Technologies</th></tr></thead>
+        <tbody>
+          <tr><td class="name">Platform</td><td>.NET 10, C# (preview language features), ASP.NET Core, Docker multi-stage builds</td></tr>
+          <tr><td class="name">Architecture</td><td>Microservices, Clean Architecture, CQRS via MediatR, pipeline behaviours, AutoMapper</td></tr>
+          <tr><td class="name">Messaging</td><td>NATS request/reply and publish, subject-per-operation routing, versioned contract packages</td></tr>
+          <tr><td class="name">Data</td><td>PostgreSQL, EF Core 10, Npgsql, raw SQL for queue hot paths, MongoDB for notifications, dynamic LINQ for runtime filtering and sorting</td></tr>
+          <tr><td class="name">Caching &amp; realtime</td><td>Redis (distributed cache, locks, SignalR backplane); SignalR hubs for notifications, locks and report progress</td></tr>
+          <tr><td class="name">Security</td><td>JWT bearer auth, multi-factor authentication, API keys, role and granular-permission model, per-request tenant isolation</td></tr>
+          <tr><td class="name">Documents</td><td>PuppeteerSharp + paged.js (HTML→PDF), PDFsharp, ClosedXML &amp; OpenXML (Excel), CsvHelper, HtmlAgilityPack, MimeKit</td></tr>
+          <tr><td class="name">Cloud</td><td>AWS S3 (presigned URLs), AWS OCR services, private NuGet registry, Kubernetes client for on-demand Chromium pods with a local fallback</td></tr>
+          <tr><td class="name">Quality</td><td>xUnit, Moq, Testcontainers (PostgreSQL), WebApplicationFactory integration tests, Coverlet, NLog, Swagger</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="subhead reveal"><h3>Engineering patterns I work with daily</h3><span>Observed in the codebase</span></div>
+    <div class="patterns reveal">
+      <div><h4>Uniform layering</h4><p>All seven services share one project layout and dependencies point inward, so moving between services needs no re-orientation.</p></div>
+      <div><h4>Contracts as packages</h4><p>Request, response and subject definitions ship as versioned NuGet packages, so a service upgrades independently instead of in lockstep.</p></div>
+      <div><h4>Tenant isolation by design</h4><p>Each tenant has its own database and credentials, resolved per request. Isolation is structural, not a <code>WHERE tenant_id</code> a query can forget.</p></div>
+      <div><h4>Correct concurrent queue</h4><p><code>SKIP LOCKED</code> claiming with priority, attempt limits and a grace window lets workers scale out without double-processing.</p></div>
+      <div><h4>Errors written for users</h4><p>Constraint violations become plain-language messages; internal detail is withheld from anything that isn't a validation failure.</p></div>
+      <div><h4>Performance in hot paths</h4><p>Spreadsheet parsing reads headers by index and iterates only rows with content, avoiding a 1,048,576-row scan on styled files.</p></div>
+      <div><h4>Substantial test suite</h4><p>493 test files spanning unit, mapping, SQL-contract and container-backed integration tests, plus a report-generation volume benchmark.</p></div>
+      <div><h4>Comments that explain why</h4><p>Non-obvious code records the reasoning (why a grace window exists, why a subject is mirrored), not a restatement of the line.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================
+     PROJECTS
+     ===================================================== -->
+<section class="section" id="projects" aria-labelledby="proj-h">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">04 · Independent projects</span>
+      <h2 id="proj-h">Systems I've designed and shipped end-to-end</h2>
+      <p>Each one started from a written specification, was built in stages, and is backed by tests. Open any <strong>Deep dive</strong> for the architecture, decisions and measured results.</p>
+    </div>
+
+    <div class="filters" role="group" aria-label="Filter projects">
+      <button class="filter" type="button" data-filter="all" aria-pressed="true">All</button>
+      <button class="filter" type="button" data-filter="production" aria-pressed="false">Production &amp; business</button>
+      <button class="filter" type="button" data-filter="systems" aria-pressed="false">Systems &amp; back end</button>
+      <button class="filter" type="button" data-filter="ai" aria-pressed="false">AI &amp; computer vision</button>
+      <button class="filter" type="button" data-filter="mobile" aria-pressed="false">Mobile</button>
+    </div>
+
+    <div class="projects" id="projectGrid">
+
+      <!-- local-ai-nas -->
+      <article class="card project feature reveal" data-cat="systems ai">
+        <div class="p-top">
+          <span class="badge b-active">Active · stage 3 of 17</span><span class="badge b-public">Public</span>
+          <span class="period">Sep – Oct 2026</span>
+        </div>
+        <h3>local-ai-nas</h3>
+        <p class="tagline">A self-hosted NAS with a Google Photos–style library and opt-in AI that runs entirely on the user's own hardware, so no data ever leaves the machine.</p>
+        <div class="p-body">
+          <ul class="p-points">
+            <li><strong>One Go binary</strong> with an OpenAPI-first REST API (1,200-line spec, generated server), SQLite with migrations, a durable job queue, and an embedded <strong>SvelteKit</strong> web app.</li>
+            <li><strong>Resumable uploads of very large files</strong> (tus), proven by a CI test that uploads 10 GiB with bounded memory.</li>
+            <li><strong>Crash safety and hardening:</strong> <code>synchronous=FULL</code>, an operation journal, stable item IDs, path-escape and symlink guards, and per-OS code for Windows and Unix.</li>
+            <li><strong>Security programme:</strong> threat model, ISO/IEC 27001 Annex A mapping (93 controls), Argon2id, Host/Origin checks, gitleaks, SHA-pinned CI actions.</li>
+          </ul>
+          <div style="display:grid;gap:14px">
+            <div class="p-metrics">
+              <div><b>305</b><span>commits in 9 days</span></div>
+              <div><b>~27k</b><span>lines of Go</span></div>
+              <div><b>53</b><span>architecture decisions</span></div>
+            </div>
+            <div class="chips"><span class="chip">Go 1.27</span><span class="chip">SQLite</span><span class="chip">OpenAPI</span><span class="chip">tus</span><span class="chip">SvelteKit</span><span class="chip">Svelte 5</span><span class="chip">Tailwind 4</span><span class="chip">Playwright</span><span class="chip">GitHub Actions</span></div>
+          </div>
+        </div>
+        <div class="p-actions">
+          <button class="btn btn-sm btn-primary" type="button" data-dd="nas">Deep dive</button>
+          <a class="btn btn-sm" href="https://github.com/KhizirFarrukh/local-ai-nas/tree/develop" target="_blank" rel="noopener"><svg class="ico ico-sm"><use href="#i-github"/></svg>Repository</a>
+        </div>
+      </article>
+
+      <!-- multi-camera-tracking -->
+      <article class="card project feature reveal" data-cat="ai systems">
+        <div class="p-top">
+          <span class="badge b-active">Active · stage 11 of 20</span><span class="badge b-public">Public</span>
+          <span class="period">Aug – Sep 2026</span>
+        </div>
+        <h3>multi-camera-tracking</h3>
+        <p class="tagline">Enter a licence plate and get back every camera that saw the vehicle, when, and the route it took. Built for stolen-vehicle tracking.</p>
+        <div class="p-body">
+          <ul class="p-points">
+            <li><strong>Plate first, appearance second:</strong> confusion-weighted Damerau-Levenshtein matching for OCR errors (O/0, B/8, S/5…), with re-identification embeddings as a fallback that can never outrank a plate match.</li>
+            <li><strong>Topology prunes candidates:</strong> camera-graph travel-time windows reject impossible hops; routes are scored globally in one linear pass.</li>
+            <li><strong>Measured before trusted:</strong> a synthetic ground-truth generator came before any computer vision. Zero "teleports" even in adversarial scenarios.</li>
+            <li><strong>Responsible by design:</strong> audit log, retention TTL, confidence surfacing and a human review gate.</li>
+          </ul>
+          <div style="display:grid;gap:14px">
+            <div class="p-metrics">
+              <div><b>1,828</b><span>tests passing</span></div>
+              <div><b>93.1%</b><span>coverage</span></div>
+              <div><b>0</b><span>false auto-accepts at the tuned threshold</span></div>
+            </div>
+            <div class="chips"><span class="chip">Python 3.11</span><span class="chip">PostgreSQL + pgvector</span><span class="chip">SQLAlchemy 2</span><span class="chip">FastAPI</span><span class="chip">YOLO</span><span class="chip">OpenCV</span><span class="chip">Hypothesis</span><span class="chip">mypy --strict</span></div>
+          </div>
+        </div>
+        <div class="p-actions">
+          <button class="btn btn-sm btn-primary" type="button" data-dd="mct">Deep dive</button>
+          <a class="btn btn-sm" href="https://github.com/KhizirFarrukh/multi-camera-tracking/tree/develop" target="_blank" rel="noopener"><svg class="ico ico-sm"><use href="#i-github"/></svg>Repository</a>
+        </div>
+      </article>
+
+      <!-- Chawla Clinic -->
+      <article class="card project reveal" data-cat="production systems">
+        <div class="p-top"><span class="badge b-live">Production-ready v1.0</span><span class="badge b-private"><svg class="ico ico-sm"><use href="#i-lock"/></svg>Private</span><span class="period">2022 → 2026</span></div>
+        <h3>Chawla Clinic Management System</h3>
+        <p class="tagline">Digitises a real burn-care and general clinic end to end: patients, tokens, versioned prescriptions, billing and balances, documents and a full audit trail.</p>
+        <div class="p-metrics">
+          <div><b>~30k</b><span>lines of hand-written C#</span></div>
+          <div><b>~365</b><span>xUnit tests</span></div>
+          <div><b>22</b><span>API controllers</span></div>
+        </div>
+        <div class="chips"><span class="chip">.NET 10</span><span class="chip">EF Core 10</span><span class="chip">PostgreSQL</span><span class="chip">WPF · MVVM</span><span class="chip">JWT</span><span class="chip">Testcontainers</span><span class="chip">Docker</span></div>
+        <div class="p-actions"><button class="btn btn-sm btn-primary" type="button" data-dd="clinic">Deep dive</button><a class="btn btn-sm" href="#clinic-story">The 4-year story</a></div>
+      </article>
+
+      <!-- receipt-maker -->
+      <article class="card project reveal" data-cat="production">
+        <div class="p-top"><span class="badge b-live">Stable · actively extended</span><span class="badge b-public">Public</span><span class="period">May – Sep 2026</span></div>
+        <h3>receipt-maker</h3>
+        <p class="tagline">Digitally signed (PAdES) A4 PDF receipts plus a small point-of-sale back office for a retail shop. A forged or edited receipt fails verification.</p>
+        <div class="p-metrics">
+          <div><b>~1,500</b><span>test functions</span></div>
+          <div><b>90.4%</b><span>coverage (80% floor)</span></div>
+          <div><b>0</b><span>floats on the money path</span></div>
+        </div>
+        <div class="chips"><span class="chip">Python</span><span class="chip">tkinter</span><span class="chip">Playwright PDF</span><span class="chip">pyHanko</span><span class="chip">PyInstaller</span></div>
+        <div class="p-actions"><button class="btn btn-sm btn-primary" type="button" data-dd="receipt">Deep dive</button><a class="btn btn-sm" href="https://github.com/KhizirFarrukh/receipt-maker/tree/generalization" target="_blank" rel="noopener"><svg class="ico ico-sm"><use href="#i-github"/></svg>Repository</a></div>
+      </article>
+
+      <!-- pak-tax -->
+      <article class="card project reveal" data-cat="systems">
+        <div class="p-top"><span class="badge b-done">Complete</span><span class="badge b-public">Public</span><span class="period">2025 – 2026</span></div>
+        <h3>pak-tax-calculator</h3>
+        <p class="tagline">Pakistan income-tax engine covering FY2014-15 to FY2026-27, including hybrid income, surcharge rules and a net-to-gross solver for non-monotonic take-home pay.</p>
+        <div class="p-metrics">
+          <div><b>496</b><span>tests: unit, integration, system</span></div>
+          <div><b>26</b><span>self-checking rate cards</span></div>
+          <div><b>13</b><span>fiscal years</span></div>
+        </div>
+        <div class="chips"><span class="chip">C#</span><span class="chip">.NET</span><span class="chip">CLI</span><span class="chip">JSON output</span></div>
+        <div class="p-actions"><button class="btn btn-sm btn-primary" type="button" data-dd="tax">Deep dive</button><a class="btn btn-sm" href="https://github.com/KhizirFarrukh/pak-tax-calculator/tree/feature/multi-source-income-and-tests" target="_blank" rel="noopener"><svg class="ico ico-sm"><use href="#i-github"/></svg>Repository</a></div>
+      </article>
+
+      <!-- Price Hunt -->
+      <article class="card project reveal" data-cat="systems production">
+        <div class="p-top"><span class="badge b-done">MVP built</span><span class="badge b-private"><svg class="ico ico-sm"><use href="#i-lock"/></svg>Private</span><span class="period">Apr – May 2026</span></div>
+        <h3>Price Hunt</h3>
+        <p class="tagline">Price comparison for tech products across Pakistani retailers, fed by a scheduled .NET scraper service that records price and rating history.</p>
+        <div class="p-metrics">
+          <div><b>3</b><span>deployable apps</span></div>
+          <div><b>Worker</b><span>service with backoff &amp; block detection</span></div>
+          <div><b>API key</b><span>guards every write</span></div>
+        </div>
+        <div class="chips"><span class="chip">.NET 10</span><span class="chip">PostgreSQL</span><span class="chip">HtmlAgilityPack</span><span class="chip">Nginx</span><span class="chip">WinForms</span><span class="chip">Docker Compose</span></div>
+        <div class="p-actions"><button class="btn btn-sm btn-primary" type="button" data-dd="price">Deep dive</button></div>
+      </article>
+
+      <!-- Storefront -->
+      <article class="card project reveal" data-cat="production">
+        <div class="p-top"><span class="badge b-live">Live · theme v1.13</span><span class="badge b-private"><svg class="ico ico-sm"><use href="#i-lock"/></svg>Private</span><span class="period">Apr – Aug 2026</span></div>
+        <h3>Chawla Tech storefront</h3>
+        <p class="tagline">Custom Shopify theme for my computer-hardware and gaming-peripherals store, now migrating to a zero-backend static store that hands orders off to WhatsApp.</p>
+        <div class="p-metrics">
+          <div><b>95</b><span>commits</span></div>
+          <div><b>v1.14</b><span>latest theme version</span></div>
+          <div><b>0</b><span>backend in the new store</span></div>
+        </div>
+        <div class="chips"><span class="chip">Shopify Liquid</span><span class="chip">Online Store 2.0</span><span class="chip">JavaScript</span><span class="chip">JSON-LD SEO</span><span class="chip">Shopify CLI</span></div>
+        <div class="p-actions"><button class="btn btn-sm btn-primary" type="button" data-dd="store">Deep dive</button></div>
+      </article>
+
+      <!-- PookieBudget -->
+      <article class="card project reveal" data-cat="mobile">
+        <div class="p-top"><span class="badge b-design">Design complete · stage 4 of 10</span><span class="badge b-public">Public</span><span class="period">Jul – Sep 2026</span></div>
+        <h3>PookieBudget</h3>
+        <p class="tagline">An Android app that splits every incoming payment across personal and business "buckets", with ceilings, overflow redirection and sync to the user's own Google Drive.</p>
+        <div class="p-metrics">
+          <div><b>37</b><span>user stories in the PRD</span></div>
+          <div><b>15</b><span>golden test vectors</span></div>
+          <div><b>int64</b><span>money; no floating point</span></div>
+        </div>
+        <div class="chips"><span class="chip">Flutter</span><span class="chip">Dart 3</span><span class="chip">Riverpod 3</span><span class="chip">Drift</span><span class="chip">Google Drive API</span></div>
+        <div class="p-actions"><button class="btn btn-sm btn-primary" type="button" data-dd="budget">Deep dive</button><a class="btn btn-sm" href="https://github.com/KhizirFarrukh/budgeting-app" target="_blank" rel="noopener"><svg class="ico ico-sm"><use href="#i-github"/></svg>Repository</a></div>
+      </article>
+
+      <!-- Fuel Log -->
+      <article class="card project reveal" data-cat="mobile">
+        <div class="p-top"><span class="badge b-active">In development</span><span class="badge b-public">Public</span><span class="period">2025 – 2026</span></div>
+        <h3>Fuel Log</h3>
+        <p class="tagline">An offline, cross-platform tracker for fuel economy, running costs and maintenance across any number of vehicles, measured "tank to tank".</p>
+        <div class="p-metrics">
+          <div><b>5</b><span>target platforms</span></div>
+          <div><b>4</b><span>unit systems</span></div>
+          <div><b>9</b><span>test suites</span></div>
+        </div>
+        <div class="chips"><span class="chip">Flutter</span><span class="chip">Dart</span><span class="chip">sqflite</span><span class="chip">provider</span></div>
+        <div class="p-actions"><button class="btn btn-sm btn-primary" type="button" data-dd="fuel">Deep dive</button><a class="btn btn-sm" href="https://github.com/KhizirFarrukh/vehicle_fuel_average_calculator/tree/feature/multi-vehicle-fuel-tracking" target="_blank" rel="noopener"><svg class="ico ico-sm"><use href="#i-github"/></svg>Repository</a></div>
+      </article>
+
+      <!-- FYP -->
+      <article class="card project reveal" data-cat="ai">
+        <div class="p-top"><span class="badge b-done">Final Year Project</span><span class="badge b-public">Public</span><span class="period">Fall 2022 – Spring 2023</span></div>
+        <h3>Tajweed classification (Qalqalah)</h3>
+        <p class="tagline">Research project that judges Qur'an recitation against the Qalqalah Tajweed rule using one-class learning on audio, delivered as a Flask web app.</p>
+        <div class="p-metrics">
+          <div><b>33</b><span>Qaris × 7 Surahs processed</span></div>
+          <div><b>90.1%</b><span>One-Class SVM training accuracy</span></div>
+          <div><b>2</b><span>feature pipelines: MFCC, spectrogram</span></div>
+        </div>
+        <div class="chips"><span class="chip">Python</span><span class="chip">scikit-learn</span><span class="chip">librosa</span><span class="chip">audiomentations</span><span class="chip">Flask</span></div>
+        <div class="p-actions"><button class="btn btn-sm btn-primary" type="button" data-dd="fyp">Deep dive</button><a class="btn btn-sm" href="https://github.com/KhizirFarrukh/FYP-TajweedClassification" target="_blank" rel="noopener"><svg class="ico ico-sm"><use href="#i-github"/></svg>Repository</a></div>
+      </article>
+    </div>
+
+    <!-- Clinic evolution -->
+    <div id="clinic-story" style="scroll-margin-top:90px">
+      <div class="subhead reveal" style="margin-top:64px"><h3>One product, four generations: the Chawla Clinic story</h3><span>2022 → 2026</span></div>
+      <p class="reveal" style="color:var(--ink-2);max-width:78ch;margin-bottom:26px">I've rebuilt the same real-world system at every stage of my career, which makes it the clearest record of how my engineering has grown, from a Java desktop token printer to a tested .NET 10 platform with full SDLC documentation.</p>
+      <div class="evo reveal">
+        <div class="evo-step">
+          <span class="yr">2022</span>
+          <h4>Java desktop tools</h4>
+          <p>Swing apps that generate patient tokens and POS receipts and print them to thermal printers over ESC/POS.</p>
+          <div class="chips"><span class="chip">Java Swing</span><span class="chip">ESC/POS</span></div>
+        </div>
+        <div class="evo-step">
+          <span class="yr">2022–23</span>
+          <h4>First web system · 100 commits</h4>
+          <p>Replaced paper records: patients, tokens, dressing billing, inventory, balances, and QR-verified receipts. Deployed on Ubuntu Server.</p>
+          <div class="chips"><span class="chip">Node · Express</span><span class="chip">MySQL</span><span class="chip">EJS</span></div>
+        </div>
+        <div class="evo-step">
+          <span class="yr">2023–24</span>
+          <h4>Layered .NET API · 77 commits</h4>
+          <p>JWT auth, filtered search, Excel bulk import, DB-sequence case numbers, soft delete, pagination; feature branches and PRs; Dockerised, with a JS front end on Apache.</p>
+          <div class="chips"><span class="chip">.NET 8</span><span class="chip">EF Core</span><span class="chip">Docker</span></div>
+        </div>
+        <div class="evo-step">
+          <span class="yr">2026</span>
+          <h4>Production rewrite</h4>
+          <p>Clean Architecture .NET 10 API on PostgreSQL, a WPF desktop client, about 365 tests, a full SDLC document set, user and admin manuals, and Docker deployment with backups.</p>
+          <div class="chips"><span class="chip">.NET 10</span><span class="chip">PostgreSQL</span><span class="chip">WPF</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Smaller builds -->
+    <div class="subhead reveal" style="margin-top:64px"><h3>Smaller builds &amp; experiments</h3><span>ML · tools · coursework</span></div>
+    <div class="minis">
+      <article class="card mini reveal">
+        <h4><a href="https://github.com/KhizirFarrukh/email-spam-classifier" target="_blank" rel="noopener">Email spam classifier</a><svg class="ico ico-sm muted"><use href="#i-ext"/></svg></h4>
+        <span class="kpi">98.3% accuracy · 10,115 test emails</span>
+        <p>Enron dataset; text cleaning, TF-IDF over word 1–3-grams (10k features) and Multinomial Naive Bayes.</p>
+        <div class="chips"><span class="chip">scikit-learn</span><span class="chip">NLP</span></div>
+      </article>
+      <article class="card mini reveal">
+        <h4><a href="https://github.com/KhizirFarrukh/hate-speech-classifier" target="_blank" rel="noopener">Hate-speech classifier</a><svg class="ico ico-sm muted"><use href="#i-ext"/></svg></h4>
+        <span class="kpi">88.0% accuracy (SVM) · 3 classes</span>
+        <p>Logistic Regression vs Linear SVM with balanced class weights, reported per class with a responsible-use disclaimer.</p>
+        <div class="chips"><span class="chip">scikit-learn</span><span class="chip">TF-IDF</span></div>
+      </article>
+      <article class="card mini reveal">
+        <h4><a href="https://github.com/KhizirFarrukh/fruit-classifier" target="_blank" rel="noopener">CNN image classifiers</a><svg class="ico ico-sm muted"><use href="#i-ext"/></svg></h4>
+        <span class="kpi">Fruits-360 · Dogs vs Cats</span>
+        <p>Keras CNNs with augmentation, mixed-precision float16 training, LR scheduling and epoch counts set from observed validation plateaus.</p>
+        <div class="chips"><span class="chip">TensorFlow</span><span class="chip">Keras</span></div>
+      </article>
+      <article class="card mini reveal">
+        <h4><a href="https://github.com/KhizirFarrukh/Meeting-Point-Mapper-Python" target="_blank" rel="noopener">Meeting Point Mapper</a><svg class="ico ico-sm muted"><use href="#i-ext"/></svg></h4>
+        <span class="kpi">Geospatial · OpenStreetMap</span>
+        <p>UTM projection, Shapely buffer intersections to find a fair meeting area, Overpass API restaurant search, interactive Folium map.</p>
+        <div class="chips"><span class="chip">Python</span><span class="chip">Shapely</span><span class="chip">Folium</span></div>
+      </article>
+      <article class="card mini reveal">
+        <h4>Home file server <svg class="ico ico-sm muted"><use href="#i-lock"/></svg></h4>
+        <span class="kpi">Flask · Gunicorn · systemd · Nginx</span>
+        <p>Multi-drive file browser with size reporting and a path-traversal guard, deployed as a Linux service behind Nginx. The seed of local-ai-nas.</p>
+        <div class="chips"><span class="chip">Linux</span><span class="chip">Nginx</span></div>
+      </article>
+      <article class="card mini reveal">
+        <h4><a href="https://github.com/KhizirFarrukh/CQRS-Pattern-DDR-Project" target="_blank" rel="noopener">CQRS lending API</a><svg class="ico ico-sm muted"><use href="#i-ext"/></svg></h4>
+        <span class="kpi">Team project · built the Borrowed Items module</span>
+        <p>ASP.NET Core Web API using command/query handlers to manage sports-equipment lending (Design Defects &amp; Restructuring course).</p>
+        <div class="chips"><span class="chip">ASP.NET Core</span><span class="chip">CQRS</span></div>
+      </article>
+      <article class="card mini reveal">
+        <h4><a href="https://github.com/KhizirFarrukh/CourseRegistration-IPT_Project" target="_blank" rel="noopener">Course Registration System</a><svg class="ico ico-sm muted"><use href="#i-ext"/></svg></h4>
+        <span class="kpi">Web API + desktop client</span>
+        <p>ASP.NET Core Web API with EF Core code-first migrations (course inheritance hierarchy) consumed by a WinForms client, with ERD and DDL.</p>
+        <div class="chips"><span class="chip">ASP.NET Core</span><span class="chip">WinForms</span><span class="chip">SQL Server</span></div>
+      </article>
+      <article class="card mini reveal">
+        <h4><a href="https://github.com/KhizirFarrukh/CalculatorWebApp_AutomationTesting" target="_blank" rel="noopener">UI test automation</a><svg class="ico ico-sm muted"><use href="#i-ext"/></svg></h4>
+        <span class="kpi">22 Selenium tests across 2 suites</span>
+        <p>Selenium WebDriver + MSTest suites for an ASP.NET calculator and Microsoft's eShopOnWeb reference app.</p>
+        <div class="chips"><span class="chip">Selenium</span><span class="chip">MSTest</span></div>
+      </article>
+      <article class="card mini reveal">
+        <h4><a href="https://github.com/KhizirFarrukh/ComputerStore-DB_Project" target="_blank" rel="noopener">The Computer Store</a><svg class="ico ico-sm muted"><use href="#i-ext"/></svg></h4>
+        <span class="kpi">E-commerce + admin panel</span>
+        <p>Customer storefront in PHP + MySQL (cart, orders, accounts) and a Node/Express admin with image uploads and bcrypt auth.</p>
+        <div class="chips"><span class="chip">PHP</span><span class="chip">Node</span><span class="chip">MySQL</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================
+     PRACTICES
+     ===================================================== -->
+<section class="section" id="practices" aria-labelledby="prac-h">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">05 · How I work</span>
+      <h2 id="prac-h">The habits behind the results</h2>
+      <p>The same patterns run through my professional work and my own repositories.</p>
+    </div>
+    <div class="practices">
+      <article class="card practice reveal"><span class="num">01</span><h4>Specification before code</h4><p>Large projects start with a PRD or SRS, architecture docs, <em>decision records</em> and a staged plan. PookieBudget specified its allocation algorithm, with 15 golden vectors, before any code was written.</p></article>
+      <article class="card practice reveal"><span class="num">02</span><h4>AI-assisted, human-owned</h4><p>I use coding agents for repetitive work (<em>up to 60% faster delivery</em>), with context-rich prompts, staged plans and handoff docs. I own the hard problems and review every AI-generated line.</p></article>
+      <article class="card practice reveal"><span class="num">03</span><h4>Correctness where it matters</h4><p>Money is never a float, ledgers are append-only, prescriptions are versioned, the clock is injected, and file operations are <em>crash-safe</em>.</p></article>
+      <article class="card practice reveal"><span class="num">04</span><h4>Measure, then decide</h4><p>Thresholds are chosen by sweeping against ground truth, and the reasoning is written down, including <em>when intuition was wrong</em> (a 0.92 match threshold would have let 21 decoys through).</p></article>
+      <article class="card practice reveal"><span class="num">05</span><h4>Tests as a gate</h4><p>80–85% coverage floors in CI, property-based tests, real PostgreSQL via Testcontainers, system tests of built executables, golden files and fuzzing.</p></article>
+      <article class="card practice reveal"><span class="num">06</span><h4>Security as a programme</h4><p>Threat models, ISO 27001 control mapping, pinned CI actions, secret scanning, Argon2id, signed documents, and audit trails with soft delete.</p></article>
+      <article class="card practice reveal"><span class="num">07</span><h4>Performance by design</h4><p>Long work moves off the request thread, files go through presigned URLs, and hot paths avoid wasted work: <em>25 s → under 200 ms</em>.</p></article>
+      <article class="card practice reveal"><span class="num">08</span><h4>Build for real users</h4><p>A clinic, a retail store, a receipt system and a tax engine: concrete local problems (PKR, lakh grouping, Zakat certificates, Pakistan's tax ordinance) solved end to end.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================
+     SKILLS
+     ===================================================== -->
+<section class="section" id="skills" aria-labelledby="skills-h">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">06 · Skills</span>
+      <h2 id="skills-h">Technical toolkit, backed by evidence</h2>
+      <p>Every skill below appears in shipped code. Filled markers show technologies I use professionally; outlined markers show ones I've built with in my own projects.</p>
+    </div>
+    <div class="skill-legend reveal"><span><span class="chip pro">Professional</span>Used in my job</span><span><span class="chip own">Projects</span>Used in my own shipped projects</span></div>
+    <div class="skills">
+      <article class="card skill reveal">
+        <h4><svg class="ico"><use href="#i-code"/></svg>Languages</h4>
+        <p class="where">C# is my primary language; Python, Go and Dart each power a sizeable project.</p>
+        <div class="chips"><span class="chip pro">C#</span><span class="chip pro">SQL</span><span class="chip pro">JavaScript</span><span class="chip own">Python</span><span class="chip own">Go</span><span class="chip own">TypeScript</span><span class="chip own">Dart</span><span class="chip own">Java</span><span class="chip own">C / C++</span><span class="chip own">PHP</span></div>
+      </article>
+      <article class="card skill reveal">
+        <h4><svg class="ico"><use href="#i-server"/></svg>Back end &amp; architecture</h4>
+        <p class="where">Microservices at work; Clean Architecture and modular monoliths in my own projects.</p>
+        <div class="chips"><span class="chip pro">.NET 10 / 8 / 6</span><span class="chip pro">ASP.NET Core Web API</span><span class="chip pro">EF Core</span><span class="chip pro">MediatR · CQRS</span><span class="chip pro">FluentValidation</span><span class="chip pro">NATS</span><span class="chip pro">SignalR</span><span class="chip pro">Microservices</span><span class="chip pro">Clean Architecture</span><span class="chip pro">JWT auth</span><span class="chip pro">ASP.NET Web Forms</span><span class="chip own">Worker Services</span><span class="chip own">OpenAPI-first</span><span class="chip own">FastAPI</span><span class="chip own">Express</span><span class="chip own">Flask</span></div>
+      </article>
+      <article class="card skill reveal">
+        <h4><svg class="ico"><use href="#i-db"/></svg>Data</h4>
+        <p class="where">Database-per-tenant PostgreSQL, SKIP LOCKED queues, query tuning, migrations.</p>
+        <div class="chips"><span class="chip pro">PostgreSQL</span><span class="chip pro">Redis</span><span class="chip pro">Cassandra</span><span class="chip pro">Oracle</span><span class="chip own">pgvector</span><span class="chip own">SQLite</span><span class="chip own">SQL Server</span><span class="chip own">MySQL</span><span class="chip own">Drift</span><span class="chip own">SQLAlchemy 2 · Alembic</span></div>
+      </article>
+      <article class="card skill reveal">
+        <h4><svg class="ico"><use href="#i-cloud"/></svg>Cloud &amp; DevOps</h4>
+        <p class="where">On-demand Kubernetes pods and S3 at work; CI pipelines and self-hosting in my own projects.</p>
+        <div class="chips"><span class="chip pro">AWS S3</span><span class="chip pro">Kubernetes</span><span class="chip pro">Docker</span><span class="chip pro">Linux · Bash</span><span class="chip pro">Git</span><span class="chip pro">IIS · AWS Windows VM</span><span class="chip own">Docker Compose</span><span class="chip own">GitHub Actions</span><span class="chip own">Azure Pipelines</span><span class="chip own">Nginx</span><span class="chip own">systemd</span><span class="chip own">Apache</span></div>
+      </article>
+      <article class="card skill reveal">
+        <h4><svg class="ico"><use href="#i-check"/></svg>Testing &amp; quality</h4>
+        <p class="where">Container-backed integration tests at work; 80–93% coverage gates in my own projects.</p>
+        <div class="chips"><span class="chip pro">xUnit</span><span class="chip pro">Moq</span><span class="chip pro">Testcontainers</span><span class="chip pro">Contract tests</span><span class="chip own">NSubstitute</span><span class="chip own">pytest</span><span class="chip own">Hypothesis</span><span class="chip own">Vitest</span><span class="chip own">Playwright</span><span class="chip own">Selenium</span><span class="chip own">Fuzzing</span><span class="chip own">mypy --strict</span></div>
+      </article>
+      <article class="card skill reveal">
+        <h4><svg class="ico"><use href="#i-file"/></svg>Documents &amp; integrations</h4>
+        <p class="where">PDF and Excel pipelines, digital signatures, hardware printers, e-commerce.</p>
+        <div class="chips"><span class="chip pro">PuppeteerSharp</span><span class="chip pro">paged.js</span><span class="chip pro">Excel / CSV import</span><span class="chip own">ClosedXML</span><span class="chip own">Playwright PDF</span><span class="chip own">PAdES (pyHanko)</span><span class="chip own">HtmlAgilityPack</span><span class="chip own">ESC/POS printers</span><span class="chip own">Shopify Liquid</span></div>
+      </article>
+      <article class="card skill reveal">
+        <h4><svg class="ico"><use href="#i-layout"/></svg>Front end, desktop &amp; mobile</h4>
+        <p class="where">Enough to ship complete products around my back ends.</p>
+        <div class="chips"><span class="chip pro">HTML · CSS</span><span class="chip own">SvelteKit · Svelte 5</span><span class="chip own">Tailwind</span><span class="chip own">React</span><span class="chip own">Next.js</span><span class="chip own">WPF · MVVM</span><span class="chip own">WinForms</span><span class="chip own">Flutter · Riverpod</span><span class="chip own">tkinter</span><span class="chip own">PySide6</span></div>
+      </article>
+      <article class="card skill reveal">
+        <h4><svg class="ico"><use href="#i-brain"/></svg>Machine learning &amp; CV</h4>
+        <p class="where">From a final-year research project to a production-grade tracking engine.</p>
+        <div class="chips"><span class="chip own">scikit-learn</span><span class="chip own">TensorFlow · Keras</span><span class="chip own">Ultralytics YOLO</span><span class="chip own">OpenCV</span><span class="chip own">librosa</span><span class="chip own">NumPy · pandas</span><span class="chip own">Re-identification</span><span class="chip own">Fuzzy matching</span></div>
+      </article>
+      <article class="card skill reveal">
+        <h4><svg class="ico"><use href="#i-users"/></svg>Ways of working</h4>
+        <p class="where">Certified in Scrum; comfortable owning features from ticket to production.</p>
+        <div class="chips"><span class="chip pro">Agile · Scrum</span><span class="chip pro">Jira</span><span class="chip pro">Claude Code</span><span class="chip pro">ChatGPT Codex</span><span class="chip pro">Code review</span><span class="chip own">ADRs</span><span class="chip own">SRS / PRD writing</span><span class="chip own">Threat modelling</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================
+     GITHUB
+     ===================================================== -->
+<section class="section" id="github" aria-labelledby="gh-h">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">07 · Open work</span>
+      <h2 id="gh-h">My GitHub, by the numbers</h2>
+      <p>Measured from every repository on <a href="https://github.com/KhizirFarrukh" target="_blank" rel="noopener">github.com/KhizirFarrukh</a>, across all branches. Professional work lives in company repositories and isn't counted here.</p>
+    </div>
+    <div class="gh-stats">
+      <div class="card reveal"><b>51</b><span>repositories (35 public)</span></div>
+      <div class="card reveal"><b>976</b><span>commits authored</span></div>
+      <div class="card reveal"><b>4,500+</b><span>tests in featured projects</span></div>
+      <div class="card reveal"><b>10+</b><span>languages in shipped code</span></div>
+    </div>
+
+    <div class="charts">
+      <article class="card chart-card reveal">
+        <h3>Commits per year</h3>
+        <p class="sub">Personal repositories only. 2024–25 were my first full years in a full-time role.</p>
+        <div class="colchart" id="commitChart" role="img" aria-label="Commits per year: 2022, 104; 2023, 172; 2024, 58; 2025, 24; 2026, 618."></div>
+        <div class="chart-foot">
+          <details><summary>Show as table</summary>
+            <div class="table-wrap"><table id="commitTable"><thead><tr><th>Year</th><th style="text-align:right">Commits</th></tr></thead><tbody></tbody></table></div>
+          </details>
+        </div>
+      </article>
+      <article class="card chart-card reveal">
+        <h3>Hand-written code by language</h3>
+        <p class="sub">Lines across my own repositories, excluding vendored libraries, generated migrations and forks.</p>
+        <div class="hbars" id="langChart" role="img" aria-label="Lines of code by language. Python 82,352; C# 49,640; Dart 37,169; Liquid 28,352; Go 26,764; JavaScript 15,841; TypeScript and Svelte 13,929; SQL 2,555; Java 1,818; PHP 1,378."></div>
+        <div class="chart-foot">
+          <p class="note">Liquid includes the Shopify Dawn base theme the storefront builds on.</p>
+          <details><summary>Show as table</summary>
+            <div class="table-wrap"><table id="langTable"><thead><tr><th>Language</th><th style="text-align:right">Lines</th><th style="text-align:right">Repos</th></tr></thead><tbody></tbody></table></div>
+          </details>
+        </div>
+      </article>
+    </div>
+
+    <div class="repo-tools" id="repoIndex">
+      <label class="search"><svg class="ico"><use href="#i-search"/></svg><span class="sr-only">Search repositories</span><input id="repoSearch" type="search" placeholder="Search repositories, tech or topics…" autocomplete="off"></label>
+      <select class="select" id="repoFilter" aria-label="Filter repositories">
+        <option value="all">All repositories</option>
+        <option value="featured">Featured</option>
+        <option value="public">Public</option>
+        <option value="private">Private</option>
+        <option value="course">University coursework</option>
+        <option value="collab">Collaborations &amp; forks</option>
+      </select>
+      <select class="select" id="repoSort" aria-label="Sort repositories">
+        <option value="commits">Most commits</option>
+        <option value="recent">Most recent</option>
+        <option value="name">Name A–Z</option>
+      </select>
+    </div>
+    <p class="repo-count" id="repoCount" aria-live="polite"></p>
+    <div class="repos" id="repoList"></div>
+    <button class="btn btn-sm more-btn" id="repoMore" type="button">Show all repositories</button>
+  </div>
+</section>
+
+<!-- =====================================================
+     EDUCATION
+     ===================================================== -->
+<section class="section" id="education" aria-labelledby="edu-h">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">08 · Education &amp; credentials</span>
+      <h2 id="edu-h">Education, certifications &amp; recognition</h2>
+    </div>
+    <div class="edu">
+      <article class="card degree reveal">
+        <div class="crest"><i><svg class="ico"><use href="#i-cap"/></svg></i><div><h3>BS Computer Science</h3><div class="sub">FAST-NUCES (National University of Computer &amp; Emerging Sciences), Karachi</div></div></div>
+        <div class="degree-facts">
+          <div><b>3.23</b><span>CGPA</span></div>
+          <div><b>2×</b><span>Dean's List: Spring '21, Spring '23</span></div>
+          <div><b>2019–23</b><span>Aug 2019 – Jun 2023</span></div>
+        </div>
+        <p style="color:var(--ink-2)"><strong style="color:var(--ink)">Final Year Project:</strong> Tajweed classification by the Qalqalah rule, an audio ML research project (One-Class SVM on MFCC and mel-spectrogram features) with a Flask web interface.</p>
+        <div>
+          <h4 style="font-size:14px;font-weight:650;margin-bottom:8px">Selected course projects</h4>
+          <ul class="course-list">
+            <li><b>Packet sniffer</b> on Linux · Computer Networks</li>
+            <li><b>Licence plate recognition</b> with a trie · Data Structures</li>
+            <li><b>Sleeping-barber system call</b> · Operating Systems</li>
+            <li><b>Matrix inversion with OpenMP</b> · Parallel Computing</li>
+            <li><b>Autocorrect tool</b> (Transformer + edit distance) · AI</li>
+            <li><b>Cuisine classifier</b> · Information Retrieval</li>
+            <li><b>CQRS lending API</b> · Design Defects &amp; Restructuring</li>
+            <li><b>Course registration</b> API + desktop · IPT</li>
+            <li><b>Computer Store</b> e-commerce · Databases + SDA</li>
+            <li><b>Selenium automation</b> · Software Testing</li>
+            <li><b>Azure Pipelines CI</b> · DevOps</li>
+            <li><b>Snake game</b> in Assembly · COAL</li>
+          </ul>
+        </div>
+      </article>
+      <div class="edu-side">
+        <article class="card edu-item reveal">
+          <h4>A Levels · Beaconhouse College, Karachi</h4>
+          <span class="when">Aug 2017 – Aug 2019</span>
+          <p>Including Computer Science and Chemistry.</p>
+        </article>
+        <article class="card edu-item reveal">
+          <h4>O Levels · Beaconhouse School, Karachi</h4>
+          <span class="when">Aug 2014 – Aug 2017</span>
+          <p>Including Computer Science, Mathematics, Additional Mathematics, Physics and Chemistry.</p>
+        </article>
+        <article class="card edu-item reveal">
+          <h4 style="margin-bottom:6px">Certifications</h4>
+          <div class="cert"><i><svg class="ico ico-sm"><use href="#i-check"/></svg></i><div><b>Scrum Foundation Professional Certificate (SFPC)</b><span>CertiProf · 2023</span></div></div>
+          <div class="cert"><i><svg class="ico ico-sm"><use href="#i-check"/></svg></i><div><b>Object-Oriented Programming with Java</b><span>Coursera · 2020</span></div></div>
+          <div class="cert"><i><svg class="ico ico-sm"><use href="#i-check"/></svg></i><div><b>Introduction to Relational Databases and SQL</b><span>Coursera · 2020</span></div></div>
+        </article>
+        <article class="card edu-item reveal">
+          <h4>UBL Datathon 2022 · Team "Epsilon"</h4>
+          <span class="when">Risk &amp; Fraud track</span>
+          <p>Team proposal for ML-based internet-banking fraud analytics: per-transaction risk scores that allow, block or require step-up authentication from knowledge, possession, inherence and behavioural signals.</p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================
+     CONTACT
+     ===================================================== -->
+<section id="contact" aria-labelledby="contact-h">
+  <div class="wrap">
+    <div class="contact reveal">
+      <h2 id="contact-h">Let's build something reliable.</h2>
+      <p>I'm a backend engineer who cares about correctness, performance and shipping. The fastest way to reach me is email.</p>
+      <div class="contact-grid">
+        <button class="contact-item" type="button" id="copyEmail" data-email="khizirfarrukh@gmail.com"><span><svg class="ico ico-sm"><use href="#i-mail"/></svg>Email · <em id="copyState" style="font-style:normal">click to copy</em></span><b>khizirfarrukh@gmail.com</b></button>
+        <a class="contact-item" href="tel:+923152825523"><span><svg class="ico ico-sm"><use href="#i-phone"/></svg>Phone</span><b>+92 315 282 5523</b></a>
+        <a class="contact-item" href="https://www.linkedin.com/in/khizir-farrukh" target="_blank" rel="noopener"><span><svg class="ico ico-sm"><use href="#i-linkedin"/></svg>LinkedIn</span><b>in/khizir-farrukh</b></a>
+        <a class="contact-item" href="https://github.com/KhizirFarrukh" target="_blank" rel="noopener"><span><svg class="ico ico-sm"><use href="#i-github"/></svg>GitHub</span><b>KhizirFarrukh</b></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="yr">2026</span> Khizir Farrukh Chawla</span>
+    <span>Single self-contained page · figures measured from source code and my résumé</span>
+  </div>
+</footer>
+
+<!-- Deep-dive dialog shell -->
+<dialog class="dd" id="dd" aria-labelledby="ddTitle">
+  <div class="dd-head">
+    <div>
+      <div class="p-top" id="ddBadges"></div>
+      <h3 id="ddTitle"></h3>
+      <p class="tagline" id="ddTag"></p>
+    </div>
+    <button class="icon-btn dd-close" id="ddClose" type="button" aria-label="Close"><svg class="ico"><use href="#i-x"/></svg></button>
+  </div>
+  <div class="dd-body" id="ddBody"></div>
+</dialog>
+<div class="tip" id="tip" role="presentation"></div>
+
+<!-- =====================================================
+     DEEP-DIVE TEMPLATES
+     ===================================================== -->
+<template id="t-nas">
+  <div class="dd-kpis"><div><b>305</b><span>commits, 23 Sep – 1 Oct 2026</span></div><div><b>~27k / ~14k</b><span>lines of Go / Svelte + TS</span></div><div><b>290</b><span>Go test functions + fuzzing</span></div><div><b>53</b><span>architecture decision records</span></div></div>
+  <div><h4>The problem</h4><p>People want Google Photos–grade organisation and search without uploading their lives to the cloud. local-ai-nas is network-attached storage anyone can run on their own hardware: a general <strong>Files</strong> area, a <strong>Photos</strong> library, forgiving search, and <strong>optional AI that runs locally</strong> (classification, face grouping), with nothing ever sent off the machine.</p></div>
+  <div><h4>Architecture</h4>
+<pre class="dd-arch">Browser (SvelteKit SPA)      Scripts (REST API)
+           \                      /
+            v                    v
+   local-ai-nas · one Go binary
+     ├─ Files            → files/
+     ├─ Photos           → photos/ + .lainas.json sidecars
+     ├─ Search           → rebuildable Bleve index
+     ├─ Background jobs  → durable SQLite job queue
+     └─ Accounts/settings→ SQLite (goose migrations)
+                 ^
+   Optional AI helper (Python + ONNX, read-only, local only)</pre></div>
+  <div class="dd-grid">
+    <div><h4>Back end (done)</h4><ul>
+      <li><strong>OpenAPI-first REST API</strong>: server generated with oapi-codegen; RFC 7807 problem responses; fuzz-tested.</li>
+      <li>File operations: list, details, create, upload, download, rename, move, copy, delete, usage, <strong>ZIP archive downloads</strong>.</li>
+      <li><strong>Resumable tus uploads</strong> with content hashing, limits and cleanup, plus a 10 GiB memory-bound CI test.</li>
+      <li><strong>Crash safety</strong>: <code>synchronous=FULL</code>, operation journal, stable item IDs, large copies run as durable jobs.</li>
+      <li><strong>Storage hardening</strong>: path-escape and symlink guards, refusal of Unicode direction characters, locks, cross-device moves, per-OS file IDs, birth times and free space.</li>
+    </ul></div>
+    <div><h4>Web app (done)</h4><ul>
+      <li>SvelteKit 2, Svelte 5, Tailwind 4 and TypeScript, compiled to a static SPA <strong>embedded in the Go binary</strong>.</li>
+      <li>Typed client generated from the same OpenAPI spec.</li>
+      <li>Virtualised listings, resumable folder uploads (Uppy + tus), multi-select operations, conflict dialogs, menus.</li>
+      <li>Previews for images, video, text and PDF, with <strong>sandboxing of active content</strong>.</li>
+      <li>Responsive, accessible (axe audits) and contrast-checked; Vitest browser tests plus Playwright end-to-end tests.</li>
+    </ul></div>
+  </div>
+  <div class="dd-grid">
+    <div><h4>Security stage (in progress)</h4><ul>
+      <li>Threat model v1.0 and an internal code review of earlier stages.</li>
+      <li><strong>ISO/IEC 27001:2022 Annex A</strong> statement of applicability covering all 93 controls.</li>
+      <li>Argon2id password hashing, accounts schema, Host allow-list and Origin checks.</li>
+      <li>gitleaks secret scanning, ESLint security rules, SHA-pinned GitHub Actions.</li>
+    </ul></div>
+    <div><h4>CI on Ubuntu + Windows</h4><ul>
+      <li>golangci-lint, <code>go vet</code>, race-detector tests, an <strong>80% coverage gate</strong>.</li>
+      <li>README quick-start replayed from a fresh clone on every run.</li>
+      <li>govulncheck, licence checks and generated-code drift checks.</li>
+    </ul></div>
+  </div>
+  <div><h4>Roadmap (17 stages)</h4><p>NAS core ✓ → web UI ✓ → <strong>security</strong> → photos library → sidecar metadata (<code>IMG_0001.jpg.lainas.json</code> as the source of truth) → fuzzy search with operators (<code>before:</code>, <code>place:</code>, <code>tag:</code>, <code>face:</code>) → multi-user and sharing → data protection → WebDAV/SMB → admin console → duplicates and look-alikes → storage optimisation → dependency security review → packaging (Docker x86-64/ARM64) → RAID 0/1 pools → SSD cache → <strong>local AI, always last</strong>.</p></div>
+</template>
+
+<template id="t-mct">
+  <div class="dd-kpis"><div><b>1,828</b><span>tests passing</span></div><div><b>93.11%</b><span>coverage (85% floor)</span></div><div><b>109</b><span>files clean under mypy --strict</span></div><div><b>11 / 20</b><span>stages complete</span></div></div>
+  <div><h4>The problem</h4><p>Given a target, primarily a <strong>licence plate</strong> with visual re-identification as a fallback, ingest video from several cameras, detect vehicles, record every sighting and reconstruct the vehicle's movement across cameras as a timeline plus a map. The motivating use case is <strong>stolen-vehicle tracking</strong>.</p></div>
+  <div><h4>Pipeline</h4>
+<pre class="dd-arch">Video sources (recorded / live) → frame sampling → vehicle detection (YOLO)
+        → plate detection + OCR      → re-id embeddings
+                        ↓
+           Sighting store: PostgreSQL 16 + pgvector
+                        ↓
+   Matching (exact / fuzzy plate / embedding) + camera topology (travel-time windows)
+                        ↓
+   Path reconstruction (confidence-scored hops)  →  REST API → map + timeline UI
+                        ↘ below auto-accept threshold → human review queue</pre></div>
+  <div class="dd-grid">
+    <div><h4>Design principles</h4><ul>
+      <li><strong>Plate first, appearance second.</strong> Exact plates win; fuzzy matching uses confusion-weighted Damerau-Levenshtein over real OCR confusions (O/0, I/1, S/5, B/8, Z/2, G/6). Visual evidence <em>cannot</em> outrank a plate match, and that inequality is asserted at startup.</li>
+      <li><strong>Topology prunes, it doesn't decorate.</strong> A sighting at camera B counts only if the elapsed time fits that link's plausible travel-time window.</li>
+      <li><strong>No magic numbers.</strong> Every threshold lives in YAML with no Python default; a missing value fails at startup.</li>
+      <li><strong>Deterministic time.</strong> Nothing calls <code>datetime.now()</code>; an injectable clock makes every test reproducible.</li>
+    </ul></div>
+    <div><h4>Measured, not assumed</h4><ul>
+      <li>A <strong>synthetic ground-truth generator</strong> (clean, degraded, sparse, hard-negative and adversarial scenarios) was built <em>before</em> any computer vision.</li>
+      <li>Plate threshold sweep: a structural cliff at weighted distance 1.0 (precision <strong>1.000</strong> vs 0.625).</li>
+      <li>Re-ID auto-accept at <strong>0.95 admits 0 decoys</strong>; the proposed 0.92 would have admitted 21. Topology-constrained retrieval raised hard-negative precision from 0.100 to 0.160 at no recall cost.</li>
+      <li>Global route scoring in one linear pass (time order is a topological order): P = R = 1.0 on clean scenarios and <strong>zero teleports</strong> under adversarial data.</li>
+    </ul></div>
+  </div>
+  <div class="dd-grid">
+    <div><h4>Stack</h4><ul>
+      <li>Python 3.11+, uv, pydantic v2, SQLAlchemy 2 + Alembic, <strong>PostgreSQL 16 + pgvector</strong>, FastAPI, structlog, NumPy.</li>
+      <li>Vision extras kept optional so CI stays fast: OpenCV, PyAV, <strong>Ultralytics YOLO</strong>, PaddleOCR, PyTorch.</li>
+      <li>pytest, Hypothesis, freezegun, Testcontainers, ruff, mypy --strict, GitHub Actions.</li>
+    </ul></div>
+    <div><h4>Responsible use, built in</h4><ul>
+      <li>Audit logging of every search, confirmation and rejection.</li>
+      <li>Retention TTL with automated purge of sightings and thumbnails.</li>
+      <li>Confidence shown everywhere; nothing is silently promoted to certain.</li>
+      <li>A human review gate below the auto-accept threshold; authenticated actors for writes.</li>
+    </ul></div>
+  </div>
+</template>
+
+<template id="t-clinic">
+  <div class="dd-kpis"><div><b>~30k</b><span>lines of hand-written C#</span></div><div><b>~365</b><span>xUnit test methods</span></div><div><b>22</b><span>API controllers</span></div><div><b>39</b><span>commits, Jun 2026</span></div></div>
+  <div><h4>The problem</h4><p>A real clinic treating <strong>burn patients</strong> (dressing with medicated pads) and <strong>general patients</strong> (consultation and medicines) was running on manual registers: lost or duplicate case numbers, overwritten prescriptions, balance errors, slow reception, and no quick way to issue bills or letters.</p></div>
+  <div class="dd-grid">
+    <div><h4>What it does</h4><ul>
+      <li><strong>Patients</strong>: burn/general types, unique case-number scheme, age calculation, guest patients, clinical details.</li>
+      <li><strong>Prescriptions are never overwritten</strong>; every change is a retained version.</li>
+      <li><strong>Billing</strong>: pad-based dressing and medicine charges with effective-dated pricing tiers.</li>
+      <li><strong>Payments</strong>: advances, partials, refunds, discounts, a balance ledger; sponsors and Zakat certificates.</li>
+      <li><strong>Workflow</strong>: tokens and patient-journey state machines with emergency priority.</li>
+      <li><strong>Documents</strong>: bills, plus insurance, sick-leave and reimbursement letters; inventory; Excel import/export; reports.</li>
+    </ul></div>
+    <div><h4>How it's built</h4><ul>
+      <li><strong>.NET 10 ASP.NET Core API</strong> in Clean Architecture (Domain → Application → Infrastructure → API).</li>
+      <li><strong>EF Core 10 + PostgreSQL 16</strong>, FluentValidation, <strong>JWT access + refresh tokens</strong>, OpenAPI/Swagger.</li>
+      <li>Users, roles, granular permissions and an admin console; <strong>soft delete and a full audit log</strong> on every record.</li>
+      <li><strong>WPF desktop client</strong> (MVVM with CommunityToolkit, Generic Host DI) for reception, workflow, payments, pricing, documents and administration.</li>
+      <li>Docker Compose deployment (API + Postgres), TLS, and backup/restore scripts.</li>
+    </ul></div>
+  </div>
+  <div class="dd-grid">
+    <div><h4>Quality</h4><ul>
+      <li>Unit tests with xUnit, FluentAssertions and NSubstitute.</li>
+      <li><strong>Integration tests against real PostgreSQL</strong> via Testcontainers.</li>
+      <li>API tests through WebApplicationFactory; GitHub Actions CI.</li>
+    </ul></div>
+    <div><h4>Documentation</h4><ul>
+      <li>Full SDLC set: Vision &amp; Scope, SRS, data and application design, test plan, test cases, <strong>traceability matrix</strong>, deployment plan.</li>
+      <li>Living <code>FLOW.md</code> / <code>FLOW.json</code> system maps.</li>
+      <li>User manual and administrator manual.</li>
+    </ul></div>
+  </div>
+</template>
+
+<template id="t-receipt">
+  <div class="dd-kpis"><div><b>65</b><span>commits, May – Sep 2026</span></div><div><b>~1,500</b><span>test functions</span></div><div><b>90.4%</b><span>coverage at last run (80% floor)</span></div><div><b>PAdES</b><span>signature on every receipt</span></div></div>
+  <div><h4>The problem</h4><p>A retail shop needs professional receipts that customers can trust and the shop can't be impersonated on, plus enough back office (catalogue, stock, serials, history) to avoid retyping every sale.</p></div>
+  <div class="dd-grid">
+    <div><h4>How it works</h4><ul>
+      <li>A tkinter desktop UI collects the sale; layouts are <strong>editable HTML/CSS templates</strong>, so the receipt design changes without a rebuild.</li>
+      <li>Rendered to A4 PDF with <strong>Playwright/Chromium</strong>, with real page headers and footers and a warranty and returns page appended.</li>
+      <li>Every PDF is <strong>digitally signed (PAdES)</strong> with pyHanko. Keys can be created or imported in-app, rotation is supported, the key is checked before a customer is waiting, and a separate verifier tool is included.</li>
+      <li><code>--doctor</code> environment checks; a verified PyInstaller <code>.exe</code> build; exactly pinned dependencies, because the browser version decides the layout.</li>
+    </ul></div>
+    <div><h4>Business features</h4><ul>
+      <li><strong>Decimal money everywhere</strong>; lines are rounded and then summed, so printed totals always add up.</li>
+      <li>Per-line, per-item or percentage discounts and tax; inclusive or exclusive tax; lakh digit grouping.</li>
+      <li>Catalogue with inheriting variants, <strong>barcode scan-to-add</strong>, stock, and <strong>one serial number per unit sold</strong>.</li>
+      <li>Drafts that use no invoice number; voids that restock items but never reuse the number.</li>
+      <li>Instalment plans, per-shipment shipping, and payment-method charges (levy vs card fee).</li>
+    </ul></div>
+  </div>
+</template>
+
+<template id="t-tax">
+  <div class="dd-kpis"><div><b>496</b><span>tests (368 unit · 84 integration · 44 system)</span></div><div><b>26</b><span>rate cards</span></div><div><b>FY15–FY27</b><span>fiscal years covered</span></div></div>
+  <div><h4>Why it's non-trivial</h4><ul>
+    <li><strong>The 75% salary dominance test.</strong> If salary exceeds 75% of taxable income, the salaried card applies to all of it; otherwise the steeper card does. Rs 10M split 7.6M/2.4M is taxed <strong>Rs 2.681M</strong>, but split 7.5M/2.5M it is taxed <strong>Rs 3.59M</strong>.</li>
+    <li><strong>Section 4AB surcharge</strong> above Rs 10M, modelled per year and per income category (including its FY27 withdrawal for salaried income).</li>
+    <li><strong>Net-to-gross solver.</strong> Take-home pay isn't monotonic in gross: it drops at the surcharge threshold and jumps at the 75% line. The solver splits the search at those points, returns the cheaper gross when two exist, and reports unreachable targets instead of a plausible wrong answer. A bracketing solver and an analytic inverse are cross-checked in tests.</li>
+    <li><strong>Self-checking rate data.</strong> Structural tests over all 26 cards check contiguous slabs, progressive rates, tax that never falls as income rises, and fixed amounts that match the slab below, which catches typos in published tables.</li>
+  </ul></div>
+  <div><h4>Interface</h4><p>Interactive prompts or flags (<code>--salary 500000/m</code>, <code>--business</code>, <code>--flat AMOUNT@RATE</code>, <code>--year</code>, <code>--target-net</code>), plus <code>--json</code> output. System tests run the built executable as a separate process with real arguments, stdin, stdout and exit codes.</p></div>
+</template>
+
+<template id="t-price">
+  <div class="dd-kpis"><div><b>3</b><span>deployable apps + Compose</span></div><div><b>.NET 10</b><span>API + Worker Service</span></div><div><b>PKR</b><span>price &amp; rating history</span></div></div>
+  <div><h4>What it does</h4><p>Tracks tech products across Pakistani retailers: each product's offer at each retailer, with <strong>price history, rating history, reviews, availability and condition</strong>, so shoppers can compare at a glance.</p></div>
+  <div class="dd-grid">
+    <div><h4>Back end &amp; scraper</h4><ul>
+      <li><strong>Clean Architecture .NET 10 API</strong> for brands, products, retailers, offers and scrape runs; FluentValidation, paged responses, CORS.</li>
+      <li><strong>API-key middleware</strong> (<code>X-Admin-Api-Key</code>) protects every write; the public UI is read-only.</li>
+      <li>PostgreSQL via EF Core + Npgsql with a data-first SQL schema and seed scripts.</li>
+      <li>A <strong>.NET Worker Service</strong> (also runs as a Windows Service) runs scheduled scrapes with HttpClient + HtmlAgilityPack (JSON-LD and HTML), <strong>exponential-backoff retries, timeouts, and 401/403 block detection</strong>, then writes history through an orchestrator.</li>
+    </ul></div>
+    <div><h4>Clients &amp; deployment</h4><ul>
+      <li>Static HTML/CSS/JS end-user UI served by <strong>Nginx with an <code>/api</code> reverse proxy</strong>.</li>
+      <li>A <strong>WinForms admin app</strong> with generated entity editors, multi-delete, CSV upsert import and template export, published as a single self-contained executable.</li>
+      <li>Docker Compose for Postgres, API and UI, plus a deployment guide documenting the security model.</li>
+    </ul></div>
+  </div>
+</template>
+
+<template id="t-store">
+  <div class="dd-kpis"><div><b>95</b><span>commits, Apr – Aug 2026</span></div><div><b>v1 → v1.14</b><span>theme releases</span></div><div><b>34</b><span>products in the catalogue</span></div></div>
+  <div><h4>Context</h4><p>Chawla Tech is my computer-hardware and gaming-peripherals business in Pakistan (brands include Attack Shark, A4Tech, Bloody, HyperX, Logitech, AULA and TP-Link). I built and run its storefront.</p></div>
+  <div class="dd-grid">
+    <div><h4>Shopify theme</h4><ul>
+      <li>A custom design system replacing Dawn's surfaces, with sections for the hero collage, brand strip, category grid, top sellers, used products, reviews, trust bar and a <strong>PC diagnosis</strong> service page.</li>
+      <li>Live predictive search, lazy loading, pagination, mobile optimisation, a pill variant selector, quick add, <strong>call-to-order</strong> modal and inventory tracking.</li>
+      <li>SEO with JSON-LD structured data and <code>robots.txt.liquid</code>; passes <code>shopify theme check</code>.</li>
+      <li>Warranty, terms and privacy pages as theme sections, with a <strong>policy acknowledgement required at checkout</strong>.</li>
+    </ul></div>
+    <div><h4>Zero-backend successor</h4><ul>
+      <li>A static store whose catalogue is a <strong>CSV editable in Excel</strong>, parsed by a small hand-written CSV parser.</li>
+      <li>Vanilla JS filtering, sorting, variants, gallery and cart.</li>
+      <li>Orders are handed off as a <strong>pre-filled WhatsApp message</strong>; nothing is charged on the site.</li>
+      <li>Deploys to any static host with no build step.</li>
+    </ul></div>
+  </div>
+</template>
+
+<template id="t-budget">
+  <div class="dd-kpis"><div><b>44</b><span>commits, Jul – Sep 2026</span></div><div><b>~24k</b><span>lines of Dart</span></div><div><b>13</b><span>tables (Drift / SQLite)</span></div><div><b>7</b><span>ADRs</span></div></div>
+  <div><h4>The problem</h4><p>Money arrives, sits in one account and gets spent before anything is set aside. For someone who also runs a small business, the next month's inventory money and the household money land in the same place. PookieBudget splits each payment <strong>the moment it arrives</strong> into buckets the user defined in advance.</p></div>
+  <div class="dd-grid">
+    <div><h4>Invariants that can't break</h4><ul>
+      <li><strong>Money is int64 in minor units</strong>: no <code>double</code> anywhere on the money path, including fixtures and exports.</li>
+      <li><strong>The ledger is append-only</strong>; corrections are compensating entries.</li>
+      <li><strong>Balances are derived</strong>, and any cache is verified against full recomputation.</li>
+      <li><strong>Allocation is pure and deterministic</strong>: no I/O and no clock reads.</li>
+    </ul></div>
+    <div><h4>The allocation engine</h4><ul>
+      <li>Phase A: base split by basis points. Phase B: headroom, a FIFO worklist and ceiling-triggered cascade redirects (PRIORITY or SPLIT).</li>
+      <li>Three independent termination defences and a final conservation assertion.</li>
+      <li><strong>15 golden vectors</strong> specified before implementation.</li>
+    </ul></div>
+  </div>
+  <div><h4>Stack &amp; status</h4><p>Flutter, Riverpod 3, Drift, go_router (22 screens), Google Sign-In + Drive sync, WorkManager and fl_chart. A PRD (personas, 37 user stories, measurable non-functional requirements), architecture, schema, navigation and traceability documents are complete. Currently at the core data layer, <strong>stage 4 of 10</strong>.</p></div>
+  <p class="dd-callout">Honest status: the project's handoff notes record that substages 4.4–4.8 were written on a machine without a Dart SDK and are still waiting for their first compile and test run.</p>
+</template>
+
+<template id="t-fuel">
+  <div class="dd-kpis"><div><b>~12.7k</b><span>lines of Dart</span></div><div><b>5</b><span>platforms (Android, iOS, Win, macOS, Linux)</span></div><div><b>9</b><span>test suites</span></div></div>
+  <div><h4>The insight</h4><p>Dividing distance by fuel only works if you know exactly how much fuel that distance used, and at a petrol pump nobody does. Fuel Log measures <strong>tank to tank</strong>: fill to full at odometer O2, having last filled to full at O1, and whatever the pump just added is exactly what was burned over O2 − O1.</p></div>
+  <div class="dd-grid">
+    <div><h4>Engine rules</h4><ul>
+      <li>Two full tanks are needed before any average exists; the app says so rather than showing 0.0.</li>
+      <li>Partial fills carry their litres forward; a missed fill-up discards that stretch rather than flattering the average.</li>
+      <li>The lifetime figure is <strong>distance-weighted</strong>, not an average of averages.</li>
+      <li>Flags duplicate odometer readings, dates that run backwards, trip/odometer mismatches, and stretches more than 40% from the median.</li>
+    </ul></div>
+    <div><h4>Features</h4><ul>
+      <li>Multi-vehicle garage, cost per km, best and worst stretches, hand-painted charts.</li>
+      <li>Service log with distance and date reminders and overdue badges.</li>
+      <li>Side-by-side vehicle comparison; remembered fuel-station prices.</li>
+      <li>km/L, L/100 km and both mpg units; JSON/CSV backup; CSV import from other apps.</li>
+    </ul></div>
+  </div>
+  <p class="dd-callout">Honest status: the feature branch was written without a Flutter SDK available and is waiting for its first compile, as the README states.</p>
+</template>
+
+<template id="t-fyp">
+  <div class="dd-kpis"><div><b>33 × 7</b><span>Qaris × Surahs processed</span></div><div><b>40</b><span>MFCC features (phase 1)</span></div><div><b>90.1%</b><span>One-Class SVM training accuracy</span></div></div>
+  <div><h4>The research question</h4><p>Can a model judge whether a recitation correctly applies the Tajweed rule of <strong>Qalqalah</strong>? Labelled "bad" recitations are scarce, so I framed it as <strong>one-class anomaly detection</strong>: learn what correct recitation sounds like, then flag deviations.</p></div>
+  <div class="dd-grid">
+    <div><h4>Phase 1 (FYP-I)</h4><ul>
+      <li>Web-scraped recitations from many Qaris; batch MP3→WAV conversion with a metadata CSV.</li>
+      <li>Audio split on time and silence into 1–2 s and 5–6 s chunk datasets.</li>
+      <li>40-coefficient <strong>MFCC</strong> features (librosa) → One-Class SVM; K-fold experiments; voice clustering of 5 Qaris.</li>
+    </ul></div>
+    <div><h4>Phase 2 (FYP-II)</h4><ul>
+      <li>Moved to <strong>log mel-spectrogram</strong> images as features.</li>
+      <li>Augmentation: Gaussian noise, time stretch (0.8–1.25×), pitch shift (±4 semitones).</li>
+      <li>One-Class SVM tuned across kernels and ν (accuracy-vs-ν curves); polynomial kernel, ν = 0.1.</li>
+      <li><strong>Flask + Flask-WTF web app</strong>: upload any audio format → WAV → spectrogram → verdict.</li>
+    </ul></div>
+  </div>
+</template>
+
+<script>
+(function(){
+  "use strict";
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var $ = function(s, r){ return (r || document).querySelector(s); };
+  var $$ = function(s, r){ return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+
+  /* ---------- theme ---------- */
+  var root = document.documentElement;
+  function effectiveTheme(){
+    var t = root.getAttribute("data-theme");
+    if (t) return t;
+    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  }
+  $("#themeBtn").addEventListener("click", function(){
+    var next = effectiveTheme() === "dark" ? "light" : "dark";
+    root.setAttribute("data-theme", next);
+    try { localStorage.setItem("kf-theme", next); } catch(e) {}
+    var meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute("content", next === "dark" ? "#0D1015" : "#F5F4EF");
+  });
+
+  /* ---------- header + mobile nav ---------- */
+  var header = $(".site-header");
+  var onScroll = function(){ header.classList.toggle("scrolled", window.scrollY > 8); };
+  window.addEventListener("scroll", onScroll, { passive: true }); onScroll();
+  var menuBtn = $("#menuBtn"), links = $("#navLinks");
+  menuBtn.addEventListener("click", function(){
+    var open = links.classList.toggle("open");
+    menuBtn.setAttribute("aria-expanded", String(open));
+  });
+  $$("#navLinks a").forEach(function(a){ a.addEventListener("click", function(){ links.classList.remove("open"); menuBtn.setAttribute("aria-expanded","false"); }); });
+
+  /* ---------- scroll spy ---------- */
+  var navMap = {};
+  $$("#navLinks a").forEach(function(a){ navMap[a.getAttribute("href").slice(1)] = a; });
+  if ("IntersectionObserver" in window){
+    var spy = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (en.isIntersecting && navMap[en.target.id]){
+          $$("#navLinks a").forEach(function(a){ a.classList.remove("active"); });
+          navMap[en.target.id].classList.add("active");
+        }
+      });
+    }, { rootMargin: "-45% 0px -50% 0px" });
+    Object.keys(navMap).forEach(function(id){ var el = document.getElementById(id); if (el) spy.observe(el); });
+  }
+
+  /* ---------- reveal + count-up ---------- */
+  function fmt(n, dec, sep){
+    var s = n.toFixed(dec);
+    if (sep){ s = Number(s).toLocaleString("en-US", { minimumFractionDigits: dec, maximumFractionDigits: dec }); }
+    return s;
+  }
+  function countUp(el){
+    var target = parseFloat(el.getAttribute("data-count"));
+    var dec = parseInt(el.getAttribute("data-dec") || "0", 10);
+    var sep = el.hasAttribute("data-sep");
+    if (reduce){ el.textContent = fmt(target, dec, sep); return; }
+    var start = null, dur = 1300;
+    function step(ts){
+      if (!start) start = ts;
+      var p = Math.min((ts - start) / dur, 1);
+      var e = 1 - Math.pow(1 - p, 3);
+      el.textContent = fmt(target * e, dec, sep);
+      if (p < 1) requestAnimationFrame(step); else el.textContent = fmt(target, dec, sep);
+    }
+    requestAnimationFrame(step);
+  }
+  if ("IntersectionObserver" in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (!en.isIntersecting) return;
+        en.target.classList.add("in");
+        $$("[data-count]", en.target).forEach(countUp);
+        io.unobserve(en.target);
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+    $$(".reveal").forEach(function(el){ io.observe(el); });
+  } else {
+    $$(".reveal").forEach(function(el){ el.classList.add("in"); });
+  }
+
+  /* ---------- terminal typing ---------- */
+  (function(){
+    var pre = $("#term");
+    if (!pre || reduce) return;
+    var full = pre.innerHTML;
+    var tmp = document.createElement("div"); tmp.innerHTML = full;
+    var nodes = Array.prototype.slice.call(tmp.childNodes);
+    pre.innerHTML = "";
+    var caret = document.createElement("span"); caret.className = "caret";
+    var i = 0;
+    function nextNode(){
+      if (i >= nodes.length){ pre.appendChild(caret); return; }
+      var n = nodes[i++];
+      if (n.nodeType === 3){ pre.appendChild(document.createTextNode(n.textContent)); nextNode(); return; }
+      var span = document.createElement("span"); span.className = n.className;
+      pre.appendChild(span); pre.appendChild(caret);
+      var text = n.textContent, k = 0;
+      var typing = n.className === "c";
+      if (!typing){ span.textContent = text; setTimeout(nextNode, n.className === "p" ? 260 : 120); return; }
+      (function type(){
+        span.textContent = text.slice(0, ++k);
+        if (k < text.length) setTimeout(type, 28 + Math.random() * 40); else setTimeout(nextNode, 280);
+      })();
+    }
+    setTimeout(nextNode, 500);
+  })();
+
+  /* ---------- project filters ---------- */
+  var filters = $$(".filter");
+  var cards = $$("#projectGrid .project");
+  filters.forEach(function(btn){
+    var f = btn.getAttribute("data-filter");
+    var n = f === "all" ? cards.length : cards.filter(function(c){ return c.getAttribute("data-cat").split(" ").indexOf(f) > -1; }).length;
+    var s = document.createElement("span"); s.className = "n"; s.textContent = n; btn.appendChild(s);
+    btn.addEventListener("click", function(){
+      filters.forEach(function(b){ b.setAttribute("aria-pressed", String(b === btn)); });
+      cards.forEach(function(c){
+        var show = f === "all" || c.getAttribute("data-cat").split(" ").indexOf(f) > -1;
+        c.classList.toggle("hidden", !show);
+        if (show) c.classList.add("in");
+      });
+    });
+  });
+
+  /* ---------- deep-dive dialog ---------- */
+  var dd = $("#dd"), ddBody = $("#ddBody"), lastFocus = null;
+  function openDD(key, card){
+    var tpl = document.getElementById("t-" + key);
+    if (!tpl || !dd) return;
+    lastFocus = document.activeElement;
+    $("#ddTitle").textContent = $("h3", card).textContent;
+    $("#ddTag").textContent = $(".tagline", card).textContent;
+    var badges = $("#ddBadges"); badges.innerHTML = "";
+    $$(".p-top > *", card).forEach(function(b){ badges.appendChild(b.cloneNode(true)); });
+    ddBody.innerHTML = ""; ddBody.appendChild(tpl.content.cloneNode(true));
+    var actions = $(".p-actions", card);
+    var repo = actions ? actions.querySelector('a[href^="http"]') : null;
+    if (repo){
+      var wrap = document.createElement("div");
+      var a = repo.cloneNode(true); a.className = "btn btn-sm btn-primary";
+      wrap.appendChild(a); ddBody.appendChild(wrap);
+    }
+    ddBody.scrollTop = 0;
+    if (typeof dd.showModal === "function") dd.showModal(); else dd.setAttribute("open", "");
+    document.body.style.overflow = "hidden";
+  }
+  function closeDD(){
+    if (typeof dd.close === "function") dd.close(); else dd.removeAttribute("open");
+  }
+  dd.addEventListener("close", function(){ document.body.style.overflow = ""; if (lastFocus) lastFocus.focus(); });
+  $("#ddClose").addEventListener("click", closeDD);
+  dd.addEventListener("click", function(e){ if (e.target === dd) closeDD(); });
+  $$("[data-dd]").forEach(function(b){
+    b.addEventListener("click", function(){ openDD(b.getAttribute("data-dd"), b.closest(".project")); });
+  });
+
+  /* ---------- tooltip ---------- */
+  var tip = $("#tip");
+  function showTip(html, x, y){
+    tip.innerHTML = html; tip.classList.add("show");
+    var r = tip.getBoundingClientRect();
+    var left = Math.min(Math.max(8, x - r.width / 2), window.innerWidth - r.width - 8);
+    var top = y - r.height - 12; if (top < 8) top = y + 18;
+    tip.style.left = left + "px"; tip.style.top = top + "px";
+  }
+  function hideTip(){ tip.classList.remove("show"); }
+  function bindTip(el, html){
+    el.addEventListener("mousemove", function(e){ showTip(html, e.clientX, e.clientY); });
+    el.addEventListener("mouseleave", hideTip);
+    el.addEventListener("focus", function(){ var r = el.getBoundingClientRect(); showTip(html, r.left + r.width / 2, r.top); });
+    el.addEventListener("blur", hideTip);
+  }
+  window.addEventListener("scroll", hideTip, { passive: true });
+
+  /* ---------- charts ---------- */
+  var commits = [[2022,104],[2023,172],[2024,58],[2025,24],[2026,618]];
+  var totalCommits = commits.reduce(function(s,d){ return s + d[1]; }, 0);
+  (function(){
+    var el = $("#commitChart"); if (!el) return;
+    var max = 700, ticks = [0, 200, 400, 600];
+    ticks.forEach(function(t){
+      var gl = document.createElement("div"); gl.className = "gl" + (t === 0 ? " base" : "");
+      gl.style.bottom = (t / max * 100) + "%";
+      var lab = document.createElement("span"); lab.textContent = t.toLocaleString("en-US"); gl.appendChild(lab);
+      el.appendChild(gl);
+    });
+    var cols = document.createElement("div"); cols.className = "cols";
+    commits.forEach(function(d){
+      var b = document.createElement("button"); b.type = "button"; b.className = "col";
+      b.setAttribute("aria-label", d[0] + ": " + d[1] + " commits");
+      var v = document.createElement("span"); v.className = "val"; v.textContent = d[1];
+      var bar = document.createElement("span"); bar.className = "bar"; bar.style.height = (d[1] / max * 100) + "%";
+      var y = document.createElement("span"); y.className = "yr"; y.textContent = d[0];
+      b.appendChild(v); b.appendChild(bar); b.appendChild(y);
+      var pct = Math.round(d[1] / totalCommits * 100);
+      bindTip(b, "<b>" + d[0] + "</b>" + d[1] + " commits · " + pct + "% of all");
+      cols.appendChild(b);
+    });
+    el.appendChild(cols);
+    var tb = $("#commitTable tbody");
+    commits.forEach(function(d){ var tr = document.createElement("tr"); tr.innerHTML = "<td>" + d[0] + "</td><td class='num'>" + d[1] + "</td>"; tb.appendChild(tr); });
+    var tr = document.createElement("tr"); tr.innerHTML = "<td><strong>Total</strong></td><td class='num'><strong>" + totalCommits + "</strong></td>"; tb.appendChild(tr);
+  })();
+
+  var langs = [
+    ["Python",82352,13],["C#",49640,18],["Dart",37169,2],["Liquid",28352,1],["Go",26764,1],
+    ["JavaScript",15841,9],["TypeScript + Svelte",13929,4],["SQL",2555,8],["Java",1818,2],["PHP",1378,1]
+  ];
+  (function(){
+    var el = $("#langChart"); if (!el) return;
+    var max = langs[0][1];
+    langs.forEach(function(d){
+      var row = document.createElement("button"); row.type = "button"; row.className = "hrow";
+      row.setAttribute("aria-label", d[0] + ": " + d[1].toLocaleString("en-US") + " lines in " + d[2] + " repositories");
+      var lab = document.createElement("span"); lab.className = "lab"; lab.textContent = d[0];
+      var trk = document.createElement("span"); trk.className = "trk";
+      var bar = document.createElement("span"); bar.className = "bar"; bar.style.width = "calc((100% - 64px) * " + (d[1] / max).toFixed(4) + ")";
+      var v = document.createElement("span"); v.className = "v"; v.textContent = d[1] >= 1000 ? (d[1] / 1000).toFixed(1).replace(/\.0$/, "") + "k" : d[1];
+      trk.appendChild(bar); trk.appendChild(v);
+      row.appendChild(lab); row.appendChild(trk);
+      bindTip(row, "<b>" + d[0] + "</b>" + d[1].toLocaleString("en-US") + " lines · " + d[2] + (d[2] === 1 ? " repository" : " repositories"));
+      el.appendChild(row);
+    });
+    var tb = $("#langTable tbody");
+    langs.forEach(function(d){ var tr = document.createElement("tr"); tr.innerHTML = "<td>" + d[0] + "</td><td class='num'>" + d[1].toLocaleString("en-US") + "</td><td class='num'>" + d[2] + "</td>"; tb.appendChild(tr); });
+  })();
+
+  /* ---------- repository index ---------- */
+  var GH = "https://github.com/KhizirFarrukh/";
+  // [name, visibility(pub|priv|collab|fork), tech, period, sortKey(yyyymm), commits, summary, tags, url-override]
+  var repos = [
+    ["local-ai-nas","pub","Go · SvelteKit · SQLite","Sep–Oct 2026",202610,305,"Self-hosted NAS with a photo library and opt-in local AI.","featured"],
+    ["ChawlaClinic-NodeJS","pub","Node · Express · EJS · MySQL","2022–2023",202306,100,"First full-stack clinic system: tokens, billing, QR-verified receipts.",""],
+    ["chawla-tech-theme","priv","Shopify Liquid · JS","Apr–Aug 2026",202608,95,"Chawla Tech Shopify theme and static WhatsApp storefront.","featured"],
+    ["ChawlaClinic-ASP.NET-WebAPI","pub",".NET 8 · EF Core · MySQL · Docker","2023–2024",202403,77,"Clinic Web API with JWT, Excel bulk import and Docker.",""],
+    ["receipt-maker","pub","Python · Playwright · pyHanko","May–Sep 2026",202609,65,"Digitally signed PDF receipts and a POS back office.","featured"],
+    ["budgeting-app","pub","Flutter · Riverpod · Drift","Jul–Sep 2026",202609,44,"PookieBudget: automatic income-splitting budgeting app.","featured"],
+    ["chawla-clinic","priv",".NET 10 · PostgreSQL · WPF","Jun 2026",202606,39,"Production clinic management system (API + desktop).","featured"],
+    ["FYP-TajweedCorrection","priv","Python · librosa · scikit-learn","2022–2023",202301,25,"FYP phase 1: MFCC + One-Class SVM recitation analysis (team).","featured course"],
+    ["ChawlaClinic-WebApp-Frontend","pub","JavaScript · jQuery · Apache · Docker","Mar 2024",202403,25,"Web front end for the clinic API, Dockerised on Apache.",""],
+    ["CustomPOSReceiptGenerator","pub","Java Swing · ESC/POS","Sep–Nov 2022",202211,20,"Thermal-printer point-of-sale receipt generator.",""],
+    ["vehicle_fuel_average_calculator","pub","Flutter · SQLite","2025–2026",202609,20,"Fuel Log: multi-vehicle fuel-economy tracker.","featured"],
+    ["HangmanGame-Python","pub","Python","Aug 2022",202208,17,"Console Hangman with difficulty levels and release notes.",""],
+    ["multi-camera-tracking","pub","Python · pgvector · YOLO","Aug–Sep 2026",202609,16,"Cross-camera vehicle tracking and route reconstruction.","featured"],
+    ["LearningGitHub","priv","HTML · Git","Aug 2022",202208,12,"Git branching and workflow practice.",""],
+    ["cdn-web-server","priv","Flask · Gunicorn · Nginx","Jan–Feb 2026",202602,10,"Multi-drive home file server deployed with systemd.",""],
+    ["ClinicTokensGenerator","pub","Java Swing · ESC/POS","Aug 2022",202208,7,"Clinic token generator with thermal printing.",""],
+    ["Meeting-Point-Mapper-Python","pub","Python · Shapely · Folium","Feb 2025",202502,7,"Finds a fair meeting area and nearby restaurants on a map.",""],
+    ["CQRS-Pattern-DDR-Project","collab","ASP.NET Core · CQRS","Nov–Dec 2022",202212,7,"Team API for equipment lending; I built Borrowed Items.","course","https://github.com/MohammadAsad0/CQRS-Pattern-DDR-Project"],
+    ["calculator","fork","Node · Azure Pipelines","Feb 2023",202302,7,"Added Azure Pipelines CI to a Node demo app (DevOps).","course"],
+    ["TechDeals-Backend","priv",".NET 10 · PostgreSQL · HtmlAgilityPack","Apr–May 2026",202605,7,"First version of the price-comparison API and scraper.",""],
+    ["Price-Hunt","priv",".NET 10 · PostgreSQL · JS · WinForms","May 2026",202605,6,"Price-comparison platform: API, scraper, UI and admin.","featured"],
+    ["cat-vs-dog-ai","priv","TensorFlow · Keras","Aug–Oct 2025",202510,6,"CNN classifier with augmentation and mixed precision.",""],
+    ["fruit-classifier","pub","TensorFlow · Keras","Oct 2025",202510,5,"CNN multi-class fruit classifier (Fruits-360).",""],
+    ["pak-tax-calculator","pub","C# · .NET","2025–2026",202609,5,"Pakistan income-tax engine, FY2015–FY2027.","featured"],
+    ["CourseRegistration-IPT_Project","pub","ASP.NET Core · WinForms · SQL Server","Dec 2022",202212,4,"Course registration Web API + desktop client.","course"],
+    ["RecipeFinder","pub",".NET 6 · EF Core · SQL Server","Aug 2023",202308,4,"N-layer recipe API seeded from scraped JSON.",""],
+    ["TechDeals-Admin","priv","WinForms · .NET 10","May 2026",202605,4,"Admin client for TechDeals with CSV import/export.",""],
+    ["ChawlaClinic-ReactJs-Frontend","pub","React · TypeScript","Mar 2024",202403,3,"React front-end experiment for the clinic.",""],
+    ["DevOpsAssignment1","pub","ASP.NET Core MVC","Apr 2023",202304,3,"Personal portfolio site (DevOps course).","course"],
+    ["DynamicsManagementSystem","fork",".NET 6 · EF Core","May 2023",202305,3,"School management API: Teacher module and service registration.",""],
+    ["hate-speech-classifier","pub","scikit-learn · NLP","Oct 2025",202510,3,"TF-IDF with Logistic Regression and Linear SVM (88% accuracy).",""],
+    ["TechDeals-UI","priv","JavaScript · Nginx · Docker","Apr–May 2026",202605,3,"TechDeals end-user UI with an Nginx API proxy.",""],
+    ["TicTacToeGame-CSharp","pub","C# WinForms","Jan 2023",202301,3,"Tic-tac-toe with a minimax AI opponent.",""],
+    ["AceOnTechnology-Assessment","pub","Node · Express","Jul 2023",202307,2,"Job-assessment tasks: REST CRUD API and async file module.",""],
+    ["ASP.NET-WebFormsWithOracleSQL","pub","Web Forms · Oracle","Jul 2023",202307,2,"ASP.NET Web Forms + Oracle (ODP.NET) reference sample.",""],
+    ["ChawlaClinic-NextJS-Frontend","pub","Next.js · Tailwind","Sep–Oct 2023",202310,2,"Next.js front-end start for the clinic.",""],
+    ["IPT_Project-WebAPI","pub","ASP.NET Core","May 2023",202305,2,"Course registration Web API (standalone).","course"],
+    ["ipt","collab","ASP.NET MVC","Nov 2022",202211,2,"Team course-registration MVC project.","course","https://github.com/arzaaan789/ipt"],
+    ["Browniemetics","priv","MySQL","Aug 2022",202208,1,"Bakery shop database schema.",""],
+    ["Calculator_ASPNET","pub","ASP.NET Core MVC","May 2023",202305,1,"Calculator web app (target for UI automation).","course"],
+    ["CalculatorWebApp_AutomationTesting","pub","Selenium · MSTest","May 2023",202305,1,"17 Selenium UI tests for the calculator app.","course"],
+    ["ComputerStore-DB_Project","pub","PHP · Node · MySQL","Jul 2023",202307,1,"E-commerce store with a Node admin panel.","course"],
+    ["email-spam-classifier","pub","scikit-learn","Oct 2025",202510,1,"Naive Bayes spam filter, 98.3% accuracy.",""],
+    ["FYP-TajweedClassification","pub","Python · librosa · Flask","Jul 2023",202307,1,"FYP phase 2: spectrogram One-Class SVM + Flask app.","featured course"],
+    ["IPT_Project-DesktopApp","pub","WinForms","May 2023",202305,1,"Course registration desktop client (standalone).","course"],
+    ["MicrosoftLearning.eShopOnWeb_AutomationTesting","pub","Selenium · MSTest","May 2023",202305,1,"Selenium UI tests against Microsoft's eShopOnWeb.","course"],
+    ["tic-tac-toe-python","pub","PySide6","Apr 2026",202604,1,"Qt tic-tac-toe with an unbeatable minimax AI.",""]
+  ];
+  var VIS = { pub: "Public", priv: "Private", collab: "Team", fork: "Fork" };
+  var listEl = $("#repoList"), countEl = $("#repoCount"), moreBtn = $("#repoMore");
+  var state = { q: "", f: "all", s: "commits", all: false };
+  var LIMIT = 12;
+  function matches(r){
+    var tags = r[7] || "";
+    if (state.f === "featured" && tags.indexOf("featured") < 0) return false;
+    if (state.f === "public" && r[1] !== "pub") return false;
+    if (state.f === "private" && r[1] !== "priv") return false;
+    if (state.f === "course" && tags.indexOf("course") < 0) return false;
+    if (state.f === "collab" && r[1] !== "collab" && r[1] !== "fork") return false;
+    if (state.q){
+      var hay = (r[0] + " " + r[2] + " " + r[6] + " " + r[3]).toLowerCase();
+      var words = state.q.toLowerCase().split(/\s+/).filter(Boolean);
+      for (var i = 0; i < words.length; i++){ if (hay.indexOf(words[i]) < 0) return false; }
+    }
+    return true;
+  }
+  function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return { "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;" }[c]; }); }
+  function renderRepos(){
+    var rows = repos.filter(matches);
+    rows.sort(function(a, b){
+      if (state.s === "name") return a[0].toLowerCase() < b[0].toLowerCase() ? -1 : 1;
+      if (state.s === "recent") return b[4] - a[4] || b[5] - a[5];
+      return b[5] - a[5] || b[4] - a[4];
+    });
+    var limited = !state.all && !state.q && rows.length > LIMIT;
+    var shown = limited ? rows.slice(0, LIMIT) : rows;
+    var commitsShown = rows.reduce(function(s, r){ return s + r[5]; }, 0);
+    countEl.textContent = rows.length + (rows.length === 1 ? " repository" : " repositories") + " · " + commitsShown.toLocaleString("en-US") + " commits" + (limited ? " · showing top " + LIMIT : "");
+    var html = '<div class="repo head" aria-hidden="true"><span>Repository</span><span>Tech</span><span>Period</span><span style="text-align:right">Commits</span></div>';
+    if (!shown.length) html += '<div class="repo-empty">No repositories match that search.</div>';
+    shown.forEach(function(r){
+      var url = r[1] === "priv" ? null : (r[8] || GH + r[0]);
+      var name = url ? '<a href="' + url + '" target="_blank" rel="noopener">' + esc(r[0]) + '</a>' : '<strong>' + esc(r[0]) + '</strong>';
+      var vis = '<span class="vis' + (r[1] === "priv" ? " priv" : "") + '">' + VIS[r[1]] + '</span>';
+      var feat = (r[7] || "").indexOf("featured") > -1 ? '<span class="vis feat">Featured</span>' : "";
+      html += '<div class="repo"><div class="rn"><div class="rn-top">' + name + vis + feat + '</div><p>' + esc(r[6]) + '</p></div>' +
+              '<span class="tech">' + esc(r[2]) + '</span><span class="per">' + esc(r[3]) + '</span><span class="cm">' + r[5] + '</span></div>';
+    });
+    listEl.innerHTML = html;
+    moreBtn.style.display = limited ? "flex" : "none";
+  }
+  $("#repoSearch").addEventListener("input", function(e){ state.q = e.target.value.trim(); renderRepos(); });
+  $("#repoFilter").addEventListener("change", function(e){ state.f = e.target.value; renderRepos(); });
+  $("#repoSort").addEventListener("change", function(e){ state.s = e.target.value; renderRepos(); });
+  moreBtn.addEventListener("click", function(){ state.all = true; renderRepos(); });
+  renderRepos();
+
+  /* ---------- copy email ---------- */
+  var copyBtn = $("#copyEmail"), copyState = $("#copyState");
+  copyBtn.addEventListener("click", function(){
+    var email = copyBtn.getAttribute("data-email");
+    var done = function(msg){ copyState.textContent = msg; setTimeout(function(){ copyState.textContent = "click to copy"; }, 2000); };
+    if (navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(email).then(function(){ done("copied ✓"); }, function(){ window.location.href = "mailto:" + email; });
+    } else { window.location.href = "mailto:" + email; }
+  });
+
+  /* ---------- print ---------- */
+  $("#printBtn").addEventListener("click", function(){
+    state.all = true; renderRepos();
+    $$(".reveal").forEach(function(el){ el.classList.add("in"); });
+    window.print();
+  });
+  window.addEventListener("beforeprint", function(){
+    state.all = true; renderRepos();
+    $$(".reveal").forEach(function(el){ el.classList.add("in"); });
+  });
+
+  $("#yr").textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
