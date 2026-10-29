@@ -183,8 +183,8 @@ code{
 .brand small{display:block;font-family:var(--mono);font-weight:500;font-size:11px;letter-spacing:.06em;color:var(--ink-3);text-transform:uppercase}
 .nav-links{display:flex;gap:2px;margin-left:auto;list-style:none}
 .nav-links a{
-  display:block;padding:8px 11px;border-radius:9px;
-  font-size:14px;font-weight:500;color:var(--ink-2);text-decoration:none;
+  display:block;padding:8px 8px;border-radius:9px;
+  font-size:13.5px;font-weight:500;color:var(--ink-2);text-decoration:none;white-space:nowrap;
   transition:background .15s ease,color .15s ease;
 }
 .nav-links a:hover{background:var(--surface-2);color:var(--ink)}
@@ -204,7 +204,7 @@ code{
   :root:not([data-theme="light"]) .theme-light-ico{display:none}
 }
 .menu-btn{display:none}
-@media (max-width: 1080px){
+@media (max-width: 1200px){
   .nav-links{
     position:absolute;top:64px;left:0;right:0;
     flex-direction:column;gap:2px;margin:0;padding:10px var(--gutter) 16px;
@@ -504,6 +504,46 @@ td.num{font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap;col
 .patterns div{background:var(--surface);padding:18px 18px 20px}
 .patterns h4{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-text);margin-bottom:8px;font-weight:650}
 .patterns p{font-size:14px;color:var(--ink-2);line-height:1.55}
+
+/* =========================================================
+   Jiwa case study
+   ========================================================= */
+.platform-copy ul{list-style:none;display:grid;gap:7px}
+.platform-copy li{position:relative;padding-left:18px;font-size:14.5px;color:var(--ink-2);line-height:1.5}
+.platform-copy li::before{content:"";position:absolute;left:2px;top:.6em;width:7px;height:7px;border-radius:2px;background:var(--good)}
+.disclaimer.own{background:var(--good-soft);border-color:color-mix(in srgb,var(--good) 35%,transparent)}
+.flow{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px}
+@media (max-width: 1000px){.flow{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width: 560px){.flow{grid-template-columns:1fr}}
+.flow .card{padding:16px 16px 18px;position:relative}
+.flow .n{font-family:var(--mono);font-size:11.5px;font-weight:700;letter-spacing:.08em;color:var(--accent-text)}
+.flow h4{font-size:16px;font-weight:650;margin:4px 0 6px}
+.flow p{font-size:13.5px;color:var(--ink-2);line-height:1.5}
+.flow code{white-space:normal;word-break:break-all}
+.flow .card:last-child{border-color:var(--good);background:color-mix(in srgb,var(--good-soft) 60%,var(--surface))}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px;counter-reset:st}
+.steps .card{padding:18px 18px 18px 58px;position:relative}
+.steps .card::before{
+  counter-increment:st;content:counter(st);
+  position:absolute;left:16px;top:16px;width:28px;height:28px;border-radius:8px;display:grid;place-items:center;
+  font-family:var(--mono);font-size:13px;font-weight:700;background:var(--btn-bg);color:var(--btn-ink);
+}
+.steps h4{font-size:15px;font-weight:650;margin-bottom:5px}
+.steps p{font-size:14px;color:var(--ink-2);line-height:1.55}
+.rule-note{margin:0 0 16px;padding:14px 16px;border-radius:12px;background:var(--accent-soft);border:1px solid var(--accent-line);color:var(--ink);font-size:15px;max-width:none}
+.two-col{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px}
+@media (max-width: 900px){.two-col{grid-template-columns:minmax(0,1fr)}}
+.two-col .card{padding:20px 22px}
+.two-col h4{font-size:16px;font-weight:650;margin-bottom:10px}
+.ok{color:var(--good);font-weight:650;white-space:nowrap}
+.wip{color:var(--amber);font-weight:650;white-space:nowrap}
+.ext{color:var(--ink-3);font-weight:650;white-space:nowrap}
+.proj-label{
+  display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:22px 0 2px;padding-top:18px;border-top:1px solid var(--line);
+  font-size:15px;font-weight:650;color:var(--ink);
+}
+.proj-label:first-of-type{border-top:0;padding-top:0}
+.proj-label span{font-family:var(--mono);font-size:11.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)}
 
 /* =========================================================
    Projects
@@ -870,7 +910,8 @@ dialog.dd::backdrop{background:rgb(8 10 14 / .55);backdrop-filter:blur(4px)}
     <ul class="nav-links" id="navLinks">
       <li><a href="#impact">Impact</a></li>
       <li><a href="#experience">Experience</a></li>
-      <li><a href="#platform">Platform</a></li>
+      <li><a href="#platform">ScheduleEdge</a></li>
+      <li><a href="#jiwa">Jiwa</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#practices">Approach</a></li>
       <li><a href="#skills">Skills</a></li>
@@ -902,7 +943,7 @@ dialog.dd::backdrop{background:rgb(8 10 14 / .55);backdrop-filter:blur(4px)}
         <h1 id="hero-name">Khizir Farrukh Chawla</h1>
         <p class="role">Backend engineer · .NET 10 microservices · NATS · PostgreSQL</p>
         <p class="lede">I build <em>high-throughput .NET back ends</em> — and ship complete products around them.</p>
-        <p class="intro">I work on a seven-service, multi-tenant .NET 10 platform where I've made queries <strong>200× faster</strong>, cut a 25-second request to <strong>under 200 ms</strong> and moved report generation into on-demand Kubernetes pods. Outside work I design, test and ship whole systems: a production clinic management platform, a self-hosted NAS in Go, a computer-vision vehicle-tracking engine and the software that runs my own retail business.</p>
+        <p class="intro">At Cipher Impact I work on a seven-service, multi-tenant .NET 10 platform where I've made queries <strong>200× faster</strong>, cut a 25-second request to <strong>under 200 ms</strong> and moved report generation into on-demand Kubernetes pods. I also designed and built a client's <strong>document-to-ERP platform</strong> almost single-handed: ~43k lines of C#, ~28k of TypeScript and <strong>3,651 tests at 100% coverage</strong>, in three weeks. Outside work I design, test and ship whole systems: a production clinic management platform, a self-hosted NAS in Go, a computer-vision vehicle-tracking engine and the software that runs my own retail business.</p>
         <div class="cta">
           <a class="btn btn-primary" href="mailto:khizirfarrukh@gmail.com"><svg class="ico"><use href="#i-mail"/></svg>Email me</a>
           <a class="btn" href="https://www.linkedin.com/in/khizir-farrukh" target="_blank" rel="noopener"><svg class="ico"><use href="#i-linkedin"/></svg>LinkedIn</a>
@@ -1032,7 +1073,9 @@ dialog.dd::backdrop{background:rgb(8 10 14 / .55);backdrop-filter:blur(4px)}
             </div>
             <div class="when"><b>Oct 2023 – Present</b>3 years</div>
           </div>
-          <p class="summary">Feature development on <strong>ScheduleEdge</strong>, a seven-service, multi-tenant .NET 10 microservices platform for door-hardware scheduling and estimating (~215k lines of C#), with 99.9% API uptime for 50+ active users across 6 enterprise tenants.</p>
+          <p class="summary">Two separate projects: feature development on <strong>ScheduleEdge</strong>, the company's multi-tenant microservices platform, and the end-to-end design and build of <strong>Jiwa PDF Scanner</strong>, a document-to-ERP platform for a client.</p>
+          <div class="proj-label">ScheduleEdge <span>Oct 2023 – present · team platform</span></div>
+          <p style="font-size:14.5px;color:var(--ink-2);margin-top:6px">A seven-service .NET 10 microservices platform for door-hardware scheduling and estimating (~215k lines of C#), with 99.9% API uptime for 50+ active users across 6 enterprise tenants.</p>
           <ul class="wins">
             <li><h4><span>Architecture</span>Microservices &amp; clean architecture</h4><p>Built and maintained features across the <strong>7-service .NET 10 platform</strong>. Designed <strong>subject-routed message handlers over NATS</strong>, establishing a versioned contract surface of <strong>680+ operations</strong> while keeping the <strong>API gateway the sole HTTP-facing component</strong>. Coordinated versioned <strong>NuGet contract packages</strong> so services deploy independently, without lockstep upgrades.</p></li>
             <li><h4><span>Data</span>Multi-tenant data &amp; domain logic</h4><p>Worked within a <strong>database-per-tenant</strong> model, resolving each tenant's PostgreSQL connection strictly per request for <strong>structural, not query-level, isolation</strong>. Applied <strong>CQRS with MediatR</strong>, using pipeline behaviours for FluentValidation and translating database constraint violations into plain-language, user-facing errors.</p></li>
@@ -1046,7 +1089,22 @@ dialog.dd::backdrop{background:rgb(8 10 14 / .55);backdrop-filter:blur(4px)}
           <div class="chips">
             <span class="chip">.NET 10</span><span class="chip">ASP.NET Core</span><span class="chip">NATS</span><span class="chip">MediatR / CQRS</span><span class="chip">EF Core</span><span class="chip">PostgreSQL</span><span class="chip">Redis</span><span class="chip">SignalR</span><span class="chip">Kubernetes</span><span class="chip">AWS S3</span><span class="chip">PuppeteerSharp</span><span class="chip">xUnit · Moq</span><span class="chip">Testcontainers</span><span class="chip">Docker</span>
           </div>
-          <div class="related"><svg class="ico"><use href="#i-arrow"/></svg><span>Platform architecture, request flow and tech inventory are in the <a href="#platform">platform case study</a> below.</span></div>
+          <div class="related"><svg class="ico"><use href="#i-arrow"/></svg><span>Architecture, request flow and tech inventory are in the <a href="#platform">ScheduleEdge case study</a> below.</span></div>
+
+          <div class="proj-label">Jiwa PDF Scanner <span>Oct 2026 · client project · 388 of 390 commits</span></div>
+          <p style="font-size:14.5px;color:var(--ink-2);margin-top:6px">A multi-tenant platform that turns emailed purchase-order PDFs into Jiwa Financials sales orders. I took it from a 722-page specification to a verified Phase 1 release: ~43k lines of .NET 10 / C# and ~28k lines of Next.js / TypeScript.</p>
+          <ul class="wins">
+            <li><h4><span>Architecture</span>Specification to platform</h4><p>Turned a <strong>25-document, 722-page specification</strong> into an architecture plan, a <strong>16-stage backend and 12-stage frontend</strong> delivery plan, and a register of <strong>77 resolved conflicts and decisions</strong>. Built <strong>Clean Architecture</strong> with vertical slices and an in-house request dispatcher with pipeline behaviours, enforced by architecture tests, and exposed <strong>152 API operations</strong> with OpenAPI 3.1 and RFC 9457 problem details.</p></li>
+            <li><h4><span>Reliability</span>Exactly-once ERP orders</h4><p>Implemented an <strong>exactly-once sales-order protocol</strong> against an ERP with no idempotency key: a reservation behind a <strong>partial unique index and advisory lock</strong>, a <strong>transactional outbox</strong> on a per-tenant FIFO queue, a single non-retried ERP call, <strong>lookup-only settlement</strong> of unknown outcomes, and a recovery sweeper for interrupted work.</p></li>
+            <li><h4><span>Integration</span>Jiwa REST connector</h4><p>Built the connector from the vendor's OpenAPI document (<strong>19 of 778 operations</strong>), normalising failures into categories that record whether a request may have reached the ERP. Reads get jittered retries, a per-server <strong>circuit breaker</strong> and capped concurrency; writes are timeout-only, so a create is never resent. A <strong>contract conformance test</strong> checks every exchange against the vendor schema.</p></li>
+            <li><h4><span>Security</span>Tenancy, access &amp; audit</h4><p>Enforced isolation with <strong>forced PostgreSQL row-level security</strong> on every tenant table and transaction-scoped settings. Built a <strong>12-role, 65-permission</strong> model across platform, partner and tenant organisations, and an <strong>append-only audit trail of 188 event kinds</strong> written in the same transaction as each change.</p></li>
+            <li><h4><span>Frontend</span>Operations workspace</h4><p>Built a <strong>Next.js 16 / React 19</strong> workspace with 20 permission-driven areas, including the exception queue and split-view PDF review. It uses a <strong>backend-for-frontend</strong> that keeps tokens out of the browser (server-side OIDC + PKCE, AES-256-GCM sessions, CSP nonces, CSRF checks) and a typed API client pinned to the backend contract by SHA-256.</p></li>
+            <li><h4><span>Quality</span>100% coverage gates</h4><p>Held <strong>100% line and branch coverage</strong> on both codebases across <strong>3,651 tests</strong> (2,409 xUnit v3 with Testcontainers PostgreSQL, 1,242 Vitest), plus <strong>110 Playwright cases</strong> covering all 12 roles on desktop and mobile. A specification conformance review found 17 issues, all fixed with regression tests.</p></li>
+          </ul>
+          <div class="chips">
+            <span class="chip">.NET 10</span><span class="chip">Minimal APIs</span><span class="chip">EF Core 10</span><span class="chip">PostgreSQL 17 · RLS</span><span class="chip">Next.js 16</span><span class="chip">React 19</span><span class="chip">TypeScript</span><span class="chip">Polly</span><span class="chip">OpenTelemetry</span><span class="chip">AWS S3 · SES</span><span class="chip">xUnit v3</span><span class="chip">Vitest</span><span class="chip">Playwright</span><span class="chip">GitLab CI</span>
+          </div>
+          <div class="related"><svg class="ico"><use href="#i-arrow"/></svg><span>The pipeline, the exactly-once protocol and the duplicate-safety matrix are in the <a href="#jiwa">Jiwa case study</a> below.</span></div>
         </div>
       </article>
 
@@ -1096,7 +1154,7 @@ dialog.dd::backdrop{background:rgb(8 10 14 / .55);backdrop-filter:blur(4px)}
 <section class="section" id="platform" aria-labelledby="plat-h">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">03 · Platform case study</span>
+      <span class="eyebrow">03 · Case study · ScheduleEdge</span>
       <h2 id="plat-h">Inside the platform I build on every day</h2>
       <p>ScheduleEdge is a multi-tenant .NET microservices platform for door-hardware scheduling and estimating. It is message-driven, uses a database per tenant, and runs report generation, bulk import and export off the request thread.</p>
     </div>
@@ -1243,12 +1301,146 @@ dialog.dd::backdrop{background:rgb(8 10 14 / .55);backdrop-filter:blur(4px)}
 </section>
 
 <!-- =====================================================
+     JIWA CASE STUDY
+     ===================================================== -->
+<section class="section" id="jiwa" aria-labelledby="jiwa-h">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">04 · Case study · Jiwa PDF Scanner</span>
+      <h2 id="jiwa-h">Purchase-order PDFs to ERP sales orders: exactly once, for many tenants</h2>
+      <p>A multi-tenant document-to-ERP platform I designed and built at Cipher Impact for a client. Customers email purchase-order PDFs to a tenant's workflow address; the platform reads them, validates every line against the tenant's live Jiwa Financials system, and creates the sales order only when it is safe, and never twice.</p>
+    </div>
+
+    <div class="platform-intro reveal">
+      <div class="card platform-copy">
+        <h3>From a 722-page specification to a verified release in three weeks.</h3>
+        <p>Jiwa has no draft orders, an order can't be edited after creation, and a duplicate order ships stock twice. So the design treats "do nothing and show a person" as the right answer whenever anything is uncertain, and makes a second order for the same purchase order structurally impossible.</p>
+        <ul>
+          <li>Multi-tenant from day one: isolation in the API <em>and</em> the database.</li>
+          <li>Routing by recipient address only, never by sender or PDF content.</li>
+          <li>ERP-neutral core: only the connector knows Jiwa exists.</li>
+          <li>Every failure is a visible exception plus a notification, never just a log line.</li>
+          <li>Non-production can never reach production Jiwa, enforced in config and at call time.</li>
+        </ul>
+        <p class="disclaimer own"><strong>Scope note:</strong> unlike the ScheduleEdge figures, these describe my own work; Git history attributes <strong>388 of the project's 390 commits</strong> to me (8–27 Oct 2026). Status: Phase 1 controlled release. The backend and frontend are built and verified end to end against a Jiwa mock; the AWS deployment, UAT on real Jiwa and a shadow-mode pilot are still ahead.</p>
+      </div>
+      <div class="platform-stats" aria-label="Project scale">
+        <div><b>42.8k</b><span>Lines of C#</span></div>
+        <div><b>27.9k</b><span>Lines of TypeScript</span></div>
+        <div><b>3,651</b><span>Automated tests</span></div>
+        <div><b>100%</b><span>Line &amp; branch coverage</span></div>
+        <div><b>152</b><span>API operations</span></div>
+        <div><b>52</b><span>Database tables</span></div>
+      </div>
+    </div>
+
+    <div class="subhead reveal"><h3>The processing pipeline</h3><span>Every PDF is an attempt, driven by outbox messages</span></div>
+    <div class="flow reveal">
+      <div class="card"><span class="n">01</span><h4>Receive</h4><p>Mail to <code>{tenant}.orders.{token}@…</code>; tenant and workflow come from the recipient only. Redeliveries are audited and ignored.</p></div>
+      <div class="card"><span class="n">02</span><h4>Store</h4><p>PDFs verified by their bytes, hashed, and stored under a tenant/workflow prefix. Malware is quarantined; duplicates are held.</p></div>
+      <div class="card"><span class="n">03</span><h4>Extract</h4><p>Embedded text first, with OCR/AI behind ports. Per-field confidence; the original result is made immutable by a database trigger.</p></div>
+      <div class="card"><span class="n">04</span><h4>Validate</h4><p>Ordered rules against live Jiwa data: 7 customer-ID methods, 6 item-match methods, 5 pricing modes, units, duplicates, delivery.</p></div>
+      <div class="card"><span class="n">05</span><h4>Create</h4><p>Reserve, send once, classify the answer. Unknown outcomes are settled by lookup only, never by a resend.</p></div>
+      <div class="card"><span class="n">06</span><h4>Trace</h4><p>Traceability note on the order, notifications, usage records and an append-only audit trail.</p></div>
+    </div>
+
+    <div class="subhead reveal"><h3>Exactly-once order creation</h3><span>The part that can't be wrong</span></div>
+    <p class="rule-note reveal">Jiwa has no idempotency key, so "exactly once" can't be delegated to the ERP. It's built from <strong>database invariants, a strict send discipline and lookup-only recovery</strong>: a create request is sent at most once, and an uncertain result is never retried blindly.</p>
+    <div class="steps reveal">
+      <div class="card"><h4>Re-check and lock</h4><p>Transaction-scoped PostgreSQL advisory lock on tenant + workflow + debtor + PO number, then a fresh app-history and Jiwa duplicate check.</p></div>
+      <div class="card"><h4>Reserve</h4><p>Insert the transaction as <code>creation_pending</code>. A partial unique index over the active states makes a concurrent attempt fail at the database.</p></div>
+      <div class="card"><h4>Hand over via the outbox</h4><p>The reservation commits with an outbox message on a per-tenant FIFO group, so at most one create is in flight per tenant.</p></div>
+      <div class="card"><h4>Check, mark sent, send once</h4><p>Re-apply the tenant and commercial gate, record <code>request_sent_at</code>, post once. Only failures that provably never reached Jiwa are retried.</p></div>
+      <div class="card"><h4>Classify the answer</h4><p>Order id → created. Business refusal → failed, nothing created. Timeout or 5xx after sending → outcome unknown, and the lock stays.</p></div>
+      <div class="card"><h4>Settle by lookup only</h4><p>Search Jiwa by debtor and PO since sending: exactly one match is adopted; none or several go to a person. Nothing is re-sent to find out.</p></div>
+      <div class="card"><h4>Recover interrupted work</h4><p>A sweeper settles transactions left pending by a stopped worker, and runs again after a database restore before processing resumes.</p></div>
+    </div>
+
+    <div class="subhead reveal"><h3>Duplicate-safety matrix</h3><span>Expected result for every row: never two orders</span></div>
+    <div class="table-wrap reveal">
+      <table>
+        <thead><tr><th>Scenario</th><th>What stops a second order</th></tr></thead>
+        <tbody>
+          <tr><td class="name">Same email delivered twice</td><td>Unique provider message id; the redelivery is audited and ignored.</td></tr>
+          <tr><td class="name">Same PO resent as a new email</td><td>Message-ID and file-hash holds; app-history duplicate stop on the strict PO key.</td></tr>
+          <tr><td class="name">Same PO, different PDF</td><td>The duplicate key is debtor + PO number, never the file hash.</td></tr>
+          <tr><td class="name">PO number written differently</td><td>Loose-key match → potential duplicate held for review; creations serialised on the loose lock.</td></tr>
+          <tr><td class="name">Order keyed by hand in Jiwa first</td><td>Jiwa duplicate lookup during validation and again right before reserving.</td></tr>
+          <tr><td class="name">Timeout or 5xx after Jiwa accepted</td><td>Outcome unknown → lookup adopts the order; no resend.</td></tr>
+          <tr><td class="name">Worker dies after Jiwa answered</td><td>The sweeper finds the sent transaction, marks it unknown and settles it by lookup.</td></tr>
+          <tr><td class="name">Two executions at the same moment</td><td>The advisory lock serialises them; the partial unique index refuses the second.</td></tr>
+          <tr><td class="name">Manual retry after unknown</td><td>Allowed only after "confirm not created", which itself needs a clean lookup.</td></tr>
+          <tr><td class="name">Tenant suspended while queued</td><td>The gate is re-checked just before sending; the order fails as not sent and can be retried later.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="subhead reveal"><h3>Architecture highlights</h3><span>One .NET 10 solution · Next.js backend-for-frontend</span></div>
+    <div class="patterns reveal">
+      <div><h4>Clean, sliced backend</h4><p>13 source projects (Domain ← Application ← adapters ← Api, Workers) enforced by architecture tests. 21 feature areas as vertical slices through an in-house mediator.</p></div>
+      <div><h4>Reliable messaging</h4><p>Transactional outbox and inbox; seven worker roles (intake, extraction, validation, ERP, notifications, outbox, sweeper) share one Application layer.</p></div>
+      <div><h4>Fail-closed tenancy</h4><p>Forced row-level security on every tenant table, even for the owner. Settings live and die with each transaction, and missing settings return no rows.</p></div>
+      <div><h4>Invariants in the database</h4><p>Partial unique indexes, CHECK constraints, an immutability trigger, and an append-only audit enforced by revoked grants, not by code paths remembering to check.</p></div>
+      <div><h4>Access &amp; audit</h4><p>12 roles and 65 permissions across platform, partner and tenant organisations, with per-resource conditional grants, an escalation guard and 188 typed audit events.</p></div>
+      <div><h4>Tokens never in the browser</h4><p>A Next.js backend-for-frontend runs OIDC + PKCE server-side, with AES-256-GCM sessions in PostgreSQL, per-request CSP nonces, CSRF checks and a generated proxy allowlist.</p></div>
+      <div><h4>Contract-checked connector</h4><p>Built from the vendor's 778-operation OpenAPI document; failures are normalised into 12 categories that record whether a request may have reached Jiwa.</p></div>
+      <div><h4>Contracts pinned end to end</h4><p>The backend OpenAPI is committed with a drift check, the frontend pins it by SHA-256, and Zod parses every response against the generated types.</p></div>
+    </div>
+
+    <div class="subhead reveal"><h3>Quality &amp; verification</h3><span>Coverage is a CI gate on both codebases</span></div>
+    <div class="table-wrap reveal">
+      <table>
+        <thead><tr><th>Suite</th><th>Tooling</th><th style="text-align:right">Tests</th><th>Result</th></tr></thead>
+        <tbody>
+          <tr><td class="name">Backend unit &amp; integration</td><td>xUnit v3, Moq, WebApplicationFactory, Testcontainers PostgreSQL 17, Respawn</td><td class="num">2,409</td><td><span class="ok">100% line &amp; branch</span> (7,031 branches)</td></tr>
+          <tr><td class="name">Jiwa contract</td><td>Scripted Jiwa, a fault-injecting mock, the vendor OpenAPI subset</td><td class="num">85</td><td><span class="ok">100% line &amp; branch</span></td></tr>
+          <tr><td class="name">Frontend unit &amp; component</td><td>Vitest, Testing Library, jsdom, V8 coverage</td><td class="num">1,242</td><td><span class="ok">100% statements, branches, lines</span></td></tr>
+          <tr><td class="name">Browser · real backend</td><td>Playwright, all 12 roles, desktop and mobile</td><td class="num">96</td><td><span class="ok">96 / 96 passed</span></td></tr>
+          <tr><td class="name">Browser · production build</td><td>Playwright against the standalone production server</td><td class="num">14</td><td><span class="ok">14 / 14 passed</span></td></tr>
+          <tr><td class="name">Static &amp; supply chain</td><td>Analysers, ESLint (zero warnings), strict tsc, contract drift, SAST, dependency &amp; secret scanning</td><td class="num">—</td><td><span class="ok">Clean</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="subhead reveal"><h3>Delivery &amp; honest status</h3><span>8 – 27 Oct 2026</span></div>
+    <div class="two-col reveal">
+      <div class="card">
+        <h4>How it was delivered</h4>
+        <ul class="p-points">
+          <li>Before any code: an architecture plan, a working plan, coding standards and a decision register; <strong>77 spec conflicts and product/ERP decisions</strong> resolved.</li>
+          <li><strong>16 backend and 12 frontend stages</strong>, each ending with exit criteria, documentation and a push.</li>
+          <li>Code comments cite the rule they implement (e.g. <code>doc 5 §25</code>, <code>C-23</code>), so any behaviour traces back to the spec.</li>
+          <li>Repeated audits against the spec, plans and vendor schema; every finding fixed with a regression test that fails on the old code. The last review fixed 17 issues, including two that could have placed or misreported orders.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>Where it stands</h4>
+        <div class="table-wrap" style="border:0">
+          <table>
+            <tbody>
+              <tr><td class="name">Backend</td><td><span class="ok">Built</span></td><td>All 16 stages implemented and tested</td></tr>
+              <tr><td class="name">Frontend</td><td><span class="ok">Built</span></td><td>All 12 stages, verified for every role</td></tr>
+              <tr><td class="name">AWS infrastructure</td><td><span class="wip">Designed</span></td><td>SQS, Step Functions, SES inbound and CDK behind existing ports</td></tr>
+              <tr><td class="name">OCR / AI extraction</td><td><span class="wip">Designed</span></td><td>Textract / Bedrock adapters; text PDFs work today</td></tr>
+              <tr><td class="name">Real Jiwa + pilot</td><td><span class="ext">External</span></td><td>UAT, penetration test, then a shadow-mode pilot</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="chips reveal" style="margin-top:18px">
+      <span class="chip pro">.NET 10</span><span class="chip pro">ASP.NET Core minimal APIs</span><span class="chip pro">EF Core 10</span><span class="chip pro">PostgreSQL 17</span><span class="chip pro">FluentValidation</span><span class="chip pro">Polly v8</span><span class="chip pro">PdfPig</span><span class="chip pro">MimeKit</span><span class="chip pro">Next.js 16</span><span class="chip pro">React 19</span><span class="chip pro">Mantine 9</span><span class="chip pro">TanStack Query</span><span class="chip pro">Zod</span><span class="chip pro">OIDC · PKCE</span><span class="chip pro">OpenTelemetry</span><span class="chip pro">AWS S3 · SES · Secrets Manager</span><span class="chip pro">.NET Aspire</span><span class="chip pro">GitLab CI</span>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================
      PROJECTS
      ===================================================== -->
 <section class="section" id="projects" aria-labelledby="proj-h">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">04 · Independent projects</span>
+      <span class="eyebrow">05 · Independent projects</span>
       <h2 id="proj-h">Systems I've designed and shipped end-to-end</h2>
       <p>Each one started from a written specification, was built in stages, and is backed by tests. Open any <strong>Deep dive</strong> for the architecture, decisions and measured results.</p>
     </div>
@@ -1535,7 +1727,7 @@ dialog.dd::backdrop{background:rgb(8 10 14 / .55);backdrop-filter:blur(4px)}
 <section class="section" id="practices" aria-labelledby="prac-h">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">05 · How I work</span>
+      <span class="eyebrow">06 · How I work</span>
       <h2 id="prac-h">The habits behind the results</h2>
       <p>The same patterns run through my professional work and my own repositories.</p>
     </div>
@@ -1544,7 +1736,7 @@ dialog.dd::backdrop{background:rgb(8 10 14 / .55);backdrop-filter:blur(4px)}
       <article class="card practice reveal"><span class="num">02</span><h4>AI-assisted, human-owned</h4><p>I use coding agents for repetitive work (<em>up to 60% faster delivery</em>), with context-rich prompts, staged plans and handoff docs. I own the hard problems and review every AI-generated line.</p></article>
       <article class="card practice reveal"><span class="num">03</span><h4>Correctness where it matters</h4><p>Money is never a float, ledgers are append-only, prescriptions are versioned, the clock is injected, and file operations are <em>crash-safe</em>.</p></article>
       <article class="card practice reveal"><span class="num">04</span><h4>Measure, then decide</h4><p>Thresholds are chosen by sweeping against ground truth, and the reasoning is written down, including <em>when intuition was wrong</em> (a 0.92 match threshold would have let 21 decoys through).</p></article>
-      <article class="card practice reveal"><span class="num">05</span><h4>Tests as a gate</h4><p>80–85% coverage floors in CI, property-based tests, real PostgreSQL via Testcontainers, system tests of built executables, golden files and fuzzing.</p></article>
+      <article class="card practice reveal"><span class="num">05</span><h4>Tests as a gate</h4><p>100% line and branch coverage held across 3,651 tests on a client platform; 80–85% floors in my own CI, property-based tests, real PostgreSQL via Testcontainers, system tests of built executables, golden files and fuzzing.</p></article>
       <article class="card practice reveal"><span class="num">06</span><h4>Security as a programme</h4><p>Threat models, ISO 27001 control mapping, pinned CI actions, secret scanning, Argon2id, signed documents, and audit trails with soft delete.</p></article>
       <article class="card practice reveal"><span class="num">07</span><h4>Performance by design</h4><p>Long work moves off the request thread, files go through presigned URLs, and hot paths avoid wasted work: <em>25 s → under 200 ms</em>.</p></article>
       <article class="card practice reveal"><span class="num">08</span><h4>Build for real users</h4><p>A clinic, a retail store, a receipt system and a tax engine: concrete local problems (PKR, lakh grouping, Zakat certificates, Pakistan's tax ordinance) solved end to end.</p></article>
@@ -1558,7 +1750,7 @@ dialog.dd::backdrop{background:rgb(8 10 14 / .55);backdrop-filter:blur(4px)}
 <section class="section" id="skills" aria-labelledby="skills-h">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">06 · Skills</span>
+      <span class="eyebrow">07 · Skills</span>
       <h2 id="skills-h">Technical toolkit, backed by evidence</h2>
       <p>Every skill below appears in shipped code. Filled markers show technologies I use professionally; outlined markers show ones I've built with in my own projects.</p>
     </div>
@@ -1567,37 +1759,37 @@ dialog.dd::backdrop{background:rgb(8 10 14 / .55);backdrop-filter:blur(4px)}
       <article class="card skill reveal">
         <h4><svg class="ico"><use href="#i-code"/></svg>Languages</h4>
         <p class="where">C# is my primary language; Python, Go and Dart each power a sizeable project.</p>
-        <div class="chips"><span class="chip pro">C#</span><span class="chip pro">SQL</span><span class="chip pro">JavaScript</span><span class="chip own">Python</span><span class="chip own">Go</span><span class="chip own">TypeScript</span><span class="chip own">Dart</span><span class="chip own">Java</span><span class="chip own">C / C++</span><span class="chip own">PHP</span></div>
+        <div class="chips"><span class="chip pro">C#</span><span class="chip pro">SQL</span><span class="chip pro">TypeScript</span><span class="chip pro">JavaScript</span><span class="chip own">Python</span><span class="chip own">Go</span><span class="chip own">Dart</span><span class="chip own">Java</span><span class="chip own">C / C++</span><span class="chip own">PHP</span></div>
       </article>
       <article class="card skill reveal">
         <h4><svg class="ico"><use href="#i-server"/></svg>Back end &amp; architecture</h4>
-        <p class="where">Microservices at work; Clean Architecture and modular monoliths in my own projects.</p>
-        <div class="chips"><span class="chip pro">.NET 10 / 8 / 6</span><span class="chip pro">ASP.NET Core Web API</span><span class="chip pro">EF Core</span><span class="chip pro">MediatR · CQRS</span><span class="chip pro">FluentValidation</span><span class="chip pro">NATS</span><span class="chip pro">SignalR</span><span class="chip pro">Microservices</span><span class="chip pro">Clean Architecture</span><span class="chip pro">JWT auth</span><span class="chip pro">ASP.NET Web Forms</span><span class="chip own">Worker Services</span><span class="chip own">OpenAPI-first</span><span class="chip own">FastAPI</span><span class="chip own">Express</span><span class="chip own">Flask</span></div>
+        <p class="where">Microservices and a modular monolith with workers at work; the same patterns in my own projects.</p>
+        <div class="chips"><span class="chip pro">.NET 10 / 8 / 6</span><span class="chip pro">ASP.NET Core Web API</span><span class="chip pro">Minimal APIs</span><span class="chip pro">EF Core</span><span class="chip pro">MediatR · CQRS</span><span class="chip pro">Vertical slices</span><span class="chip pro">FluentValidation</span><span class="chip pro">NATS</span><span class="chip pro">SignalR</span><span class="chip pro">Transactional outbox</span><span class="chip pro">Worker Services</span><span class="chip pro">Microservices</span><span class="chip pro">Clean Architecture</span><span class="chip pro">OpenAPI 3.1</span><span class="chip pro">JWT · OIDC + PKCE</span><span class="chip pro">Polly resilience</span><span class="chip pro">ASP.NET Web Forms</span><span class="chip own">FastAPI</span><span class="chip own">Express</span><span class="chip own">Flask</span></div>
       </article>
       <article class="card skill reveal">
         <h4><svg class="ico"><use href="#i-db"/></svg>Data</h4>
-        <p class="where">Database-per-tenant PostgreSQL, SKIP LOCKED queues, query tuning, migrations.</p>
-        <div class="chips"><span class="chip pro">PostgreSQL</span><span class="chip pro">Redis</span><span class="chip pro">Cassandra</span><span class="chip pro">Oracle</span><span class="chip own">pgvector</span><span class="chip own">SQLite</span><span class="chip own">SQL Server</span><span class="chip own">MySQL</span><span class="chip own">Drift</span><span class="chip own">SQLAlchemy 2 · Alembic</span></div>
+        <p class="where">Database-per-tenant and row-level-security tenancy, SKIP LOCKED queues, query tuning, migrations.</p>
+        <div class="chips"><span class="chip pro">PostgreSQL</span><span class="chip pro">Row-level security</span><span class="chip pro">Advisory locks</span><span class="chip pro">Redis</span><span class="chip pro">Cassandra</span><span class="chip pro">Oracle</span><span class="chip own">pgvector</span><span class="chip own">SQLite</span><span class="chip own">SQL Server</span><span class="chip own">MySQL</span><span class="chip own">Drift</span><span class="chip own">SQLAlchemy 2 · Alembic</span></div>
       </article>
       <article class="card skill reveal">
         <h4><svg class="ico"><use href="#i-cloud"/></svg>Cloud &amp; DevOps</h4>
         <p class="where">On-demand Kubernetes pods and S3 at work; CI pipelines and self-hosting in my own projects.</p>
-        <div class="chips"><span class="chip pro">AWS S3</span><span class="chip pro">Kubernetes</span><span class="chip pro">Docker</span><span class="chip pro">Linux · Bash</span><span class="chip pro">Git</span><span class="chip pro">IIS · AWS Windows VM</span><span class="chip own">Docker Compose</span><span class="chip own">GitHub Actions</span><span class="chip own">Azure Pipelines</span><span class="chip own">Nginx</span><span class="chip own">systemd</span><span class="chip own">Apache</span></div>
+        <div class="chips"><span class="chip pro">AWS S3</span><span class="chip pro">AWS SES · Secrets Manager</span><span class="chip pro">Kubernetes</span><span class="chip pro">Docker</span><span class="chip pro">GitLab CI</span><span class="chip pro">OpenTelemetry</span><span class="chip pro">.NET Aspire</span><span class="chip pro">Linux · Bash</span><span class="chip pro">Git</span><span class="chip pro">IIS · AWS Windows VM</span><span class="chip own">Docker Compose</span><span class="chip own">GitHub Actions</span><span class="chip own">Azure Pipelines</span><span class="chip own">Nginx</span><span class="chip own">systemd</span><span class="chip own">Apache</span></div>
       </article>
       <article class="card skill reveal">
         <h4><svg class="ico"><use href="#i-check"/></svg>Testing &amp; quality</h4>
-        <p class="where">Container-backed integration tests at work; 80–93% coverage gates in my own projects.</p>
-        <div class="chips"><span class="chip pro">xUnit</span><span class="chip pro">Moq</span><span class="chip pro">Testcontainers</span><span class="chip pro">Contract tests</span><span class="chip own">NSubstitute</span><span class="chip own">pytest</span><span class="chip own">Hypothesis</span><span class="chip own">Vitest</span><span class="chip own">Playwright</span><span class="chip own">Selenium</span><span class="chip own">Fuzzing</span><span class="chip own">mypy --strict</span></div>
+        <p class="where">100% line and branch coverage gates at work; 80–93% gates in my own projects.</p>
+        <div class="chips"><span class="chip pro">xUnit v3</span><span class="chip pro">Moq</span><span class="chip pro">Testcontainers</span><span class="chip pro">Respawn</span><span class="chip pro">Contract tests</span><span class="chip pro">Vitest</span><span class="chip pro">Testing Library</span><span class="chip pro">Playwright</span><span class="chip own">NSubstitute</span><span class="chip own">pytest</span><span class="chip own">Hypothesis</span><span class="chip own">Selenium</span><span class="chip own">Fuzzing</span><span class="chip own">mypy --strict</span></div>
       </article>
       <article class="card skill reveal">
         <h4><svg class="ico"><use href="#i-file"/></svg>Documents &amp; integrations</h4>
         <p class="where">PDF and Excel pipelines, digital signatures, hardware printers, e-commerce.</p>
-        <div class="chips"><span class="chip pro">PuppeteerSharp</span><span class="chip pro">paged.js</span><span class="chip pro">Excel / CSV import</span><span class="chip own">ClosedXML</span><span class="chip own">Playwright PDF</span><span class="chip own">PAdES (pyHanko)</span><span class="chip own">HtmlAgilityPack</span><span class="chip own">ESC/POS printers</span><span class="chip own">Shopify Liquid</span></div>
+        <div class="chips"><span class="chip pro">PuppeteerSharp</span><span class="chip pro">paged.js</span><span class="chip pro">Excel / CSV import</span><span class="chip pro">PdfPig</span><span class="chip pro">MimeKit</span><span class="chip pro">ERP REST integration</span><span class="chip own">ClosedXML</span><span class="chip own">Playwright PDF</span><span class="chip own">PAdES (pyHanko)</span><span class="chip own">HtmlAgilityPack</span><span class="chip own">ESC/POS printers</span><span class="chip own">Shopify Liquid</span></div>
       </article>
       <article class="card skill reveal">
         <h4><svg class="ico"><use href="#i-layout"/></svg>Front end, desktop &amp; mobile</h4>
-        <p class="where">Enough to ship complete products around my back ends.</p>
-        <div class="chips"><span class="chip pro">HTML · CSS</span><span class="chip own">SvelteKit · Svelte 5</span><span class="chip own">Tailwind</span><span class="chip own">React</span><span class="chip own">Next.js</span><span class="chip own">WPF · MVVM</span><span class="chip own">WinForms</span><span class="chip own">Flutter · Riverpod</span><span class="chip own">tkinter</span><span class="chip own">PySide6</span></div>
+        <p class="where">A production Next.js workspace at work; complete products around my back ends at home.</p>
+        <div class="chips"><span class="chip pro">Next.js 16</span><span class="chip pro">React 19</span><span class="chip pro">Mantine</span><span class="chip pro">TanStack Query</span><span class="chip pro">Zod</span><span class="chip pro">HTML · CSS</span><span class="chip own">SvelteKit · Svelte 5</span><span class="chip own">Tailwind</span><span class="chip own">WPF · MVVM</span><span class="chip own">WinForms</span><span class="chip own">Flutter · Riverpod</span><span class="chip own">tkinter</span><span class="chip own">PySide6</span></div>
       </article>
       <article class="card skill reveal">
         <h4><svg class="ico"><use href="#i-brain"/></svg>Machine learning &amp; CV</h4>
@@ -1619,7 +1811,7 @@ dialog.dd::backdrop{background:rgb(8 10 14 / .55);backdrop-filter:blur(4px)}
 <section class="section" id="github" aria-labelledby="gh-h">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">07 · Open work</span>
+      <span class="eyebrow">08 · Open work</span>
       <h2 id="gh-h">My GitHub, by the numbers</h2>
       <p>Measured from every repository on <a href="https://github.com/KhizirFarrukh" target="_blank" rel="noopener">github.com/KhizirFarrukh</a>, across all branches. Professional work lives in company repositories and isn't counted here.</p>
     </div>
@@ -1682,7 +1874,7 @@ dialog.dd::backdrop{background:rgb(8 10 14 / .55);backdrop-filter:blur(4px)}
 <section class="section" id="education" aria-labelledby="edu-h">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">08 · Education &amp; credentials</span>
+      <span class="eyebrow">09 · Education &amp; credentials</span>
       <h2 id="edu-h">Education, certifications &amp; recognition</h2>
     </div>
     <div class="edu">
